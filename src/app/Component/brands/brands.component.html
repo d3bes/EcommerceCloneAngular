@@ -1,0 +1,8 @@
+<p>brands works!</p>
+<div *ngFor="let item of brands">
+    <div>
+        <p>{{item.id}}</p>
+        <p>{{item.name}}</p>
+        <img [src]="item.logoUrl">
+    </div>
+</div>
