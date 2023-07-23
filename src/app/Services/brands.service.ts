@@ -21,6 +21,6 @@ export class BrandsService {
     // };
   }
   getAllBrands():Observable<ProductBrandDTO[]>{
-    return this.httpclient.get<ProductBrandDTO[]>(`${environment.LocalApiUrl}/ProductBrand`);
+    return this.httpclient.get<ProductBrandDTO[]>(`${this.apiBaseUrl}/ProductBrand`);
   }
 }
