@@ -1,1 +1,633 @@
-<p>navbar works!</p>
+<header class="">
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="#">
+        <div class="image-nav ms-3">
+          <img src="../assets/images/noon-logo-en.svg" class="w-75" alt=""/></div
+      ></a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link active d-flex align-items-center"
+              aria-current="page"
+              href="#"
+            >
+              <li class="nav-item m-0 p-0 d-flex align-items-center">
+                <div class="flag-image d-inline">
+                  <img src="../assets/images/eg.svg" class="mx-2" alt="" />
+                </div>
+
+                <div class="adress-map m-0 p-0">
+                  <div class="imge-arow d-flex flex-nowrap">
+                    <span>DeliverTo</span>
+                    <img src="../assets/images/dropdownArrow.svg" alt="" />
+                  </div>
+                  <p class="fw-bold">Cairo</p>
+                </div>
+              </li>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <form class="d-flex w-50">
+        <input
+          class="form-control me-2  search"
+          type="search"
+          placeholder="What are you looking for? "
+          aria-label="Search"
+        />
+      </form>
+      <div class="collapse navbar-collapse pb-4">
+        <ul class="navbar-nav me-auto mt-4 mb-lg-0">
+          <li class="nav-item m-1">
+            <a class="nav-link" href="#">العربية</a>
+          </li>
+
+          <div class="lines bg-black "></div>
+          <li class="nav-item dropdown mt-2">
+            <!-- <a
+              class="nav-link dropdown-toggle d-flex"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <div class="div">
+                <span class="userName">Ahlan Ahmed!</span>
+                <p class="fw-bold">My Account</p>
+              </div>
+            </a> -->
+              <button type="button" class="btn  colortext  px-0 ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span class="textbold">Sign In </span>  <i class="fa-regular fa-user "></i></button>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+            <ul
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdown"
+            >
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Another action</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  >Something else here</a
+                >
+              </li>
+            </ul>
+          </li>
+          <div class="lines bg-black mx-3"></div>
+
+          <li class="nav-item mt-3">
+            <div class="whilist d-flex">
+              <span class="mx-1 textbold">Wishlist</span>
+              <img class="mx-1" src="../assets/images/wishlist.svg" alt="" />
+            </div>
+          </li>
+          <div class="lines bg-black"></div>
+
+          <li class="nav-item mt-3 mx-3">
+            <div class="cartIconContainer d-flex">
+              <span class="textbold">Cart</span>
+              <img src="../assets/images/cart.svg" alt="" />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+     <!-- ============================================== -->
+  <div >
+    <ul class="slid d-flex ">
+      <div class="dropdown1" style="width: 15rem">
+        <button
+          class="btn rounded-0 dropdown-toggle text-primary w-100 border-0"
+          type="button"
+          id="dropdownMenuButton1"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="me-5 pe-5 text-primary fw-bold">
+            All Categories</span
+          >
+        </button>
+
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li>
+            <a class="dropdown-item" href="#">Another action</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+
+
+
+      <div class="dropdown1" >
+        <button
+          class="btn btn-light rounded-0"
+          type="button"
+          id="dropdownMenuButton2"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="text-center fw-bold">Electronics</span>
+        </button>
+        <ul
+        class="dropdown-menu center "
+        aria-labelledby="dropdownMenuButton"
+      >
+
+
+
+          <div class="container ">
+            <div class="row   ">
+              <div class="col-md-3">
+                <span class="fw-bolder ">CATEGORIES</span>
+                <ul class="CATEGORIESUL  ">
+                  <a class="nav-link"  href="#"><li>laptop</li></a>
+                  <a  class="nav-link" href="#"><li>laptop</li></a>
+                  <a class="nav-link" href="#"><li>laptop</li></a>
+                  <a  class="nav-link" href="#"> <li>laptop</li></a>
+                  <a  class="nav-link" href="#"> <li>laptop</li></a>
+                  <a  class="nav-link" href="#"> <li>laptop</li></a>
+                </ul>
+
+              </div>
+
+
+              <div class="col-md-4">
+                <span class="fw-bolder py-2">TOP BRANDS</span>
+                <div class="row gy-2 ">
+                  <div class="col-sm-5 border mx-1 p-2">
+                  <div class="brand-logo ">
+                    <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                  </div>
+
+                  </div>
+
+                  <div class="col-md-5 border mx-1 p-2 ">
+                    <div class="brand-logo ">
+                      <img src="images/drop-brand-01.png" class="w-100" alt="">
+                    </div>
+
+                    </div>
+
+                    <div class="col-md-5 border mx-1 p-2">
+                      <div class="brand-logo ">
+                        <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                      </div>
+
+                      </div>
+
+                      <div class="col-md-5 border mx-1 p-2 ">
+                        <div class="brand-logo ">
+                          <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                        </div>
+
+                        </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-5">
+
+                <div class="row  d-flex align-items-center">
+                  <div class="col-md-7" >
+                    <div class="img-nav-brand ">
+                      <!-- <h2>hi</h2> -->
+                     <img src="../assets/images/en_drop-01.png" class="w-100" alt="">
+                    </div>
+                  </div>
+
+                  <div class="col-md-5 " >
+                    <div class="img-nav-brand ">
+                      <!-- <h2>hi</h2> -->
+                     <img src="../assets/images/en_drop-02.png" class="w-100" alt="">
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+
+              </div>
+
+
+              </div>
+
+
+
+          </div>
+
+
+
+      </ul>
+      </div>
+
+      <div class="dropdown1  " >
+        <button
+          class="btn btn-light rounded-0"
+          type="button"
+          id="dropdownMenuButton3"
+          data-mdb-toggle="dropdown "
+          aria-expanded="false"
+        >
+          <span class="text-center fw-bold">MOBILES</span>
+        </button>
+
+        <ul
+          class="dropdown-menu center "
+          aria-labelledby="dropdownMenuButton"
+        >
+
+
+
+            <div class="container ">
+              <div class="row   ">
+                <div class="col-md-3">
+                  <span class="fw-bolder ">CATEGORIES</span>
+                  <ul class="CATEGORIESUL  ">
+                    <a class="nav-link "  href="#"><li>laptop</li></a>
+                    <a  class="nav-link" href="#"><li>laptop</li></a>
+                    <a class="nav-link" href="#"><li>laptop</li></a>
+                    <a  class="nav-link" href="#"> <li>laptop</li></a>
+                    <a  class="nav-link" href="#"> <li>laptop</li></a>
+                    <a  class="nav-link" href="#"> <li>laptop</li></a>
+                  </ul>
+
+                </div>
+
+
+                <div class="col-md-4">
+                  <span class="fw-bolder py-2">TOP BRANDS</span>
+                  <div class="row gy-2 ">
+                    <div class="col-sm-5 border mx-1 p-2">
+                    <div class="brand-logo ">
+                      <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                    </div>
+
+                    </div>
+
+                    <div class="col-md-5 border mx-1 p-2 ">
+                      <div class="brand-logo ">
+                        <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                      </div>
+
+                      </div>
+
+                      <div class="col-md-5 border mx-1 p-2">
+                        <div class="brand-logo ">
+                          <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                        </div>
+
+                        </div>
+
+                        <div class="col-md-5 border mx-1 p-2 ">
+                          <div class="brand-logo ">
+                            <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                          </div>
+
+                          </div>
+                  </div>
+                </div>
+
+
+                <div class="col-sm-5">
+
+                  <div class="row  d-flex align-items-center">
+                    <div class="col-md-7" >
+                      <div class="img-nav-brand ">
+                        <!-- <h2>hi</h2> -->
+                       <img src="../assets/images/en_drop-01.png" class="w-100" alt="">
+                      </div>
+                    </div>
+
+                    <div class="col-md-5 " >
+                      <div class="img-nav-brand ">
+                        <!-- <h2>hi</h2> -->
+                       <img src="images/en_drop-02.png" class="w-100" alt="">
+                      </div>
+                    </div>
+
+
+
+
+                  </div>
+
+                </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </ul>
+      </div>
+
+      <div class="dropdown1" >
+        <button
+          class="btn btn-light rounded-0"
+          type="button"
+          id="dropdownMenuButton4"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="text-center fw-bold">MEN</span>
+        </button>
+
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li>
+            <a class="dropdown-item" href="#">Another action</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown1" >
+        <button
+          class="btn btn-light rounded-0"
+          type="button"
+          id="dropdownMenuButton5"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="text-center fw-bold">WOMEN</span>
+        </button>
+
+        <ul
+        class="dropdown-menu center "
+        aria-labelledby="dropdownMenuButton"
+      >
+
+
+
+          <div class="container ">
+            <div class="row   ">
+              <div class="col-md-3">
+                <span class="fw-bolder ">CATEGORIES</span>
+                <ul class="CATEGORIESUL  ">
+                  <a class="nav-link  "  href="#"><li>laptop</li></a>
+                  <a  class="nav-link" href="#"><li>laptop</li></a>
+                  <a class="nav-link" href="#"><li>laptop</li></a>
+                  <a  class="nav-link" href="#"> <li>laptop</li></a>
+                  <a  class="nav-link" href="#"> <li>laptop</li></a>
+                  <a  class="nav-link" href="#"> <li>laptop</li></a>
+                </ul>
+
+              </div>
+
+
+              <div class="col-md-4">
+                <span class="fw-bolder py-2">TOP BRANDS</span>
+                <div class="row gy-2 ">
+                  <div class="col-sm-5 border mx-1 p-2">
+                  <div class="brand-logo ">
+                    <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                  </div>
+
+                  </div>
+
+                  <div class="col-md-5 border mx-1 p-2 ">
+                    <div class="brand-logo ">
+                      <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                    </div>
+
+                    </div>
+
+                    <div class="col-md-5 border mx-1 p-2">
+                      <div class="brand-logo ">
+                        <img src="../assets/images/drop-brand-01.png" class="w-100" alt="">
+                      </div>
+
+                      </div>
+
+                      <div class="col-md-5 border mx-1 p-2 ">
+                        <div class="brand-logo ">
+                          <img src="images/drop-brand-01.png" class="w-100" alt="">
+                        </div>
+
+                        </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-5">
+
+                <div class="row  d-flex align-items-center">
+                  <div class="col-md-7" >
+                    <div class="img-nav-brand ">
+                      <!-- <h2>hi</h2> -->
+                     <img src="../assets/images/en_drop-01.png" class="w-100" alt="">
+                    </div>
+                  </div>
+
+                  <div class="col-md-5 " >
+                    <div class="img-nav-brand ">
+                      <!-- <h2>hi</h2> -->
+                     <img src="../assets/images/en_drop-02.png" class="w-100" alt="">
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+
+              </div>
+
+
+              </div>
+
+
+
+          </div>
+
+
+
+      </ul>
+      </div>
+
+      <div class="dropdown1" >
+        <button
+          class="btn btn-light rounded-0"
+          type="button"
+          id="dropdownMenuButton6"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="text-center fw-bold">HOME</span>
+
+        </button>
+
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li>
+            <a class="dropdown-item" href="#">Another action</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown1" >
+        <button
+          class="btn btn-light rounded-0"
+          type="button"
+          id="dropdownMenuButton7"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="text-center fw-bold">Beauty & Health</span>
+        </button>
+
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li>
+            <a class="dropdown-item" href="#">Another action</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown1" >
+        <button
+          class="btn btn-light rounded-0"
+          type="button"
+          id="dropdownMenuButton8"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="text-center fw-bold">Baby & Toys</span>
+        </button>
+
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li>
+            <a class="dropdown-item" href="#">Another action</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown1" >
+        <button
+          class="btn btn-light rounded-0"
+          type="button"
+          id="dropdownMenuButton9"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span class="text-center fw-bold">Supermarket</span>
+        </button>
+
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li>
+            <a class="dropdown-item" href="#">Another action</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+
+      <div >
+        <a class="btn btn-light rounded-0">
+          <span class="text-center fw-bold">Sell on noon</span>
+        </a>
+      </div>
+
+      <div >
+        <a class="btn btn-light rounded-0">
+          <span class="text-center text-danger fw-bold">Deals</span>
+        </a>
+      </div>
+    </ul>
+
+
+  </div>
+</header>
+
+

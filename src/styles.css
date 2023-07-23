@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+:root{
+  --whaitt:#f7f7fa;
+  --blue:#007aff;
+}
+
+
+.navbar{
+  height:4.1rem;
+}
+
+.navbar-brand {
+  width:11%;
+
+}
+.image-nav{
+  width:95%;
+}
+.image-nav img{
+  width:90%;
+}
+
+
+.navbar{
+  background-color:rgb(254,238,0);
+}
+.lines{
+margin-top:1rem;
+width:0.1rem;
+height:1.7rem;
+}
+.dropdown1:hover>.dropdown-menu {
+  display: block;
+
+}
+
+.dropdown1>.dropdown-toggle:active {
+
+    pointer-events: none;
+
+
+}
+
+
+#btn-slider{
+border: 0.2rem solid ;
+  border-radius:50%;
+  color:black;
+}
+
+
+#imgeSection2-slid{
+width:5rem;
+}
+#imgeSection2-slid img{
+margin: 0 1rem;
+   }
+
+  .infocuscol{
+      background-color:var(--whaitt);
+  }
+
+
+  .CATEGORIESUL{
+      text-decoration: none;
+      list-style:none;
+  }
+  .CATEGORIESUL a :hover {
+    color:var(--blue);
+  }
+
+.center {
+  transform: translateX(-50%);
+     left: 50% !important;
+     width:100% !important;
+
+ }
+ .colortext{
+  color:rgb(20, 19, 19) ;
+  transition:0.3;
+  border:none;
+ }
+ .colortext:hover{
+ opacity:0.7;
+ }
+ .textbold{
+  font-weight:600;
+ }
+
+ .search{
+width:95%;
+margin:auto;
+ }
+
+
