@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProductCategoryDTO } from '../Models/product-category-dto';
+import { ProductCategoryDetailsDTO } from '../Models/product-category-details-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class CatogriesService {
     //   })
     // };
   }
-  getAllCatogries():Observable<ProductCategoryDTO[]>{
-    return this.httpclient.get<ProductCategoryDTO[]>(`${this.apiBaseUrl}/ProductCategory`);
+  getAllCatogries():Observable<ProductCategoryDetailsDTO[]>{
+    return this.httpclient.get<ProductCategoryDetailsDTO[]>(`${this.apiBaseUrl}/ProductCategory`);
   }
 }

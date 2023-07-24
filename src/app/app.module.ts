@@ -16,6 +16,7 @@ import { SliderMinComponent } from './Component/slider-min/slider-min.component'
 import { HttpClientModule } from '@angular/common/http';
 import { BrandsService } from './Services/brands.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,7 @@ import { BrandsService } from './Services/brands.service';
     FooterComponent,
     CategoryComponent,
     ProducdDetailesComponent,
-    BrandsComponent
+    BrandsComponent,
   ],
   imports: [
     BrowserModule,
