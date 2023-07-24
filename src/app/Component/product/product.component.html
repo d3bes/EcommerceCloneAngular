@@ -1,1 +1,35 @@
-<p>product works!</p>
+<div class="container-fluid">
+  <h3 class="my-3">Recommended for you</h3>
+  <div class="row d-flex just-content-between" >
+
+    <div class="col-md-2  my-2" *ngFor="let product of ProductShow">
+      <div class="card p-2 border-0 "  style="width:14 rem; ">
+        <!-- <img [src]="product.images" class="card-img-top"  alt="..."> -->
+
+        <owl-carousel-o [options]="customOptions">
+
+          <ng-container *ngFor="let img of product.images" >
+            <ng-template carouselSlide >
+              <img [src]="img" alt="" class="w-100 " height="200"  >
+            </ng-template>
+          </ng-container>
+
+        </owl-carousel-o>
+        <div class="card-body">
+
+          <p class="card-title text-muted">{{product.description.split(" ").splice(0,10).join(" ")}}</p>
+
+          <p class="card-text  fw-bolder"><span class="text-muted" style="font-size:0.7rem;">EGP</span>{{product.price}}</p>
+          <div class="icon-share-simple d-flex justify-content-between">
+            <span><img src="../assets/images/fulfilment_express_v2-en.svg" style="width:4rem;" alt=""></span>
+            <span >
+              <span class="bg_main  rounded-3 text-light">{{product.reviews}}<i class="fa-solid fa-star text-light font_size"></i></span>
+              <span class="font_size mx-1">{{product.quantity}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
