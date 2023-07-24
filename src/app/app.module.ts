@@ -21,6 +21,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
