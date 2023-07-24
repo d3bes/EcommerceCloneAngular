@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
 import { CatogriesService } from 'src/app/Services/catogries.service';
 
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-slider-min',
@@ -11,7 +12,30 @@ import { CatogriesService } from 'src/app/Services/catogries.service';
 export class SliderMinComponent {
   catogries: ProductCategoryDetailsDTO[] = [];
 
-  
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
 
   constructor(private catogriesService: CatogriesService) { }
 
