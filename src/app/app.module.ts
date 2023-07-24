@@ -16,10 +16,10 @@ import { SliderMinComponent } from './Component/slider-min/slider-min.component'
 import { HttpClientModule } from '@angular/common/http';
 import { BrandsService } from './Services/brands.service';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { CommonModule } from '@angular/common'; 
 
 
 @NgModule({
@@ -41,11 +41,12 @@ import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
- HttpClientModule,
- CarouselModule,
- BrowserAnimationsModule,
- FormsModule
-
+    HttpClientModule,
+    CarouselModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
   ],
   providers: [BrandsService],
   bootstrap: [AppComponent],

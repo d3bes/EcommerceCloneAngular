@@ -77,32 +77,41 @@
                 <p class="fw-bold">My Account</p>
               </div>
             </a> -->
-              <button type="button" class="btn  colortext  px-0 ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span class="textbold">Sign In </span>  <i class="fa-regular fa-user "></i></button>
+            <button type="button" class="btn  colortext  px-0 ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span class="textbold">Sign In </span>  <i class="fa-regular fa-user "></i></button>
 
+            <!-- ----------------sign in form ----------------------->
 
+            
+            
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+        <form [formGroup]="signInForm" (ngSubmit)="log()">
+          <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+          <div>
+            <label for="email">Email:</label>
+            <input style="margin: 4rem;" type="email" id="email" formControlName="email" class="rounded" />
+            <div *ngIf="signInForm.get('email')?.invalid && signInForm.get('email')?.touched">
+              <small class="text-danger">Please enter a valid email address.</small>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
+          <div>
+            <label for="password">Password:</label>
+            <input style="margin-left: 2rem;" type="password" id="password" formControlName="password" class="rounded" />
+            <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched">
+              <small class="text-danger">Please enter your password.</small>
+            </div>
+          </div>         
+        </form>       
+        <button type="button" class="btn btn-primary" [disabled]="signInForm.invalid" (click)="log()">Sign In</button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-primary" >sign Up</button>
       </div>
     </div>
   </div>
