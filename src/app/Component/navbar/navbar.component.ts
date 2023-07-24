@@ -1,5 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { IRegist } from 'src/app/Models/iregist';
 import { LogIn } from 'src/app/Models/log-in';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
 import { UserDTO } from 'src/app/Models/user-dto';
@@ -17,7 +20,20 @@ export class NavbarComponent {
   signInForm!: FormGroup;
   login!: LogIn;
   user : UserDTO | undefined;
-  constructor(private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService) { }
+  registrationForm : FormGroup;
+  register :IRegist ={} as IRegist;
+  
+
+  constructor(private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService) {
+    this.registrationForm = this.formBuilder.group({
+      DisplayName: ['', Validators.required],
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      Email: ['', [Validators.required, Validators.email]],
+      PhoneNumber: [''],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+   }
 
   ngOnInit():void {
     this.catogriesService.getAllCatogries().subscribe({
@@ -38,6 +54,9 @@ export class NavbarComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
+
+   
+    
   }
 
 
@@ -75,5 +94,47 @@ export class NavbarComponent {
     // For demonstration purposes, you can log the email and password
     console.log('Email:', this.login.Email);
     console.log('Password:', this.login.Password);
+  }
+
+
+  /////////////////register /////////////////
+  
+  get fullname(){
+    return this.registrationForm.get('DisplayName');
+  }
+  get firstname(){
+    return this.registrationForm.get('FirstName');
+  }
+  get lastname(){
+    return this.registrationForm.get('LastName');
+  }
+  get email(){
+    return this.registrationForm.get('Email');
+  }
+  get phonenumber(){
+    return this.registrationForm.get('PhoneNumber')
+  }
+  get password(){
+    return this.registrationForm.get('Password')
+  }
+  onSubmit() {
+   
+    this.register.DisplayName= this.registrationForm.value.displayName;
+    this.register.FirstName= this.registrationForm.value.first;
+    this.register.LastName= this.registrationForm.value.last;
+    this.register.Email = this.registrationForm.value.email;
+    this.register.PhoneNumber = this.registrationForm.value.PhoneNumber 
+    this.register.Password = this.registrationForm.value.password;
+   
+    this.accountService.regist(this.register).subscribe({
+      next:(data)=>{
+        //this.router.navigate(['/home']);
+        console.log(data);
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
+    
   }
 }

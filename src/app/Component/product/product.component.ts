@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/Services/product.service';
-import { Iproduct } from 'src/app/iproduct';
+import { Iproduct } from 'src/app/Models/iproduct';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
