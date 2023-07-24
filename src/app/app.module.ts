@@ -15,7 +15,6 @@ import { SliderBackgroundComponent } from './Component/slider-background/slider-
 import { SliderMinComponent } from './Component/slider-min/slider-min.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrandsService } from './Services/brands.service';
-import { OwlModule } from 'ngx-owl-carousel';
 import { RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
