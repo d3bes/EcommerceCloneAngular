@@ -16,7 +16,7 @@ export class NavbarComponent {
   catogries: ProductCategoryDetailsDTO[] = [];
   signInForm!: FormGroup;
   login!: LogIn;
-  user! : UserDTO;
+  user : UserDTO | undefined;
   constructor(private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService) { }
 
   ngOnInit():void {
@@ -42,7 +42,13 @@ export class NavbarComponent {
 
 
   //sign in
-  onSubmit() {
+  log() {
+    this.login.Email = this.signInForm.value.email;
+    this.login.Password = this.signInForm.value.password;
+    console.log('Email:', this.login.Email);
+    console.log('Password:', this.login.Password);
+    console.log("nnnnnnnnnn")
+    
     this.accountService.logIn(this.login).subscribe(
       {
         next: (data: UserDTO) => {
@@ -62,10 +68,9 @@ export class NavbarComponent {
     if (this.signInForm.invalid) {
       return;
   }
-
+  var p : string ="Huj3#jiS";
     // Perform the sign-in logic here
-    this.login.Email = this.signInForm.value.email;
-    this.login.Password = this.signInForm.value.password;
+    
 
     // For demonstration purposes, you can log the email and password
     console.log('Email:', this.login.Email);

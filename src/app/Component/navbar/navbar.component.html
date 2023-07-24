@@ -91,7 +91,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
       </div>
       <div class="modal-body">
-        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="signInForm" (ngSubmit)="log()">
           <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
           <div>
             <label for="email">Email:</label>
@@ -108,7 +108,7 @@
             </div>
           </div>         
         </form>       
-        <button type="button" class="btn btn-primary" [disabled]="signInForm.invalid">Sign In</button>
+        <button type="button" class="btn btn-primary" [disabled]="signInForm.invalid" (click)="log()">Sign In</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" >sign Up</button>
