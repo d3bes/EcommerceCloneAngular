@@ -95,5 +95,12 @@ margin: 0 1rem;
 width:95%;
 margin:auto;
  }
+ .bg_main{
+   background-color:rgb(56, 174, 4) !important;
+   font-size:0.9rem;
+ }
+ .font_size {
+  font-size:0.9rem !important;
+ }
 
 

@@ -15,6 +15,12 @@ import { SliderBackgroundComponent } from './Component/slider-background/slider-
 import { SliderMinComponent } from './Component/slider-min/slider-min.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrandsService } from './Services/brands.service';
+import { OwlModule } from 'ngx-owl-carousel';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -27,14 +33,21 @@ import { BrandsService } from './Services/brands.service';
     FooterComponent,
     CategoryComponent,
     ProducdDetailesComponent,
-    BrandsComponent
+    BrandsComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    RouterModule,
+ HttpClientModule,
+ CarouselModule,
+ BrowserAnimationsModule,
+ FormsModule
+
   ],
   providers: [BrandsService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
