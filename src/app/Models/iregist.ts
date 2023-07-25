@@ -1,4 +1,3 @@
-import { IUserAddress } from "./iuser-address";
 
 export interface IRegist {
     DisplayName: string;
@@ -7,5 +6,5 @@ export interface IRegist {
     Email: string;
     PhoneNumber?: string;
     Password: string;
-    UserAddresses?: IUserAddress[];
+  //  UserAddresses?: IUserAddress[];
 }
