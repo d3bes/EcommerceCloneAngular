@@ -19,7 +19,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
+import { SignUpComponent } from './Component/sign-up/sign-up.component'; 
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { CommonModule } from '@angular/common';
     CategoryComponent,
     ProducdDetailesComponent,
     BrandsComponent,
+    SignUpComponent,
   ],
 
   imports: [
@@ -46,7 +48,7 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule,
+    CommonModule
   ],
   providers: [BrandsService],
   bootstrap: [AppComponent],
