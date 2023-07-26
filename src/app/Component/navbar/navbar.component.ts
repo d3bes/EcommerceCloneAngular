@@ -23,6 +23,7 @@ export class NavbarComponent {
   registrationForm ! : FormGroup  ;
   register :IRegist ={DisplayName:'',FirstName:'',LastName:'',Email:'',Password:'',PhoneNumber:''} ;
   
+  isLogIn: boolean;
 
   constructor(private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService) {
     this.registrationForm = this.formBuilder.group({
@@ -33,6 +34,8 @@ export class NavbarComponent {
       PhoneNumber: [''],
       Password: ['', [Validators.required, Validators.minLength(6)]],
     });
+
+    this.isLogIn = false;
    }
 
   ngOnInit():void {
@@ -59,7 +62,6 @@ export class NavbarComponent {
     
   }
 
-
   //sign in
   log() {
     this.login.Email = this.signInForm.value.email;
@@ -79,6 +81,7 @@ export class NavbarComponent {
         },
         complete: () => {
           console.log('Fetching brands completed.');
+          this.isLogIn = true;
         }
       }     
     );
@@ -86,7 +89,7 @@ export class NavbarComponent {
     
     if (this.signInForm.invalid) {
       return;
-  }
+  }  //hestucaspo@gufum.com
   var p : string ="Huj3#jiS";
     // Perform the sign-in logic here
     

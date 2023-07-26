@@ -19,7 +19,14 @@ import { RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
+import { SignUpComponent } from './Component/sign-up/sign-up.component';
+import { ProfileComponent } from './Component/profile/profile.component';
+import { OrdersComponent } from './Component/profile/orders/orders.component';
+import { UserProfileComponent } from './Component/profile/user-profile/user-profile.component';
+import { WhishListComponent } from './Component/profile/whish-list/whish-list.component';
+import { AddressComponent } from './Component/profile/address/address.component';
+import { PaymentComponent } from './Component/profile/payment/payment.component'; 
 
 
 @NgModule({
@@ -34,6 +41,13 @@ import { CommonModule } from '@angular/common';
     CategoryComponent,
     ProducdDetailesComponent,
     BrandsComponent,
+    SignUpComponent,
+    ProfileComponent,
+    OrdersComponent,
+    UserProfileComponent,
+    WhishListComponent,
+    AddressComponent,
+    PaymentComponent,
   ],
 
   imports: [
@@ -46,7 +60,7 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule,
+    CommonModule
   ],
   providers: [BrandsService],
   bootstrap: [AppComponent],

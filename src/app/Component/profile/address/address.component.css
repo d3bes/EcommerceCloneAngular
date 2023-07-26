@@ -1,0 +1,11 @@
+*{
+    margin: 1vw;
+}
+
+.Default{
+
+    width: 75vw;
+    height: 35vh;
+    background-color: rgb(246, 246, 246);
+    margin-left: 2vw;
+}

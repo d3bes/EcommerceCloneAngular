@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-sm-2">
+        <h3 style="margin: 1vw;">Wishlist</h3>
+    </div>
+    <div class="col-sm-7"></div>
+    <div class="col-sm-3">
+        <button type="button" class="btn btn-primary" style="margin: 1vw;"
+        data-bs-toggle="modal" data-bs-target="#WishListModel">Create New WhishList</button>
+
+    </div>
+</div>
+<hr>
+<div class="row">
+     
+    <div class="col-sm-3">
+
+        <div class="WhishList">
+            <p>List Name</p>
+            <p>No item</p>
+
+        </div>
+        <div class="WhishList">
+            <p>List Name</p>
+            <p>No item</p>
+
+        </div>
+
+    </div>
+    <div class="col-sm-1">
+        <div class="d-flex" style="height: 70vh">
+            <div class="vr"></div>
+          </div>
+    </div>
+    
+     <!-- Create WishList Modal -->
+  <div class="modal fade" id="WishListModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create New WhishList </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter WishList Name..">
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Default WhishList
+                </label>
+              </div>
+              
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+
+</div>
