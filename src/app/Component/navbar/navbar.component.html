@@ -127,7 +127,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
       </div>
       <div class="modal-body">
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form">
           <div>
             <label for="DisplayName">Display Name:</label>
             <input type="text" id="DisplayName" formControlName="DisplayName" required>
@@ -167,9 +167,7 @@
           <button type="submit" [disabled]="registrationForm.invalid" >Create an Account</button>
         </form>     
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" >Close</button>
-      </div>
+      
     </div>
   </div>
 </div>
