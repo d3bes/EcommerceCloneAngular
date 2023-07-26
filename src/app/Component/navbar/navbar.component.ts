@@ -20,8 +20,8 @@ export class NavbarComponent {
   signInForm!: FormGroup;
   login!: LogIn;
   user : UserDTO | undefined;
-  registrationForm : FormGroup;
-  register :IRegist ={} as IRegist;
+  registrationForm ! : FormGroup  ;
+  register :IRegist ={DisplayName:'',FirstName:'',LastName:'',Email:'',Password:'',PhoneNumber:''} ;
   
   isLogIn: boolean;
 
@@ -122,14 +122,15 @@ export class NavbarComponent {
   }
   onSubmit() {
    
-    this.register.DisplayName= this.registrationForm.value.display;
+    this.register.DisplayName= this.registrationForm.value.DisplayName;
+    console.log(this.registrationForm.value.DisplayName);
+    this.register.FirstName= this.registrationForm.value.FirstName;
+    console.log(this.register);
 
-    this.register.FirstName= this.registrationForm.value.first;
-    this.register.LastName= this.registrationForm.value.last;
-    this.register.Email = this.registrationForm.value.email;
+    this.register.LastName= this.registrationForm.value.LastName;
+    this.register.Email = this.registrationForm.value.Email;
     this.register.PhoneNumber = this.registrationForm.value.PhoneNumber 
-    this.register.Password = this.registrationForm.value.password;
-
+    this.register.Password = this.registrationForm.value.Password;
    
     this.accountService.regist(this.register).subscribe({
       next:(data)=>{
