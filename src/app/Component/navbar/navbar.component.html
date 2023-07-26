@@ -77,7 +77,8 @@
                 <p class="fw-bold">My Account</p>
               </div>
             </a> -->
-            <button type="button" class="btn  colortext  px-0 ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span class="textbold">Sign In </span>  <i class="fa-regular fa-user "></i></button>
+            <button *ngIf="!isLogIn" type="button" class="btn  colortext  px-0 ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span class="textbold">Sign In </span>  <i class="fa-regular fa-user "></i></button>
+            <button *ngIf="isLogIn" type="button" class="btn  colortext  px-0 ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span class="textbold">Sign Out </span>  <i class="fa fa-sign-out" ></i></button>
 
             <!-- ----------------sign in form ----------------------->
 

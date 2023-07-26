@@ -12,11 +12,11 @@
 			<div class="signup">
 				<form>
 					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="First Name" [(ngModel)]="SignUpUser.firsName">
+					<input type="text" name="txt" placeholder="First Name" [(ngModel)]="SignUpUser.FirstName">
                     <input type="text" name="txt" placeholder="Last Name" [(ngModel)]="SignUpUser.LastName">
-                    <input type="number" name="number" placeholder="Phone Number" [(ngModel)]="SignUpUser.phoneNumber" >
-					<input type="email" name="email" placeholder="Email" [(ngModel)]="SignUpUser.email">
-					<input type="password" name="pswd" placeholder="Password"[(ngModel)]="SignUpUser.password">
+                    <input type="number" name="number" placeholder="Phone Number" [(ngModel)]="SignUpUser.PhoneNumber" >
+					<input type="email" name="email" placeholder="Email" [(ngModel)]="SignUpUser.Email">
+					<input type="password" name="pswd" placeholder="Password"[(ngModel)]="SignUpUser.Password">
 					<button (click)="OnSignUp()">Sign up</button>
 				</form>
 			</div>
@@ -24,7 +24,7 @@
 			<div class="login">
 				<form>
 					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" [(ngModel)]="LoginInUser.email">
+					<input type="email" name="email" placeholder="Email" [(ngModel)]="LoginInUser.Email">
 					<input type="password" name="pswd" placeholder="Password" [(ngModel)]="LoginInUser.password">
 					<button (click)="OnLogIn()">Login</button>
 				</form>

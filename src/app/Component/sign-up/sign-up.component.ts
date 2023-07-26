@@ -16,28 +16,39 @@ ngOnInit(): void {
 constructor(private router: Router, private http: HttpClient) { }
 
 
-SignUpUser:any= {
+SignUpUser: any = {
 
-  firstName: "",
-  lastName: "",
-  password: "",
-  email: "",
-  phoneNumber: ""
+  DisplayName:"",
+  FirstName: "",
+  LastName: "",
+  Password: "",
+  Email: "",
+  PhoneNumber: ""
 };
 LoginInUser:any= {
-  email: "",
-  password: ""
+  Email: "",
+  Password: ""
 }
 
 OnSignUp(){
 
-  this.http.post("http://localhost:61334/api/Registration/Register", this.registerObj).subscribe(res=>{
+  this.SignUpUser.DisplayName = this.SignUpUser.FirstName + " " + this.SignUpUser.LastName;
+  this.http.post("http://localhost:5216/api/Account/register", this.SignUpUser).subscribe(res=>{
 
 })
 }
 
 OnLogIn(){
-
+  debugger;
+  this.http.post("http://localhost:5216/api/Account/login", this.LoginInUser).subscribe((response: any)=>{
+    debugger;
+    if(response.result) { 
+      alert(response.message)
+      this.router.navigateByUrl('way2user-dashboard');
+    } else {
+      alert(response.message)
+    }
+  })
 
 }
 }

@@ -1,0 +1,19 @@
+.vertical-line {
+  border: none;
+  border-left: 1px solid black;
+  transform: rotate(180deg);
+  height: 50vh;
+
+}
+
+.WhishList{
+    border: 0.025vh solid rgb(241, 244, 244);
+  margin-bottom: 1vw;
+    padding: 0.5vw;
+
+}
+
+
+.WhishList:hover{
+background-color: rgb(123, 138, 141);
+}
