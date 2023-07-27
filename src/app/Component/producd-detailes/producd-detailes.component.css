@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+:root{
+    --whaitt:#f7f7fa;
+    --blue:#007aff;
+}
+
+
+ .textstyle{
+    text-decoration:none ;
+    list-style:none;
+ }
+
+.textcolor{
+color:var(--blue);
+}
+
+ .bord{
+    border: none;
+    box-sizing:0;
+ }
+
+ .wInput{
+    width:4rem !important;
+ }
+
+ .cont_img{
+  margin:1rem 0 !important ;
+  
+ 
+ }
+ .lis{
+  list-style:none;
+  color:#404553;
+  font-size:.9rem;
+  text-decoration:none !important;
+ }
+ .expres{
+  position: relative;
+ }
+ .expres img{
+  position:absolute;
+  right:0;
+ }
+
+ .monthly a{
+  text-decoration:none !important;
+  list-style:none;
+  border-bottom:var(--blue) 0.2px solid ;
+  transition: all 0.7s;
+
+   }
+ .monthly:hover a{
+  opacity:0.5;
+  border-bottom:none ;
+ }
+
+ .img-value{
+  width:5rem;
+ }
+ .background{
+  background-color:rgb(247, 243, 243);
+ }
+ .bord{
+  border-left: 0.3px  solid rgb(247, 243, 243);
+ }
+ .bordbottom{
+  border-bottom: 0.3px  solid rgb(247, 243, 243);
+ }
+
+ .coloricon{
+   background: rgb(130, 174, 4)
+
+ }
+ .imgreet{
+   width:1.5rem;
+ }
+ .textspan{
+   font-size:0.5rem;
+ }

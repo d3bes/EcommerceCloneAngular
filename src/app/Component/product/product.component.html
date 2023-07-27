@@ -2,7 +2,7 @@
   <h3 class="my-3">Recommended for you</h3>
   <div class="row d-flex just-content-between" >
 
-    <div class="col-md-2  my-2" *ngFor="let product of ProductShow">
+    <div class="col-md-2 my-2" (click)="prdDetails(product.sku)" *ngFor="let product of ProductShow">
       <div class="card p-2 border-0 "  style="width:14 rem; ">
         <!-- <img [src]="product.images" class="card-img-top"  alt="..."> -->
 

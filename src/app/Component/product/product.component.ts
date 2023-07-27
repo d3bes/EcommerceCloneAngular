@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/Services/product.service';
 import { Iproduct } from 'src/app/Models/iproduct';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 
@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit  {
   // ProductShow:Iproduct={} as Iproduct
 
 // @Input() Product:Iproduct ={} as Iproduct
-constructor(private _ProductService:ProductService){}
+constructor(private _ProductService:ProductService, private router:Router){}
 
 ngOnInit(): void {
   this.getAll()
@@ -26,7 +26,7 @@ getAll(){
   this._ProductService.getAllProduct().subscribe({
     next:(data)=>{
 
-  this.ProductShow=data
+     this.ProductShow=data
     },error:(err)=>{
       console.log(err);
     }
@@ -34,7 +34,9 @@ getAll(){
   })
 }
 
-
+prdDetails(prdId:string){
+  this.router.navigate(['prd',prdId]); 
+}
 
 customOptions: OwlOptions = {
   loop: true,
