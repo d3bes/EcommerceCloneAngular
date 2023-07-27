@@ -14,7 +14,7 @@
                                     <a class="nav-link" href="#"><i class="fa-solid fa-heart-circle-check"> wish list</i>  </a>
                                     <a class="nav-link" href="#"><i class="fa-solid fa-map-location-dot"> Address</i>  </a>
                                     <a class="nav-link" href="#"><i class="fa-solid fa-credit-card"> Payment</i> </a>
-                                    <a class="nav-link" href="#"><i class="fa-solid fa-id-badge"> Profile</i></a>
+                                    <a (click)="getUser()" class="nav-link" href="#"><i class="fa-solid fa-id-badge"> Profile</i></a>
                                   </nav>
                                   </ul>
                       </aside>
@@ -24,9 +24,9 @@
     </div>
     <div class="col-sm-10" style="background-color: rgb(224, 225, 230);" >
     
-        <!-- <app-user-profile></app-user-profile>
-        <app-whish-list></app-whish-list> -->
-        <app-address></app-address>
+        <app-user-profile></app-user-profile>
+      <!--  <app-whish-list></app-whish-list> -->
+        <!-- <app-address></app-address> -->
  <router-outlet></router-outlet>
     </div>
 </div>

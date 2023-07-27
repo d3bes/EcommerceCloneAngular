@@ -1,11 +1,27 @@
+@import"@tomtom-international/web-sdk-maps";
+
 *{
     margin: 1vw;
 }
 
-.Default{
+.Address{
 
     width: 75vw;
-    height: 35vh;
+    height: 40vh;
     background-color: rgb(246, 246, 246);
     margin-left: 2vw;
 }
+#header{
+    height: 4vh;
+}
+
+#name{
+    height: 4vh;
+}
+
+#phone{
+height: 4vh;
+padding-bottom: 5vh;
+}
+
+#map { height: 80vh; }

@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class BrandsService {
 
   private http={};
-  private apiBaseUrl = 'http://localhost:5216/api';
+  private apiBaseUrl =  'http://localhost:5216/api';
   constructor(private httpclient:HttpClient)
   {
     // this.http={

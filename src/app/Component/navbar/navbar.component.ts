@@ -75,13 +75,17 @@ export class NavbarComponent {
         next: (data: UserDTO) => {
           this.user = data;
           console.log(this.user);
+          localStorage.setItem("token",this.user.token);
+          localStorage.setItem("email", this.user.Email);
+          localStorage.setItem("username", this.user.DisplayName);
         },
         error: (error: any) => {
-          console.error('Error fetching brands:', error);
+          console.error('Error LogIn:', error);
         },
         complete: () => {
           console.log('Fetching brands completed.');
           this.isLogIn = true;
+          
         }
       }     
     );
@@ -143,4 +147,6 @@ export class NavbarComponent {
     })
     
   }
+
+
 }

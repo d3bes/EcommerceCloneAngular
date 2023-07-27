@@ -27,7 +27,7 @@ SignUpUser: any = {
 };
 LoginInUser:any= {
   Email: "",
-  Password: ""
+  Password: "",
 }
 
 OnSignUp(){
@@ -43,8 +43,11 @@ OnLogIn(){
   this.http.post("http://localhost:5216/api/Account/login", this.LoginInUser).subscribe((response: any)=>{
     debugger;
     if(response.result) { 
+      console.log(response);
+      localStorage.setItem("token",response.token);
+      localStorage.setItem("email", response.Email);
+      localStorage.setItem("username", response.DisplayName);
       alert(response.message)
-      this.router.navigateByUrl('way2user-dashboard');
     } else {
       alert(response.message)
     }
