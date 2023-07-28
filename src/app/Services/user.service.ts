@@ -12,8 +12,17 @@ export class UserService {
     
   }
 ApiUrl:string=  'http://localhost:5216/api';
-
+email:string|null=null;
 getCurrentUser():Observable<any>{
   return this._HttpClient.get(this.ApiUrl+'/Account/getCurrentUser')
 }
+
+// getUserProfile():Observable<any>{
+//   return this._HttpClient.get<any>(`${this.ApiUrl}/User/profile?email=${}`);
+// }
+// updateProfile():Observable<any>{
+
+// return this._HttpClient.put(this.ApiUrl+'/User/UpdateProfile');
+// }
+
 }

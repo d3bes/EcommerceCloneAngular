@@ -15,14 +15,14 @@
         <div class="col-sm-3">
       <div class="form-group" >
         <label for="exampleInputEmail1"> First Name</label>
-      <input class="form-control" type="text" placeholder="Default input">
+      <input class="form-control" type="text" placeholder="{{firstName}}" [(ngModel)]="firstName">
 
       </div>
     </div>
     <div class="col-sm-3">
         <div class="form-group">
             <label for="exampleInputPassword1">Last Name</label>
-          <input class="form-control" type="text" placeholder="Default input">
+          <input class="form-control" type="text" placeholder="{{lastName}}" [(ngModel)]="lastName">
 
         </div>
       </div>
@@ -36,7 +36,7 @@
           </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Update Info</button>
+    <button type="submit" (click)=" onUpdateProfile()" class="btn btn-primary">Update Info</button>
     </form>
 
   </section>
@@ -50,7 +50,7 @@
         <div class="col-sm-3">
  
         <label for="exampleInputEmail1"> Email</label>
-        <input class="form-control bg-secondary" type="email" placeholder="hgggu@jj.co" readonly>
+        <input class="form-control bg-secondary" type="email" placeholder="{{email}}" readonly>
       
     </div>
     <div class="col-sm-3">
@@ -60,7 +60,7 @@
       </div>
       <div class="col-sm-3">
             <label for="exampleInputPassword1">Phone Nember</label>
-            <input class="form-control bg-secondary" type="text" placeholder="02345487" readonly>
+            <input class="form-control bg-secondary" type="text" placeholder="{{ profile?.phoneNumber }}" readonly>
 
     
       </div>

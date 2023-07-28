@@ -13,7 +13,7 @@ import { ProducdDetailesComponent } from './Component/producd-detailes/producd-d
 import { ProductComponent } from './Component/product/product.component';
 import { SliderBackgroundComponent } from './Component/slider-background/slider-background.component';
 import { SliderMinComponent } from './Component/slider-min/slider-min.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrandsService } from './Services/brands.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +27,8 @@ import { UserProfileComponent } from './Component/profile/user-profile/user-prof
 import { WhishListComponent } from './Component/profile/whish-list/whish-list.component';
 import { AddressComponent } from './Component/profile/address/address.component';
 import { PaymentComponent } from './Component/profile/payment/payment.component'; 
+import { InterceptorService } from './Services/interceptor.service';
+import { Interceptor } from './Services/interceptor';
 
 
 @NgModule({
@@ -62,7 +64,10 @@ import { PaymentComponent } from './Component/profile/payment/payment.component'
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [BrandsService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi : true
+  },
+  BrandsService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

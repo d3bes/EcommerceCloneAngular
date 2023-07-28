@@ -137,9 +137,13 @@ export class NavbarComponent {
     this.register.Password = this.registrationForm.value.Password;
    
     this.accountService.regist(this.register).subscribe({
-      next:(data)=>{
+      next:(response:any)=>{
         //this.router.navigate(['/home']);
-        console.log(data);
+        console.log(response);
+        localStorage.setItem("token",response.token);
+        localStorage.setItem("email", response.email);
+        localStorage.setItem("username", response.displayName);
+   
       },
       error:(err)=>{
         console.log(err);

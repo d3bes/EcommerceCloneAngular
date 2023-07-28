@@ -42,11 +42,14 @@ OnLogIn(){
   debugger;
   this.http.post("http://localhost:5216/api/Account/login", this.LoginInUser).subscribe((response: any)=>{
     debugger;
+    console.log(this.LoginInUser.Email);
+    console.log(this.LoginInUser.Password);
+
     if(response.result) { 
       console.log(response);
       localStorage.setItem("token",response.token);
-      localStorage.setItem("email", response.Email);
-      localStorage.setItem("username", response.DisplayName);
+      localStorage.setItem("email", response.email);
+      localStorage.setItem("username", response.displayName);
       alert(response.message)
     } else {
       alert(response.message)
