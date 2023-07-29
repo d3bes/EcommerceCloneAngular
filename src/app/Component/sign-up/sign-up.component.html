@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="sign-up.component.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
-<body >
-	<div class="main" >  	
+
+	<div class="main " >
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
 				<form>
 					<label for="chk" aria-hidden="true">Sign up</label>
 					<input type="text" name="txt" placeholder="First Name" [(ngModel)]="SignUpUser.FirstName">
-                    <input type="text" name="txt" placeholder="Last Name" [(ngModel)]="SignUpUser.LastName">
-                    <input type="number" name="number" placeholder="Phone Number" [(ngModel)]="SignUpUser.PhoneNumber" >
+              <input type="text" name="txt" placeholder="Last Name" [(ngModel)]="SignUpUser.LastName">
+              <input type="number" name="number" placeholder="Phone Number" [(ngModel)]="SignUpUser.PhoneNumber" >
 					<input type="email" name="email" placeholder="Email" [(ngModel)]="SignUpUser.Email">
 					<input type="password" name="pswd" placeholder="Password"[(ngModel)]="SignUpUser.Password">
 					<button (click)="OnSignUp()">Sign up</button>
 				</form>
 			</div>
 
-			<div class="login">
+			<div class="login  ">
 				<form>
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" [(ngModel)]="LoginInUser.Email">
@@ -30,5 +23,3 @@
 				</form>
 			</div>
 	</div>
-</body>
-</html>

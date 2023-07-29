@@ -27,7 +27,7 @@ import { UserProfileComponent } from './Component/profile/user-profile/user-prof
 import { WhishListComponent } from './Component/profile/whish-list/whish-list.component';
 import { AddressComponent } from './Component/profile/address/address.component';
 import { PaymentComponent } from './Component/profile/payment/payment.component';
-import { AllcomponentComponent } from './Component/allcomponent/allcomponent.component'; 
+import { ImgeNavComponent } from './imge-nav/imge-nav.component';
 
 
 @NgModule({
@@ -49,7 +49,7 @@ import { AllcomponentComponent } from './Component/allcomponent/allcomponent.com
     WhishListComponent,
     AddressComponent,
     PaymentComponent,
-    AllcomponentComponent,
+    ImgeNavComponent,
   ],
 
   imports: [
