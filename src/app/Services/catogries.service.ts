@@ -7,18 +7,9 @@ import { ProductCategoryDetailsDTO } from '../Models/product-category-details-dt
   providedIn: 'root'
 })
 export class CatogriesService {
-
   private http={};
   private apiBaseUrl = 'http://localhost:5216/api';
-  constructor(private httpclient:HttpClient)
-  {
-    // this.http={
-    //   headers:new HttpHeaders({
-    //     'Content-Type': 'application/json',
-    //     'Authorization': 'Access-token'
-    //   })
-    // };
-  }
+  constructor(private httpclient:HttpClient) {}
   getAllCatogries():Observable<ProductCategoryDetailsDTO[]>{
     return this.httpclient.get<ProductCategoryDetailsDTO[]>(`${this.apiBaseUrl}/ProductCategory`);
   }

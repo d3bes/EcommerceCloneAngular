@@ -1,4 +1,6 @@
- <div class="container-fluid">
+
+<div class="container-fluid" *ngIf="product">
+   <app-navbar></app-navbar>
             <div class="spa mx-2 mt-2">
 
                 <a href="" class="lis">Home<span>></span></a>
@@ -9,12 +11,12 @@
                 <a href="" class="lis">Mobile Phones <span>></span></a>
                 <a href="" class="lis">Smartphones</a>
             </div>
-            <div class="row ">
+            <div class="row " >
 
                 <div class="col-md-1 m-4">
 
                     <div class="cont_img border border-3 rounded-2 border-muted">
-                        <img src="./images/N53363071A_1.avif" class="w-100 " alt="">
+                        <img [src]="product.images" class="w-100 " alt="">
                     </div>
 
                     <div class="cont_img border border-3 rounded-2 border-muted">
@@ -34,7 +36,7 @@
                 <div class="col-md-3  d-flex align-items-center">
 
                     <div class="imge border border-1 rounded-2 border-muted bg-muted ">
-                        <img src="./images/N53363071A_1.avif" class="w-100" alt="">
+                        <img [src]="product.images"  class="w-100" alt="">
                     </div>
 
                 </div>
@@ -47,19 +49,19 @@
                     </div>
 
                     <div class="title">
-                        <p class="pt-2">Samsung</p>
+                        <p class="pt-2">{{product.brand}}</p>
 
-                        <h4>Galaxy A13 Black 128GB 4GB 4G LTE- Egypt Version</h4>
+                        <h4>{{product.description}}</h4>
                         <span>Model Number : Galaxy A13 5</span>
 
                         <span>
-                            108 Ratings
+                           
 
                         </span>
 
                         <div class="price d-flex my-2">
                             <span class="mx-1">Now :</span>
-                            <h5 class="fw-bold mx-1">EGP 5599.00</h5>
+                            <h5 class="fw-bold mx-1">EGP {{ product.price}}</h5>
                             <span>(Inclusive of VAT)</span>
 
                         </div>
@@ -70,7 +72,7 @@
 
 
                         <div class="monthly my-5 background  p-2">
-                            <img src="./images/emi.svg" alt="">
+                            <img src="https://f.nooncdn.com/s/app/com/noon/icons/emi.svg" alt="">
 
                             <span style="font-size:0.9rem;"> Monthly payment plans from EGP 156</span>
 
@@ -79,7 +81,7 @@
 
                         <div class=" d-flex border border-success border-2 rounded-4">
                             <div class="img-value  d-flex align-items-center ">
-                                <img src="./images/valu-logo-v4.svg" class="w-100 ps-1" alt="">
+                                <img src="https://k.nooncdn.com/s/app/com/noon/images/valu-logo-v4.svg" class="w-100 ps-1" alt="">
 
                             </div>
 
@@ -93,7 +95,7 @@
                         </div>
 
                         <div class="w-100 m-auto my-3 ">
-                            <a href=""><img src="./images/707dcf7e-9467-4bd9-8cfe-8d5ade48c8bd.png" class="w-100 ps-1"
+                            <a href=""><img src="https://f.nooncdn.com/mpcms/EN0003/assets/707dcf7e-9467-4bd9-8cfe-8d5ade48c8bd.png?format=avifundefined" class="w-100 ps-1"
                                     alt="">
                             </a>
 

@@ -82,8 +82,8 @@
 
             <!-- ----------------sign in form ----------------------->
 
-            
-            
+
+
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -108,8 +108,8 @@
             <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched">
               <small class="text-danger">Please enter your password.</small>
             </div>
-          </div>         
-        </form>       
+          </div>
+        </form>
         <button type="button" class="btn btn-primary" [disabled]="signInForm.invalid" (click)="log()">Sign In</button>
       </div>
       <div class="modal-footer">
@@ -133,17 +133,17 @@
             <label for="DisplayName">Display Name:</label>
             <input type="text" id="DisplayName" formControlName="DisplayName" required>
           </div>
-        
+
           <div>
             <label for="FirstName">First Name:</label>
             <input type="text" id="FirstName" formControlName="FirstName" required>
           </div>
-        
+
           <div>
             <label for="LastName">Last Name:</label>
             <input type="text" id="LastName" formControlName="LastName" required>
           </div>
-        
+
           <div>
             <label for="Email">Email:</label>
             <input type="email" id="Email" formControlName="Email" required>
@@ -151,12 +151,12 @@
               <small class="text-danger">Please enter a valid email address.</small>
             </div>
           </div>
-        
+
           <div>
             <label for="PhoneNumber">Phone Number:</label>
             <input type="tel" id="PhoneNumber" formControlName="PhoneNumber">
           </div>
-        
+
           <div>
             <label for="Password">Password:</label>
             <input type="password" id="Password" formControlName="Password" required>
@@ -164,11 +164,11 @@
               <small class="text-danger">Password must have at least 6 characters.</small>
             </div>
           </div>
-        
+
           <button type="submit" [disabled]="registrationForm.invalid" >Create an Account</button>
-        </form>     
+        </form>
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -237,16 +237,17 @@
 
       <div class="dropdown1" >
         <button class="btn btn-light rounded-0"type="button" id="dropdownMenuButton2" data-mdb-toggle="dropdown" aria-expanded="false">
-          <span class="text-center fw-bold">Electronics</span>
+          <span class="text-center fw-bold" >Electronics</span>
         </button>
         <ul class="dropdown-menu center " aria-labelledby="dropdownMenuButton">
 
           <div class="container ">
             <div class="row   ">
               <div class="col-md-3">
-                <span class="fw-bolder ">CATEGORIES</span>
+                <span class="fw-bolder " >CATEGORIES</span>
                 <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+                  <a class="nav-link"  href="#"
+                  ><li></li></a>
                 </ul>
           </div>
               <div class="col-md-4">
@@ -420,7 +421,7 @@
               </div>
               </div>
           </div>
-      </ul>       
+      </ul>
       </div>
 
       <div class="dropdown1" >
@@ -715,4 +716,3 @@
 
   </div>
 </header>
-<div class="sc-llJcti iqgTaL"><img src="https://f.nooncdn.com/mpcms/EN0003/assets/043ea2be-1c88-4a99-8de9-0e480f866c30.png?format=avifundefined" width="100%" height="100%"></div>

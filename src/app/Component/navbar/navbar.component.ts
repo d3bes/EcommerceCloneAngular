@@ -37,6 +37,7 @@ export class NavbarComponent {
 
     this.isLogIn = false;
    }
+   selectedParentCategory: ProductCategoryDetailsDTO | null = null;
 
   ngOnInit():void {
     this.catogriesService.getAllCatogries().subscribe({
@@ -51,6 +52,7 @@ export class NavbarComponent {
         console.log('Fetching brands completed.');
       }
     });
+   
 
     //sign in
     this.signInForm = this.formBuilder.group({
