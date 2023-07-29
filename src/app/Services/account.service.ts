@@ -43,5 +43,9 @@ export class AccountService {
     return this.httpclient.post<IRegist>(`${this.apiBaseUrl}/Account/register`,JSON.stringify(register),this.httpOptions);
   }
 
+  deleteAccount(id:any):Observable<any>{
+    return this.httpclient.delete<any>(`${this.apiBaseUrl}/Account/Delete?id=${id}`);
+  }
+
 
 }

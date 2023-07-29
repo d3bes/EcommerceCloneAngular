@@ -44,7 +44,9 @@ OnLogIn(){
     debugger;
     console.log(this.LoginInUser.Email);
     console.log(this.LoginInUser.Password);
-
+    localStorage.setItem("token",response.token);
+    localStorage.setItem("email", response.email);
+    localStorage.setItem("username", response.displayName);
     if(response.result) { 
       console.log(response);
       localStorage.setItem("token",response.token);

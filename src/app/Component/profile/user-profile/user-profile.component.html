@@ -9,20 +9,19 @@
 
   <section class="info">
     <h4>General info</h4>
-    <form>
+    <form #generalDataForm="ngForm" (ngSubmit)="onUpdateProfile()">
 
     <div class="row" style="margin-bottom: 5vh; margin-top: 5vh;">
         <div class="col-sm-3">
       <div class="form-group" >
         <label for="exampleInputEmail1"> First Name</label>
-      <input class="form-control" type="text" placeholder="{{firstName}}" [(ngModel)]="firstName">
-
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="firstName" name="firstName">
       </div>
     </div>
     <div class="col-sm-3">
         <div class="form-group">
             <label for="exampleInputPassword1">Last Name</label>
-          <input class="form-control" type="text" placeholder="{{lastName}}" [(ngModel)]="lastName">
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" name="lastName">
 
         </div>
       </div>
@@ -36,7 +35,7 @@
           </div>
       </div>
     </div>
-    <button type="submit" (click)=" onUpdateProfile()" class="btn btn-primary">Update Info</button>
+    <button type="submit"  class="btn btn-primary">Update Info</button>
     </form>
 
   </section>
@@ -72,8 +71,9 @@
 
     <button type="button" class="btn btn-outline-dark" style="margin-right :5vh" 
      data-bs-toggle="modal" data-bs-target="#PhoneModel">CHANGE PHONE NUMBER</button>
-    
-    <a href="#" class="link-danger">Delete account</a>
+     
+    <a href="#" class="link-danger" 
+    data-bs-toggle="modal" data-bs-target="#DeleteAccount" >Delete account</a>
     </div>
   </section>
 
@@ -94,20 +94,20 @@
         <div class="modal-body">
             <div class="form-group">
               <label for="exampleInputPassword1">Current Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+              <input type="text" class="form-control" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword2">New Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                <input type="text" class="form-control" id="newPassword" [(ngModel)]="newPassword" name="newPassword">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword3">Repeat Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                <input type="text" class="form-control" id="repeatPassword" [(ngModel)]="repeatPassword" name="repeatPassword">
               </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button (click)="onChangePassword(currentPassword,newPassword)" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -127,18 +127,41 @@
             <p style="margin: 1vh;margin-bottom: 2.5vw;">Please enter the new phone number  </p>
             <label for="">New phone number  </label>
             <div class="input-group mb-3">
-                <span class="input-group-text">+20</span>
-                <input type="text" class="form-control" placeholder="Enter phone number">
+                <span class="input-group-number">+20</span>
+                <input type="number" class="form-control" id="newPhoneNumber" [(ngModel)]="newPhoneNumber" name="newPhoneNumber">
+
               </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button (click)="logTest()" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
   </div>
 
+
+   <!-- ###################################################################### -->
+
+      <!-- Delete account Modal -->
+      <div class="modal fade" id="DeleteAccount" tabindex="-1" aria-labelledby="deletlable" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deletlable">Delete Account</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p style="margin: 1vh;margin-bottom: 2.5vw;"> Are you sure to delete All Account data, This action is irreversible   </p>
+               
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="onDelete()" type="button" class="btn btn-danger"> Delete Account</button>
+            </div>
+          </div>
+        </div>
+      </div>
    
   
 </div>

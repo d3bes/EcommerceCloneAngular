@@ -11,18 +11,31 @@ export class UserService {
   constructor(private _HttpClient:HttpClient) {
     
   }
-ApiUrl:string=  'http://localhost:5216/api';
-email:string|null=null;
+  ApiUrl: string = environment.LocalApiUrl;
 getCurrentUser():Observable<any>{
   return this._HttpClient.get(this.ApiUrl+'/Account/getCurrentUser')
 }
 
-// getUserProfile():Observable<any>{
-//   return this._HttpClient.get<any>(`${this.ApiUrl}/User/profile?email=${}`);
-// }
-// updateProfile():Observable<any>{
+getUserProfile(email:string|null):Observable<any>{
+  return this._HttpClient.get<any>(`${this.ApiUrl}/User/profile?email=${email}`);
+}
+updateUserProfile(data: any,email:any): Observable<any> {
+  return this._HttpClient.put<any>(`${this.ApiUrl}/User/UpdateProfile?email=${email}`, data);
+}
 
-// return this._HttpClient.put(this.ApiUrl+'/User/UpdateProfile');
-// }
+changPassword(email:any, currentPassword:string, newPassword:string): Observable<any>{
+return this._HttpClient.put<any>(`${this.ApiUrl}/User/UpdatePassword?email=${email}&currentPassword=${currentPassword}&newPassword=${newPassword}`,{});
+
+}
+
+changePhoneNumber(email:any, newPhoneNumber:string): Observable<any>{
+
+return this._HttpClient.put<any>(`${this.ApiUrl}/User/UpdatePhoneNumber?email=${email}&newPhoneNumber=${newPhoneNumber}`,{});
+
+}
+
+
+
+
 
 }

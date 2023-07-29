@@ -6,30 +6,45 @@ import { ProfileDTO } from 'src/app/Models/profile-dto';
 import { UserDTO } from 'src/app/Models/user-dto';
 import { UserService } from 'src/app/Services/user.service';
 import { environment } from 'src/environments/environment.development';
-
+import { Location } from '@angular/common';
+import { AccountService } from 'src/app/Services/account.service';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-
-  profile:ProfileDTO |null = null;
+  firstName:string;
+  lastName:string;
+  profile:ProfileDTO |null;
   ApiUrl: string = environment.LocalApiUrl;
+  currentPassword:string;
+  newPassword:string;
+  repeatPassword:string;
+  newPhoneNumber:string;
+
   constructor(private httpclient: HttpClient, private router: Router,
-     private userService: UserService) {
-  
+     private userService: UserService,private location: Location, private accountService: AccountService) {
+  this.firstName='';
+  this.lastName='';
+  this.profile =null;
+this.currentPassword='';
+this.newPassword='';
+this.repeatPassword='';
 
-      
+this.newPhoneNumber= '';
+  this.userService.getCurrentUser();
   }
-  firstName:string='';
-  lastName:string='';
   email:string|null = localStorage.getItem('email');
+  updatedProfile:ProfileDTO|null=null;
 
 
+ 
   ngOnInit(): void {
+ 
+
     // get profile
-    this.getUserProfile().subscribe({
+    this.userService.getUserProfile(this.email).subscribe({
       next:(data:ProfileDTO)=>{
         this.profile = data
         console.log(this.profile);
@@ -42,10 +57,25 @@ export class UserProfileComponent implements OnInit {
     });
 
   }
+
+
+logTest(){
+console.log(this.newPhoneNumber);
+}
   onUpdateProfile() {
-    this.updateUserProfile(this.profile).subscribe({
-      next: (data: ProfileDTO) => {
-        this.profile!.displayName = this.firstName + ' ' + this.lastName;
+    const updatedProfile = {
+      displayName: this.firstName + ' ' + this.lastName,
+      email: this.profile?.email,
+      emailConfirmed: this.profile?.emailConfirmed,
+      id: this.profile?.id,
+      phoneNumber:this.profile?.phoneNumber,
+      phoneNumberConfirmed: this.profile?.phoneNumberConfirmed,
+      userName:this.profile?.userName
+    };
+
+
+    this.userService.updateUserProfile(updatedProfile, updatedProfile.email).subscribe({
+      next: (data: any) => { 
         console.log(data);
         alert("Profile updated successfully");
       },
@@ -53,25 +83,56 @@ export class UserProfileComponent implements OnInit {
         console.error('Failed to update profile');
       }
     });
+
   }
-  // getUserProfile(): Observable<ProfileDTO> {
-  //   const userProfileUrl = '/api/user/profile';
-  //   return this.httpclient.get<ProfileDTO>('http://localhost:5216/api'+userProfileUrl).pipe(
-  //     tap((profile => console.log('User profile:', profile)),
-  //     catchError((error: any) => {
-  //       console.error('Failed to get user profile:', error);
-  //       return of(null);
-  //     })
-  //   ));
-  // }
 
 
-  getUserProfile():Observable<any>{
-    return this.httpclient.get<any>(`${this.ApiUrl}/User/profile?email=${this.email}`);
+
+  onChangePassword(currentPassword: string, newPassword: string){
+    this.userService.changPassword(this.profile?.email, currentPassword, newPassword).subscribe(response=>{
+
+      console.log(response);
+    }
+     
+      //{ next: (data: any) => {
+      //   console.log(data);
+      //   if (data != null) {
+      //     console.log(data.password);
+      //   }
+      //   console.log("################### Current: "+ this.currentPassword +"################ new: " + this.newPassword)
+      //   alert("Password updated successfully");
+      // },
+      // error: (error: any) => {
+      // console.log("Failed to update password");
+      // },
+      //  complete: () => {
+      //   console.log("Password change operation completed");
+      // } }
+
+    )
+
   }
-  updateUserProfile(data:any):Observable<any>{
-  return this.httpclient.put<any>(`${this.ApiUrl}/User/UpdateProfile?email=${this.email}`,data);
+
+  onChangePhoneNumber(){
+    this.userService.changePhoneNumber(this.profile?.email, `20${this.newPhoneNumber}`).subscribe(response=>
+      {
+        console.log(response);
+        console.log(this.profile?.phoneNumber)
+        window.location.reload();
+       })
   }
+
+  onDelete(){
+    this.accountService.deleteAccount(this.profile?.id).subscribe(response=>
+      {
+        console.log(this.profile?.email);
+        console.log(response);
+        window.location.reload();
+
+      }
+      )
+  }
+
 
 
 }

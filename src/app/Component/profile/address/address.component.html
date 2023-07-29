@@ -34,7 +34,7 @@
         <h6>Name : </h6>
       </div>
       <div class="col-sm-6">
-          <p> user full name </p>
+          <p> {{user.displayName}} </p>
       </div>
     </div>
     <div class="row" id="userAddress">
@@ -44,9 +44,8 @@
         <h6 style="margin-top: 10vh;"> phone : </h6>
       </div>
       <div class="col-sm-6">
-          <p> country-state-city-street          
-              country-state-city-street   country-state-city-street  </p>
-              <p style="margin-top: 5vh;"> +2013458378 </p>
+          <p> {{fullAddress}} </p>
+              <p style="margin-top: 9vh;">{{phone}}</p>
       </div>
 
     </div>
@@ -74,12 +73,56 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <!-- <div id="map"></div> -->
+                  <label for="countries" class="form-label"> Country</label>
+                  <select id="countries" class="form-control" (change)="test()" [(ngModel)]="selectedCountry">
+                    <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+                  </select> 
+                  <!-- <label for="fullName" class="form-label"> Full name </label>
+                  <input type="text" class="form-control" id="fullName" [(ngModel)]="fullName" >
+                   -->
+                  <label for="deliverPhone" class="form-label"> PhoneNumber(for Delivery) </label>
+                  <input type="number" class="form-control" placeholder="+20" id="deliverPhone" [(ngModel)]="deliverPhone" >
 
+                  <label for="street" class="form-label"> Street </label>
+                  <input type="text" class="form-control" placeholder="El tahrer st." id="street" [(ngModel)]="street" >
+                  
+                  <label for="building" class="form-label"> Building </label>
+                  <input type="text" class="form-control" placeholder="" id="building" [(ngModel)]="building" >
+
+                  <label for="city" class="form-label"> City </label>
+                  <select id="city" class="form-control" (change)="  testCity()"  [(ngModel)]="selectedCity">
+                    <option *ngFor="let city of cities_en" [value]="city">{{city}}</option>
+                  </select> 
+
+                  <label for="governorate" class="form-label"> Governorate </label>
+                  <select id="governorate" class="form-control" (change)="testGov()"  [(ngModel)]="selectedGovernorate">
+                    <option *ngFor="let governorate of governorates_en" [value]="governorate">{{governorate}}</option>
+                  </select> 
+
+
+                  <!-- <label for="city" class="form-label"> City </label>
+                  <input type="text" class="form-control" placeholder="" id="city" [(ngModel)]="city" > -->
+
+                  <!-- <label for="governorate" class="form-label"> Governorate </label>
+                  <input type="text" class="form-control" placeholder="" id="governorate" [(ngModel)]="governorate" > -->
+
+                  <label for="near" class="form-label"> Near by </label>
+                  <input type="text" class="form-control" placeholder="for example near by Cairo festefall city " id="near" [(ngModel)]="near" >
+                </div>
+
+                <label style="margin-left: 7vh;" for="" class="form-label"> Location </label>
+
+                <div>
+                  <label>
+                    <input type="radio" name="location" [(ngModel)]="location" value="work"> Work
+                  </label>
+                  <label>
+                    <input type="radio" name="location" [(ngModel)]="location" value="home"> Home
+                  </label>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button (click)="getFullAddress()" type="button" class="btn btn-primary"> Add Address</button>
                 </div>
               </div>
             </div>
