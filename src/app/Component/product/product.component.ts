@@ -17,9 +17,10 @@ export class ProductComponent implements OnInit  {
 
 // @Input() Product:Iproduct ={} as Iproduct
 constructor(private _ProductService:ProductService, private router:Router){}
-
+urlImage:string ="http://localhost:5195/files/images/";
 ngOnInit(): void {
   this.getAll()
+
 
 }
 getAll(){
@@ -35,7 +36,7 @@ getAll(){
 }
 
 prdDetails(prdId:string){
-  this.router.navigate(['prd',prdId]); 
+  this.router.navigate(['prd',prdId]);
 }
 
 customOptions: OwlOptions = {

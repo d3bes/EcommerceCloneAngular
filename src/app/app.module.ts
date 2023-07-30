@@ -28,6 +28,7 @@ import { WhishListComponent } from './Component/profile/whish-list/whish-list.co
 import { AddressComponent } from './Component/profile/address/address.component';
 import { PaymentComponent } from './Component/profile/payment/payment.component';
 import { ImgeNavComponent } from './imge-nav/imge-nav.component';
+import { CountProductComponent } from './count-product/count-product.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { ImgeNavComponent } from './imge-nav/imge-nav.component';
     AddressComponent,
     PaymentComponent,
     ImgeNavComponent,
+    CountProductComponent,
   ],
 
   imports: [
