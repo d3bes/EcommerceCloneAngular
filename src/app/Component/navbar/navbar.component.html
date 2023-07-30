@@ -241,7 +241,7 @@
         </button>
 
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-          <li><a class="dropdown-item carousel-pointer" (click)="categorynavigat(category.id)" *ngFor="let category of catogries">{{category.name}}</a></li>
+          <li *ngFor="let category of catogries" ><a class="dropdown-item carousel-pointer"  (click)=" categoryNavigate(category.id)" >{{category.name}}</a></li>
         </ul>
 
       </div>
