@@ -6,15 +6,15 @@
                     <div class="asidewrap">
                       <aside>
                         <div class="user">
-                            <div><p class="name"><strong>Hala userName!</strong></p><p class="email">user email</p></div></div>
+                            <div><p class="name"><strong> {{userName}}</strong></p><p class="email">{{email}}</p></div></div>
                             <hr style="color: rgb(84, 81, 81);">
                             <ul>
                                 <nav class="nav flex-column">
-                                    <a  class="nav-link active" [routerLink]="['/userorders']" aria-current="page" href="#"><i class="fa-solid fa-list" style=" color:rgb(254,238,0) ;" > Orders</i>   </a>
-                                    <a  class="nav-link" href="#" [routerLink]="['/userorders']" ><i class="fa-solid fa-heart-circle-check"> wish list</i>  </a>
-                                    <a   class="nav-link" href="#" [routerLink]="['/addresses']" ><i class="fa-solid fa-map-location-dot"> Address</i>  </a>
-                                    <a   class="nav-link" href="#"><i class="fa-solid fa-credit-card"> Payment</i> </a>
-                                    <a     (click)="getUser()" class="nav-link" href="#"><i class="fa-solid fa-id-badge"> Profile</i></a>
+                                    <a  (click)="showOrders() " class="nav-link active" aria-current="page" ><i class="fa-solid fa-list" style=" color:rgb(254,238,0) ;" > Orders</i>   </a>
+                                    <a  (click)="showWishList() " class="nav-link"  ><i class="fa-solid fa-heart-circle-check"> wish list</i>  </a>
+                                    <a  (click)="showAddress() " class="nav-link" ><i class="fa-solid fa-map-location-dot"> Address</i>  </a>
+                                    <a   (click)="showPayment() " class="nav-link" ><i class="fa-solid fa-credit-card"> Payment</i> </a>
+                                    <a   (click)="showUserProfile() "   class="nav-link" ><i class="fa-solid fa-id-badge"> Profile</i></a>
                                   </nav>
                                   </ul>
                       </aside>
@@ -23,9 +23,13 @@
         </div>
     </div>
     <div class="col-sm-10" style="background-color: rgb(224, 225, 230);" >
-      <app-address ></app-address>
-        <!-- <app-user-profile></app-user-profile> -->
-      <!--  <app-whish-list></app-whish-list> -->
+
+   <div *ngIf="showAddressComponent" > <app-address ></app-address> </div>
+  <div   *ngIf="showUserProfileComponent" > <app-user-profile></app-user-profile> </div>
+   <div *ngIf="showPaymentComponent"  >   <app-payment></app-payment></div>
+   <div *ngIf="showOrderComponent" >  <app-orders></app-orders> </div>
+
+    <div *ngIf="showWishlistComponent" > <app-whish-list></app-whish-list> </div>
         <!--
         <app-sign-up></app-sign-up> -->
         <!-- <app-address> </app-address> -->

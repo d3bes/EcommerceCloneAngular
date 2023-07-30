@@ -19,7 +19,20 @@ export class PaymentComponent  {
   }
 
 
-
+  paymentCards = [
+    {
+      cardNumber: '1234 5678 9012 3456',
+      cardHolderName: 'John Doe',
+      expirationDate: '12/24',
+      cvv: '123'
+    },
+    {
+      cardNumber: '9876 5432 1098 7654',
+      cardHolderName: 'Jane Doe',
+      expirationDate: '06/23',
+      cvv: '456'
+    }
+  ];
 
   public getUser(): UserDTO|null{
     

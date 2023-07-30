@@ -40,4 +40,59 @@ export class ProfileComponent implements OnInit {
     })
     return this.user
   }
+
+
+  showAddressComponent = false;
+  showUserProfileComponent = false;
+  showPaymentComponent = false;
+  showOrderComponent = false;
+  showWishlistComponent = false;
+
+  showAddress() {
+    this.showAddressComponent = true;
+    this.showUserProfileComponent = false;
+    this.showPaymentComponent = false;
+    this.showOrderComponent = false;
+    this.showWishlistComponent = false;
+
+  }
+
+  showUserProfile() {
+    this.showAddressComponent = false;
+    this.showUserProfileComponent = true;
+    this.showPaymentComponent = false;
+    this.showOrderComponent = false;
+    this.showWishlistComponent = false;
+
+  }
+
+  showPayment() {
+  
+    this.showAddressComponent = false;
+    this.showUserProfileComponent = false;
+    this.showPaymentComponent = true;
+    this.showOrderComponent = false;
+    this.showWishlistComponent = false;
+
+  }
+
+  showOrders() {
+  
+    this.showAddressComponent = false;
+    this.showUserProfileComponent = false;
+    this.showPaymentComponent = false;
+    this.showOrderComponent = true;
+    this.showWishlistComponent = false;
+
+  }
+  
+  showWishList() {
+  
+    this.showAddressComponent = false;
+    this.showUserProfileComponent = false;
+    this.showPaymentComponent = false;
+    this.showOrderComponent = false;
+    this.showWishlistComponent = true;
+
+  }
 }
