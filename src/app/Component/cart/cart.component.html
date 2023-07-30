@@ -3,31 +3,30 @@
   <div class="col-md-8 ">
     <div class="d-flex">
       <h5 class="fw-bold mx-2">Cart</h5>
-      <span> (2 items)</span>
+      <span> (<strong>{{counter}}</strong> items)</span>
     </div>
 
     <div class="">
-     <a href=""><img src="assets/images/b5269e16-510b-4ae5-b93b-79a6b4193d30.png" class="w-100" alt=""></a>
+     <!-- <a href=""><img src="assets/images/b5269e16-510b-4ae5-b93b-79a6b4193d30.png" class="w-100" alt=""></a> -->
     </div>
 
-    <div class="row d-flex mx-4">
+    <div class="row d-flex mx-4" *ngFor="let item of Cart">
 
-      <div class="col-md-2">
+      <div class="col-md-2" >
 
           <div>
-            <img src="https://f.nooncdn.com/p/v1687521101/N53363069A_1.jpg?format=avif&width=240" class="w-100" alt="">
-          </div>
+            <img [src]="item.product.images?.[0]"  alt="{{item.product.name}}"></div>
         </div>
 
         <div class="col-md-10 ">
 
         <div class="bg-white d-flex justify-content-between">
           <div>
-            <span class="text-muted">Samsung</span>
-            <p>Galaxy A13 Black 128GB 4GB 4G LTE- Egypt Version</p>
+            <span class="text-muted">{{item.product.brand}}</span>
+            <p>{{item.product.name}}</p>
             <span class="text-muted">Order in 1 hrs 27 mins</span>
            <div class="d-flex">
-             <p class="text-muted">Free delivery </p>
+             <p class="text-muted">Free delivery</p>
            <span class="mx-1"> by </span>
            <p class="text-muted"> Tomorrow, Aug 1 </p>
            </div>
@@ -44,30 +43,34 @@
            <div>
 
              <button type="button" class=" btn border-0 mx-1"><img src="https://f.nooncdn.com/s/app/com/noon/icons/wishlist.svg" class="mx-1" alt=""> Move to Wishlist</button>
-             <button  class=" btn border-0" type="button"><img src="https://f.nooncdn.com/s/app/com/noon/icons/trash.svg" class="mx-1" alt="">Remove</button>
+             <button (click)="RemoveItem(Cart, item)" class=" btn border-0" type="button"><img src="https://f.nooncdn.com/s/app/com/noon/icons/trash.svg" class="mx-1" alt="">Remove</button>
            </div>
-           <button type="button" class="btn bg-transparent btn-primary text-primary my-3">Continue shopping</button>
+           <!-- <button type="button" class="btn bg-transparent btn-primary text-primary my-3">Continue shopping</button> -->
 
           </div>
+          
 
 
 
 
             <div class="mx-4" >
               <div class="my-5">
-                <h5>5699</h5>
+                <h5>{{item.product.price}} <small>EGP</small> </h5>
               </div>
-              <div class="dropdown mt-5">
-                <a class="btn border border-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                 1
-                </a>
-
+              <!-- <div class="dropdown mt-5">
+                <a class="btn border border-1 dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        
+                </a> -->
+                <i (click)="decresQuantity(item.product.sku,item)" class="fa-solid fa-circle-minus" style="color: #ee3f3f;cursor: pointer;"></i>
+               <strong> {{item.quantity}} </strong>
+                <i (click)="increesQuantity(item.product.sku,item)" class="fa-solid fa-circle-plus" style="color: #34d714;cursor: pointer;"></i>
+<!-- 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">2</a></li>
-                  <li><a class="dropdown-item" href="#">3</a></li>
-                  <li><a class="dropdown-item" href="#">4</a></li>
+                  <li><a class="dropdown-item" >2</a></li>
+                  <li><a class="dropdown-item" >3</a></li>
+                  <li><a class="dropdown-item" >4</a></li>
                 </ul>
-              </div>
+              </div> -->
 
               <div>
                 <img src="assets/images/fulfilment_express_v2-en.svg" alt="">
@@ -80,8 +83,7 @@
 
 
         </div>
-
-
+<hr>
 
 
   </div>
@@ -183,6 +185,11 @@
   </div>
 
 
+        
+  </div>
+  <div class="ibox-content">
+    <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+    <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
 
 </div>
 
@@ -226,7 +233,75 @@
 
 
 </div>
+</div>
+<div class="col-md-3">
+  <div class="ibox">
+      <div class="ibox-title">
+          <h5>Cart Summary</h5>
+      </div>
+      <div class="ibox-content">
+          <span>
+              Total    <small>without shipping</small>
+          </span>
+          <h2 class="font-bold">
+             {{Total}}  <small>EGP</small> 
+          </h2>
 
+          <hr>
+          <span class="text-muted small">
+              *For United States, France and Germany applicable sales tax will be applied
+          </span>
+          <div class="m-t-sm">
+              <div class="btn-group">
+              <a  class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+              <a  class="btn btn-white btn-sm"> Cancel</a>
+              </div>
+          </div>
+      </div>
+  </div>
 
+  <div class="ibox">
+      <div class="ibox-title">
+          <h5>Support</h5>
+      </div>
+      <div class="ibox-content text-center">
+          <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
+          <span class="small">
+              Please contact with us if you have any questions. We are avalible 24h.
+          </span>
+      </div>
+  </div>
+
+  <div class="ibox">
+      <div class="ibox-content">
+
+          <p class="font-bold">
+          Other products you may be interested
+          </p>
+          <hr>
+          <div>
+              <a  class="product-name"> Product 1</a>
+              <div class="small m-t-xs">
+                  Many desktop publishing packages and web page editors now.
+              </div>
+              <div class="m-t text-righ">
+
+                  <a  class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+              </div>
+          </div>
+          <hr>
+          <div>
+              <a  class="product-name"> Product 2</a>
+              <div class="small m-t-xs">
+                  Many desktop publishing packages and web page editors now.
+              </div>
+              <div class="m-t text-righ">
+
+                  <a  class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 </div>
+

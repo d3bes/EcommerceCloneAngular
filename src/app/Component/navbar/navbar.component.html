@@ -217,8 +217,15 @@
 
             <div class="cartIconContainer d-flex" routerLink="/cart">
               <span class="textbold">Cart</span>
-              <img src="../assets/images/cart.svg" alt="" />
-            </div>
+              <div style="position: relative; display: inline-block;">
+                <div style="position: relative; display: inline-block;">
+                  <img src="../assets/images/cart.svg" alt="" />
+                  <span style="position: absolute; top: -6px; right: -6px; background-color: blue; color: white; border-radius: 50%; padding: 2px 5px; font-size: 10px;">
+                    {{counter}}
+                  </span>
+                </div>
+
+              </div>            </div>
           </li>
         </a>
         </ul>

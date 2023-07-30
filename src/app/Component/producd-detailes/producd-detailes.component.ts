@@ -101,8 +101,11 @@ export class ProducdDetailesComponent {
       console.log('Updated Cart', updatedCart);
     }
 
-    let counter = this.Cart.length;
-    console.log('Counter ', counter);
+    let counter =  (this.Cart.length).toString();
+    localStorage.setItem("counter", counter);
+    let count= localStorage.getItem('counter');
+    console.log('Counter ', count);
+    
       
   }
 }

@@ -17,13 +17,14 @@ import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-detai
 export class CategoryComponent {
  catId: number = 0;
   products: Iproduct[] | undefined = undefined;
-  catogries: any[] = [];  
+  catogries: any[] = [];
 
-  constructor( private router: Router, 
+  constructor( private router: Router,
     private activatedRoute: ActivatedRoute,
     private productsevice: ProductService,
     private catogriesService:CatogriesService
   ) {}
+
   urlImage:string ="http://localhost:5195/files/images/";
 
   ngOnInit(): void {
@@ -65,8 +66,8 @@ export class CategoryComponent {
     }
   });
   }
- 
-  
+
+
   private loadProducts(): void {
     this.productsevice.getProductsByCategoryID(this.catId).subscribe({
       next: (data) => {
@@ -97,9 +98,9 @@ export class CategoryComponent {
       0: {
         items: 1
       },
-  
+
     },
     nav: true
   }
-  
+
 }

@@ -30,11 +30,12 @@ export class NavbarComponent {
   isLogIn: boolean;
   catId: number = 0;
   products: Iproduct[] | undefined = undefined;
+  counter:string|null;
 
-  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
-   
-    
-    
+  
+
+  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, 
+    private product:ProductService ,private http :HttpClient) {
     this.registrationForm = this.formBuilder.group({
       DisplayName: ['', Validators.required],
       FirstName: ['', Validators.required],
@@ -42,10 +43,18 @@ export class NavbarComponent {
       Email: ['', [Validators.required, Validators.email]],
       PhoneNumber: [''],
       Password: ['', [Validators.required, Validators.minLength(6)]],
+
     });
 
+
     this.isLogIn = false;
+    this.counter= localStorage.getItem('counter');
+setInterval(()=>
+{
+  this.counter= localStorage.getItem('counter');
+},5000)
    }
+   
    selectedParentCategory: ProductCategoryDetailsDTO | null = null;
 
   ngOnInit():void {
