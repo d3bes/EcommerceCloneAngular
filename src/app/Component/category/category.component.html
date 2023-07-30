@@ -376,44 +376,47 @@
                   </div>
                 </div>
                </div>
-               </div>
-          <div class="col-md-9 d-flex" >
-            <div class="row" *ngIf="products"  >
-              <div class="col-md-3 my-2" *ngFor="let product of products" >
-
-              <div class="card p-2 border-0 carousel-pointer "  style="width:14 rem; " >
-        
-              <owl-carousel-o [options]="customOptions">
-        
-                  <ng-container *ngFor="let img of product.images" >
-                    <ng-template carouselSlide >
-                      <img [src]="urlImage+img" alt=" Img Product" class="w-100 " height="200"  >
-                    </ng-template>
-                  </ng-container>
-        
-                </owl-carousel-o>
-                <div class="card-body  my-5">
-        
-                  <p class="card-title text-muted">{{product.description.split(" ").splice(0,8).join(" ")}}</p>
-        
-                  <p class="card-text  fw-bolder"><span class="text-muted" style="font-size:0.7rem;">EGP</span>{{product.price}}</p>
-                  <div class="icon-share-simple d-flex justify-content-between">
-                    <span><img src="../assets/images/fulfilment_express_v2-en.svg" style="width:4rem;" alt=""></span>
-                    <span >
-                      <span class="bg_main  rounded-3 text-light">{{product.reviews}}<i class="fa-solid fa-star text-light font_size"></i></span>
-                      <span class="font_size mx-1">{{product.quantity}}</span>
-                    </span>
+         </div>
+         <div class="col-md-9">
+          <div class="container-fluid my-5">
+ 
+            <div class="row d-flex just-content-between" >
+          
+              <div class="col-md-2 my-2"(click)="prdDetails(product.sku)" *ngFor="let product of products">
+          
+                <div class="card p-2 border-0 carousel-pointer "  style="width:14 rem; ">
+          
+                <owl-carousel-o [options]="customOptions">
+          
+                    <ng-container *ngFor="let img of product.images" >
+                      <ng-template carouselSlide >
+                        <img [src]="urlImage+img" alt=" Img Product" class="w-100 " height="200"  >
+                      </ng-template>
+                    </ng-container>
+          
+                  </owl-carousel-o>
+                  <div class="card-body  my-5">
+          
+                    <p class="card-title text-muted">{{product.description.split(" ").splice(0,10).join(" ")}}</p>
+          
+                    <p class="card-text  fw-bolder"><span class="text-muted" style="font-size:0.7rem;">EGP</span>{{product.price}}</p>
+                    <div class="icon-share-simple d-flex justify-content-between">
+                      <span><img src="../assets/images/fulfilment_express_v2-en.svg" style="width:4rem;" alt=""></span>
+                      <span >
+                        <span class="bg_main  rounded-3 text-light">{{product.reviews}}<i class="fa-solid fa-star text-light font_size"></i></span>
+                        <span class="font_size mx-1">{{product.quantity}}</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
+          
               </div>
-        
-            </div>
-            </div>
-            
-
-        
-           
-          </div>  
+              </div>
+          </div>
+         </div>   
          
     </div>
         
+</div>
+
+    

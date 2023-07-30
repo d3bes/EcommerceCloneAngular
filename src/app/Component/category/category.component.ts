@@ -79,6 +79,9 @@ export class CategoryComponent {
     });
   }
    
+  prdDetails(prdId:string){
+    this.router.navigate(['prd',prdId]);
+  }
   
   
   
