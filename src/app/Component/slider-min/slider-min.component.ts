@@ -3,6 +3,7 @@ import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-detai
 import { CatogriesService } from 'src/app/Services/catogries.service';
 
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-slider-min',
@@ -37,7 +38,7 @@ export class SliderMinComponent {
     nav: true
   }
 
-  constructor(private catogriesService: CatogriesService) { }
+  constructor(private catogriesService: CatogriesService,private router:Router) { }
 
   ngOnInit():void {
     this.catogriesService.getAllCatogries().subscribe({
@@ -56,5 +57,15 @@ export class SliderMinComponent {
 
 
   }
+
+
+    
+  
+  categoryNavigate(catId: number) {
+    
+     
+    this.router.navigate(['cat', catId]);
+    console.log( 'catId:', catId)
+ }
 
 }
