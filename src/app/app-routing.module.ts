@@ -9,6 +9,7 @@ import { UserProfileComponent } from './Component/user-profile/user-profile.comp
 import { AddressComponent } from './Component/address/address.component';
 import { PaymentComponent } from './Component/payment/payment.component';
 import { OrdersComponent } from './Component/orders/orders.component';
+import { CategoryComponent } from './Component/category/category.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   {path: 'addresses', component:AddressComponent, title: 'Addresses'},
   { path: 'payment', component:PaymentComponent, title: 'Payment'},
   {path: 'userorders', component:OrdersComponent, title: 'orders'},
-  {path: 'signIn', component:SignUpComponent, title:'auth'}
+  {path: 'signIn', component:SignUpComponent, title:'auth'},
+  { path: 'cat/:categoryID', component:CategoryComponent }
+
 
 ];
 

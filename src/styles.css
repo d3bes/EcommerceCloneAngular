@@ -154,4 +154,81 @@ padding:0 0.5rem ;
   .textEn  a li{
     font-size:0.9rem;
 
-    }
+  }
+  /* 
+  
+  
+  
+  
+  
+  
+  
+  
+  */
+
+  *{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+:root{
+    --whaitt:#f7f7fa;
+    --blue:#007aff;
+}
+
+
+ .textstyle{
+    text-decoration:none ;
+    list-style:none;
+ }
+
+.textcolor{
+color:var(--blue);
+}
+
+ .bord{
+    border: none;
+    box-sizing:0;
+ }
+
+ ul, #myUL {
+    list-style-type: none;
+  }
+  
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the caret/arrow */
+  .caret {
+    cursor: pointer;
+   /* Prevent text selection */
+  }
+  
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+    /* content: "\25B6"; */
+    
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down::before {
+    transform: rotate(90deg);
+  }
+  
+  /* Hide the nested list */
+  .nested {
+    display: none;
+  }
+  
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+    display: block;
+  }
+ .wInput{
+    width:4rem !important;
+ }

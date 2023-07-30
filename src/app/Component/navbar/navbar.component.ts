@@ -1,13 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IRegist } from 'src/app/Models/iregist';
 import { LogIn } from 'src/app/Models/log-in';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
+import { ProductCategoryDTO } from 'src/app/Models/product-category-dto';
 import { UserDTO } from 'src/app/Models/user-dto';
 import { AccountService } from 'src/app/Services/account.service';
 import { CatogriesService } from 'src/app/Services/catogries.service';
+import { ProductService } from 'src/app/Services/product.service';
 
 
 
@@ -23,10 +26,11 @@ export class NavbarComponent {
   user : UserDTO | undefined;
   registrationForm ! : FormGroup  ;
   register :IRegist ={DisplayName:'',FirstName:'',LastName:'',Email:'',Password:'',PhoneNumber:''} ;
-
+  childrenCategories  ?: ProductCategoryDTO[] | null;
   isLogIn: boolean;
 
-  constructor(private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService) {
+
+  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private product:ProductService) {
     this.registrationForm = this.formBuilder.group({
       DisplayName: ['', Validators.required],
       FirstName: ['', Validators.required],
@@ -53,8 +57,19 @@ export class NavbarComponent {
         console.log('Fetching brands completed.');
       }
     });
-
-
+    this.catogriesService.getAllCatogries().subscribe({
+      next: (data) => {
+        this.childrenCategories = data.filter((category) => category.parentCategoryId != null);
+        console.log(this.catogries);
+      },
+      error: (error: any) => {
+        console.error('Error fetching brands:', error);
+      },
+      complete: () => {
+        console.log('Fetching brands completed.');
+      }
+    });
+   
     //sign in
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -65,6 +80,11 @@ export class NavbarComponent {
 
   }
 
+
+  categorynavigat(catId:number){
+    this.router.navigate(['cat',catId]);
+    
+  }
   //sign in
   log() {
     this.login.Email = this.signInForm.value.email;
@@ -127,8 +147,9 @@ export class NavbarComponent {
   get password(){
     return this.registrationForm.get('Password')
   }
-  onSubmit() {
 
+
+  onSubmit() {
     this.register.DisplayName= this.registrationForm.value.DisplayName;
     console.log(this.registrationForm.value.DisplayName);
     this.register.FirstName= this.registrationForm.value.FirstName;

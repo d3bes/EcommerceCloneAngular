@@ -228,7 +228,7 @@
         </button>
 
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-          <li><a class="dropdown-item" href="#" *ngFor="let item of catogries">{{item.name}}</a></li>
+          <li><a class="dropdown-item carousel-pointer" (click)="categorynavigat(category.id)" *ngFor="let category of catogries">{{category.name}}</a></li>
         </ul>
 
       </div>
@@ -245,10 +245,12 @@
             <div class="row   ">
               <div class="col-md-3">
                 <span class="fw-bolder " >CATEGORIES</span>
-                <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
-
+                <ul class="CATEGORIESUL">
+                  <a *ngFor="let item of childrenCategories; let i = index">
+                    <li class="nav-link " href="#" *ngIf="i === 0 || i === 1">{{ item.name }}</li>
+                  </a>
                 </ul>
+               
           </div>
               <div class="col-md-4">
                 <span class="fw-bolder py-2">TOP BRANDS</span>
@@ -305,8 +307,10 @@
               <div class="row   ">
                 <div class="col-md-3">
                   <span class="fw-bolder ">CATEGORIES</span>
-                  <ul class="CATEGORIESUL  ">
-                    <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+                  <ul class="CATEGORIESUL">
+                    <a *ngFor="let item of childrenCategories; let i = index">
+                      <li class="nav-link" href="#" *ngIf="i === 2 || i === 3">{{ item.name }}</li>
+                      </a>
                   </ul>
                 </div>
                 <div class="col-md-4">
@@ -366,8 +370,10 @@
             <div class="row   ">
               <div class="col-md-3">
                 <span class="fw-bolder ">CATEGORIES</span>
-                <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+                <ul class="CATEGORIESUL">
+                  <a *ngFor="let item of childrenCategories; let i = index">
+                    <li class="nav-link" href="#" *ngIf="i === 4 || i === 5">{{ item.name }}</li>
+                  </a>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -440,8 +446,10 @@
             <div class="row   ">
               <div class="col-md-3">
                 <span class="fw-bolder ">CATEGORIES</span>
-                <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+                <ul class="CATEGORIESUL">
+                  <a *ngFor="let item of childrenCategories; let i = index">
+                    <li class="nav-link" href="#" *ngIf="i === 6 || i ===7 ">{{ item.name }}</li>
+                  </a>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -501,8 +509,10 @@
             <div class="row   ">
               <div class="col-md-3">
                 <span class="fw-bolder ">CATEGORIES</span>
-                <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+                <ul class="CATEGORIESUL">
+                  <a *ngFor="let item of childrenCategories; let i = index">
+                    <li class="nav-link" href="#" *ngIf="i === 8 || i === 9">{{ item.name }}</li>
+                    </a>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -556,8 +566,10 @@
             <div class="row   ">
               <div class="col-md-3">
                 <span class="fw-bolder ">CATEGORIES</span>
-                <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+                <ul class="CATEGORIESUL">
+                  <a *ngFor="let item of childrenCategories; let i = index">
+                    <li class="nav-link" href="#" *ngIf="i === 10 || i === 11">{{ item.name }}</li>
+                  </a>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -605,8 +617,10 @@
             <div class="row   ">
               <div class="col-md-3">
                 <span class="fw-bolder ">CATEGORIES</span>
-                <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+                <ul class="CATEGORIESUL">
+                  <a *ngFor="let item of childrenCategories; let i = index">
+                    <li class="nav-link" href="#" *ngIf="i === 12 || i === 13">{{ item.name }}</li>
+                  </a>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -660,8 +674,10 @@
             <div class="row   ">
               <div class="col-md-3">
                 <span class="fw-bolder ">CATEGORIES</span>
-                <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+                <ul class="CATEGORIESUL">
+                  <a *ngFor="let item of childrenCategories; let i = index">
+                    <li class="nav-link" href="#" *ngIf="i === 14 || i === 15">{{ item.name }}</li>
+                  </a>
                 </ul>
               </div>
               <div class="col-md-4">
