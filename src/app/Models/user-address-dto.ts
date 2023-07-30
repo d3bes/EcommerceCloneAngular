@@ -1,6 +1,9 @@
+import { AddressDTO } from "./address-dto";
+
 export interface UserAddressDTO {
-    id: string;
+    Id: number;
     isDefault: boolean;
-    addressId: string;
-    userId: string|null;
+    Address: AddressDTO;
+    AddressID: number;
+    userId: string;
 }

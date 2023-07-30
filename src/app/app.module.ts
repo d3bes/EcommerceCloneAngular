@@ -35,6 +35,7 @@ import { CartComponent } from './Component/cart/cart.component';
 import { FooteDescrbtionComponent } from './foote-descrbtion/foote-descrbtion.component';
 import { SearchPrductPipe } from './search-prduct.pipe';
 import { MakeOrderComponent } from './Component/make-order/make-order.component';
+import { AllAddressComponent } from './Component/all-address/all-address.component';
 
 
 @NgModule({
@@ -61,7 +62,7 @@ import { MakeOrderComponent } from './Component/make-order/make-order.component'
     MakeOrderComponent,
     CartComponent,
     FooteDescrbtionComponent,
-    SearchPrductPipe,
+    AllAddressComponent,
   ],
 
   imports: [
