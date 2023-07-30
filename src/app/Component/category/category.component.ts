@@ -8,6 +8,7 @@ import { CatogriesService } from 'src/app/Services/catogries.service';
 import { ProducdDetailesComponent } from '../producd-detailes/producd-detailes.component';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
 
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
