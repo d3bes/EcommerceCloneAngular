@@ -18,7 +18,7 @@ export class CategoryComponent {
  catId: number = 0;
   products: Iproduct[] | undefined = undefined;
   catogries: any[] = [];
-
+ 
   constructor( private router: Router,
     private activatedRoute: ActivatedRoute,
     private productsevice: ProductService,
@@ -38,6 +38,7 @@ export class CategoryComponent {
         // Handle invalid category ID
       }
     });
+   
    /*  this.catId = this.activatedRoute.snapshot.paramMap.get('categoryID')
     ?Number(this.activatedRoute.snapshot.paramMap.get('categoryID'))
     : 0;
@@ -79,7 +80,7 @@ export class CategoryComponent {
       },
     });
   }
-   
+ 
   prdDetails(prdId:string){
     this.router.navigate(['prd',prdId]);
   }
