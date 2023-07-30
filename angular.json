@@ -3,6 +3,10 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    // "i18n":{
+    //   "sourceLocale": "en-US",
+    //   ""
+    // },
     "noon": {
       "projectType": "application",
       "schematics": {},

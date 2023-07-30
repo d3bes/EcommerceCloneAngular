@@ -47,6 +47,14 @@ createUserAddress(userAddress:UserAddressDTO):Observable<any>{
   return this._HttpClient.post(`${environment.LocalApiUrl}/UserAddress`, userAddress);
 }
 
+getUserPayments(userId:string|null):Observable<any>{
 
+  return this._HttpClient.get(`${environment.LocalApiUrl}/userpayment/UserPaymentMethod?UserId=${userId}`);
+}
+
+deletePaymentMethod(MethodeId:number):Observable<any>{
+
+  return this._HttpClient.delete(`${environment.LocalApiUrl}/userpayment?Id=${MethodeId}`);
+}
 
 }

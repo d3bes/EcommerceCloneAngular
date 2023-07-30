@@ -1,26 +1,27 @@
-<div class="container-fluid">
+<div class="container-fluid mb-5">
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 mb-5">
             <div class="list">
                 <div id="wrap">
-                    <div class="asidewrap">
+                    <div class="asidewrap ">
                       <aside>
                         <div class="user">
                             <div><p class="name"><strong> {{userName}}</strong></p><p class="email">{{email}}</p></div></div>
                             <hr style="color: rgb(84, 81, 81);">
                             <ul>
-                                <nav class="nav flex-column">
-                                    <a  (click)="showOrders() " class="nav-link active" aria-current="page" ><i class="fa-solid fa-list" style=" color:rgb(254,238,0) ;" > Orders</i>   </a>
-                                    <a  (click)="showWishList() " class="nav-link"  ><i class="fa-solid fa-heart-circle-check"> wish list</i>  </a>
-                                    <a  (click)="showAddress() " class="nav-link" ><i class="fa-solid fa-map-location-dot"> Address</i>  </a>
-                                    <a   (click)="showPayment() " class="nav-link" ><i class="fa-solid fa-credit-card"> Payment</i> </a>
-                                    <a   (click)="showUserProfile() "   class="nav-link" ><i class="fa-solid fa-id-badge"> Profile</i></a>
+                                <nav class="nav flex-column iconnav">
+                                    <a  (click)="showOrders() " class="nav-link active" aria-current="page" ><i class="fa-solid fa-list"></i><span>Orders</span></a>
+                                    <a  (click)="showWishList() " class="nav-link"  ><i class="fa-solid fa-heart-circle-check"></i><span>wish list</span></a>
+                                    <a  (click)="showAddress() " class="nav-link" ><i class="fa-solid fa-map-location-dot"> </i><span>Address</span></a>
+                                    <a   (click)="showPayment() " class="nav-link" ><i class="fa-solid fa-credit-card"> </i><span>Payment</span></a>
+                                    <a   (click)="showUserProfile() "   class="nav-link" ><i class="fa-solid fa-id-badge"></i><span>Profile</span></a>
                                   </nav>
                                   </ul>
                       </aside>
                     </div>
             </div>
         </div>
+        <button class="btn btn-warning px-4 py-1 m-5" [routerLink]="['/home']">Back</button>
     </div>
     <div class="col-sm-10" style="background-color: rgb(224, 225, 230);" >
 
@@ -30,6 +31,7 @@
    <div *ngIf="showOrderComponent" >  <app-orders></app-orders> </div>
 
     <div *ngIf="showWishlistComponent" > <app-whish-list></app-whish-list> </div>
+
         <!--
         <app-sign-up></app-sign-up> -->
         <!-- <app-address> </app-address> -->

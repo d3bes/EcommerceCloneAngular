@@ -1,16 +1,21 @@
-
-    
 <div class="container">
     <div class="row">
       <div class="col-lg-6 mx-auto">
-        <div *ngFor="let card of paymentCards" class="card my-3">
+        <div *ngFor="let method of PaymentMethods; " class="card my-3">
           <div class="card-body">
-            <h5 class="card-title">{{ card.cardHolderName }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">**** **** **** {{ card.cardNumber | slice: -4 }}</h6>
-            <p class="card-text">Expiration date: {{ card.expirationDate }}</p>
-            <p class="card-text">CVV: {{ card.cvv }}</p>
+           <span style="float: right;"><i (click)="deletePaymentMethod(method.paymentMethodID)" class="fa-solid fa-trash-can" style="color: #e02e1a;"> </i></span> 
+            <h5 class="card-title">{{ method.provider }} </h5>   
+            <h6 class="card-subtitle mb-2 text-muted">**** **** **** {{ method.cardNumber | slice: -4 }}</h6>
+            <p class="card-text">Expiration date: {{ method.expirationDate }}</p>
+            <p class="card-text">CVV: {{ method.cvv }} 
+            <span style="margin-left: 1vw;"> <i *ngIf="method.isDefault" class="fa-solid fa-circle-check" style="color: #19e63b;"> Default</i></span> 
+            </p>   
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+
+  

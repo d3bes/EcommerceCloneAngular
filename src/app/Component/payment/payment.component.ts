@@ -1,53 +1,62 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PaymentMethodDTO } from 'src/app/Models/payment-method-dto';
 import { UserDTO } from 'src/app/Models/user-dto';
 import { UserService } from 'src/app/Services/user.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent  {
+export class PaymentComponent implements OnInit   {
   userName:string|null;
   email:string|null;
   user:UserDTO|null=null;
+  userId:string|null;
+  PaymentMethods:PaymentMethodDTO[];
   constructor(private userService: UserService){
 
   this.email= localStorage.getItem('email');
   this.userName= localStorage.getItem("username");
+  this.userId= localStorage.getItem('userId');
+  this.PaymentMethods = [];
+  }
 
+  ngOnInit(): void {
+
+    this.userService.getUserPayments(this.userId).subscribe(Paymnets=>
+      {
+        this.PaymentMethods = Paymnets
+        console.log(this.PaymentMethods)
+      })
   }
 
 
-  paymentCards = [
-    {
-      cardNumber: '1234 5678 9012 3456',
-      cardHolderName: 'John Doe',
-      expirationDate: '12/24',
-      cvv: '123'
-    },
-    {
-      cardNumber: '9876 5432 1098 7654',
-      cardHolderName: 'Jane Doe',
-      expirationDate: '06/23',
-      cvv: '456'
+
+
+  deletePaymentMethod(methodId: number) {
+    const result = confirm("Are you sure you want to delete this payment method?");
+    if (result) {
+      // Delete the payment method with the given ID
+    //  this.PaymentMethods.splice(index, 1);
+    this.userService.deletePaymentMethod(methodId).subscribe(result=>{
+      console.log(result);
+      if(result) 
+      window.location.reload();
+    });
+
     }
-  ];
-
-  public getUser(): UserDTO|null{
-    
-    this.userService.getCurrentUser().subscribe({
-      next: (data: UserDTO) => {
-        this.user = data;
-        console.log(this.user);
-      },
-      error: (error: any) => {
-        console.error('Error getting user:', error);
-      },
-      complete: () => {
-        console.log('Fetching brands completed.');
-      }
-    })
-    return this.user
   }
+  
+
+  // paymentMethodID: number;
+  // provider: string;
+  // cardNumber: string;
+  // expirationDate: string;
+  // cvv: string;
+  // isDefault: boolean;
+  // userID: string;
+ 
+
+  
 }
