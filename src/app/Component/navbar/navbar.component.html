@@ -1,6 +1,6 @@
 <header class="">
 
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light carousel-pointer">
     <div class="container-fluid">
       <a class="navbar-brand " href="#">
         <div class="image-nav ms-3">
@@ -125,7 +125,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+        <h5 class="modal-title" id="exampleModalLabel"  >Sign Up</h5>
       </div>
       <div class="modal-body">
         <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form">
@@ -246,8 +246,8 @@
               <div class="col-md-3">
                 <span class="fw-bolder " >CATEGORIES</span>
                 <ul class="CATEGORIESUL  ">
-                  <a class="nav-link"  href="#"
-                  ><li></li></a>
+                  <a class="nav-link"  href="#" *ngFor="let item of catogries"><li>{{item.name}}</li></a>
+
                 </ul>
           </div>
               <div class="col-md-4">

@@ -13,4 +13,9 @@ export class CatogriesService {
   getAllCatogries():Observable<ProductCategoryDetailsDTO[]>{
     return this.httpclient.get<ProductCategoryDetailsDTO[]>(`${this.apiBaseUrl}/ProductCategory`);
   }
+  
+
+
+
+
 }

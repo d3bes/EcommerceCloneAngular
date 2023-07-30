@@ -8,17 +8,17 @@
   </owl-carousel-o>
 </div>
  -->
- <div class="container">
-  <div class="row bg-info">
+ <div class="container-fluid ">
+  <div class="row">
 
-    <owl-carousel-o [options]="customOptions">
+    <owl-carousel-o [options]="customOptions" class="pt-2">
 
-      <ng-container *ngFor="let category of catogries" class="bg-dark">
-        <ng-template carouselSlide  >
-          <div class="div w-50 bg-danger">
-            <img  class="w-100" [src]="category.imgUrl"  alt="" >
+      <ng-container *ngFor="let category of catogries">
+        <ng-template carouselSlide  class="p-5 ">
+          <div class="divp-0 m-0 cursor-pointer"  style="width:70%;">
+            <img  class="p-0 m-0" style="width:80%;" [src]="category.imgUrl"  alt="" >
           </div>
-          <h4 class="h6 fw-bolder ">{{category.name}}</h4>
+          <!-- <h4 class="h6 fw-bolder ">{{category.name}}</h4> -->
         </ng-template>
       </ng-container>
 

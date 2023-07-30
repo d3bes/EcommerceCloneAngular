@@ -14,25 +14,25 @@ export class SliderMinComponent {
 
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
     dots: false,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
       0: {
-        items: 1
+        items: 7
       },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 3
-      },
-      940: {
-        items: 4
-      }
+      // 500: {
+      //   items: 2
+      // },
+      // 740: {
+      //   items: 3
+      // },
+      // 940: {
+      //   items: 4
+      // }
     },
     nav: true
   }
@@ -42,7 +42,8 @@ export class SliderMinComponent {
   ngOnInit():void {
     this.catogriesService.getAllCatogries().subscribe({
       next: (data: ProductCategoryDetailsDTO[]) => {
-        this.catogries = data.filter((category) => category.imgUrl !== "");
+        this.catogries = data.filter((category) =>category.parentCategoryId !== null);
+
         console.log(this.catogries);
       },
       error: (error: any) => {
@@ -53,7 +54,7 @@ export class SliderMinComponent {
       }
     });
 
-   
+
   }
 
 }

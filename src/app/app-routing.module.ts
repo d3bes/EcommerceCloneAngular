@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProducdDetailesComponent } from './Component/producd-detailes/producd-detailes.component';
-import { NavbarComponent } from './Component/navbar/navbar.component';
 import { HomeComponent } from './Component/home/home.component';
+import { SignUpComponent } from './Component/sign-up/sign-up.component';
+import { NavbarComponent } from './Component/navbar/navbar.component';
 import { ProfileComponent } from './Component/profile/profile.component';
 import { UserProfileComponent } from './Component/profile/user-profile/user-profile.component';
 import { AddressComponent } from './Component/profile/address/address.component';

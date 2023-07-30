@@ -3,6 +3,7 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
+
 }
 :root{
   --whaitt:#f7f7fa;
@@ -104,4 +105,53 @@ margin:auto;
   font-size:0.9rem !important;
  }
 
+.carousel-pointer{
+  cursor: pointer;
+}
+.fontTitl {
+  font-size:0.9rem !important;
+ }
+.font {
+  font-size:0.7rem !important;
+  color:#404553;
+ }
 
+ .descriptionfooter{
+  margin-bottom:0.5rem;
+ }
+
+ .countfooter
+ {
+  background-color:#f7f7fa;
+ }
+
+.coll{
+color: #404553;
+}
+
+.bord
+{
+  border-bottom: 0.5px solid #888fa1 !important;
+ ;
+}
+
+.textEnd a{
+text-decoration: none !important;
+color: #404553 !important;
+padding:0 0.5rem ;
+}
+
+.imgesvis img{
+  margin:0 0.5rem;
+}
+.textEn a{
+  text-decoration: none !important;
+  list-style:none;
+  color: #404553 !important;
+
+  }
+
+  .textEn  a li{
+    font-size:0.9rem;
+
+    }

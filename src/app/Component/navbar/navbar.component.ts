@@ -10,6 +10,7 @@ import { AccountService } from 'src/app/Services/account.service';
 import { CatogriesService } from 'src/app/Services/catogries.service';
 
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -22,7 +23,7 @@ export class NavbarComponent {
   user : UserDTO | undefined;
   registrationForm ! : FormGroup  ;
   register :IRegist ={DisplayName:'',FirstName:'',LastName:'',Email:'',Password:'',PhoneNumber:''} ;
-  
+
   isLogIn: boolean;
 
   constructor(private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService) {
@@ -52,7 +53,7 @@ export class NavbarComponent {
         console.log('Fetching brands completed.');
       }
     });
-   
+
 
     //sign in
     this.signInForm = this.formBuilder.group({
@@ -60,8 +61,8 @@ export class NavbarComponent {
       password: ['', [Validators.required]]
     });
 
-   
-    
+
+
   }
 
   //sign in
@@ -71,7 +72,7 @@ export class NavbarComponent {
     console.log('Email:', this.login.Email);
     console.log('Password:', this.login.Password);
     console.log("nnnnnnnnnn")
-    
+
     this.accountService.logIn(this.login).subscribe(
       {
         next: (data: UserDTO) => {
@@ -89,16 +90,16 @@ export class NavbarComponent {
           this.isLogIn = true;
           
         }
-      }     
+      }
     );
 
-    
+
     if (this.signInForm.invalid) {
       return;
   }  //hestucaspo@gufum.com
   var p : string ="Huj3#jiS";
     // Perform the sign-in logic here
-    
+
 
     // For demonstration purposes, you can log the email and password
     console.log('Email:', this.login.Email);
@@ -107,7 +108,7 @@ export class NavbarComponent {
 
 
   /////////////////register /////////////////
-  
+
   get fullname(){
     return this.registrationForm.get('DisplayName');
   }
@@ -127,7 +128,7 @@ export class NavbarComponent {
     return this.registrationForm.get('Password')
   }
   onSubmit() {
-   
+
     this.register.DisplayName= this.registrationForm.value.DisplayName;
     console.log(this.registrationForm.value.DisplayName);
     this.register.FirstName= this.registrationForm.value.FirstName;
@@ -135,9 +136,9 @@ export class NavbarComponent {
 
     this.register.LastName= this.registrationForm.value.LastName;
     this.register.Email = this.registrationForm.value.Email;
-    this.register.PhoneNumber = this.registrationForm.value.PhoneNumber 
+    this.register.PhoneNumber = this.registrationForm.value.PhoneNumber
     this.register.Password = this.registrationForm.value.Password;
-   
+
     this.accountService.regist(this.register).subscribe({
       next:(response:any)=>{
         //this.router.navigate(['/home']);
@@ -151,7 +152,7 @@ export class NavbarComponent {
         console.log(err);
       }
     })
-    
+
   }
 
 
