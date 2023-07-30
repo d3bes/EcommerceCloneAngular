@@ -9,14 +9,20 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
+  userName:string|null;
+  email:string|null;
   user:UserDTO|null=null;
   constructor(private userService: UserService){
+
+  this.email= localStorage.getItem('email');
+  this.userName= localStorage.getItem("username");
+
   }
   ngOnInit(): void {
-
-
-
   }
+
+
+
 
   public getUser(): UserDTO|null{
     
@@ -34,5 +40,4 @@ export class ProfileComponent implements OnInit {
     })
     return this.user
   }
-  
 }

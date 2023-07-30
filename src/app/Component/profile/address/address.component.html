@@ -74,56 +74,55 @@
                   <div class="modal-body">
                     <form (ngSubmit)="CreateAddress()">  
                       <label for="FirstName" class="form-label"> First Name</label>
-    <input type="text" class="form-control" id="FirstName" [(ngModel)]="FirstName" >
+                      <input type="text" class="form-control" id="FirstName" [(ngModel)]="FirstName" >
 
-    <label for="LastName" class="form-label"> Last Name</label>
-    <input type="text" class="form-control" id="LastName" [(ngModel)]="LastName" >
-
-
-    <label for="countries" class="form-label"> Country</label>
-    <select id="countries" class="form-control"  [(ngModel)]="selectedCountry">
-      <option *ngFor="let country of countries" [value]="country">{{country}}</option>
-    </select> 
+                      <label for="LastName" class="form-label"> Last Name</label>
+                      <input type="text" class="form-control" id="LastName" [(ngModel)]="LastName" >
 
 
-    <label for="deliverPhone" class="form-label"> PhoneNumber(for Delivery) </label>
-    <input type="number" class="form-control" placeholder="+20" id="deliverPhone" [(ngModel)]="deliverPhone" >
+                      <label for="countries" class="form-label"> Country</label>
+                      <select id="countries" class="form-control"  [(ngModel)]="selectedCountry">
+                        <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+                      </select> 
 
-    <label for="street" class="form-label"> Street </label>
-    <input type="text" class="form-control" placeholder="El tahrer st." id="street" [(ngModel)]="street" >
-    
-    <label for="building" class="form-label"> Building </label>
-    <input type="text" class="form-control" placeholder="" id="building" [(ngModel)]="building" >
+                      <label for="deliverPhone" class="form-label"> PhoneNumber(for Delivery) </label>
+                      <input type="number" class="form-control" placeholder="+20" id="deliverPhone" [(ngModel)]="deliverPhone" >
 
-    <label for="city" class="form-label"> City </label>
-    <select id="city" class="form-control" (change)="  testCity()"  [(ngModel)]="selectedCity">
-      <option *ngFor="let city of cities_en" [value]="city">{{city}}</option>
-    </select> 
+                      <label for="street" class="form-label"> Street </label>
+                      <input type="text" class="form-control" placeholder="El tahrer st." id="street" [(ngModel)]="street" >
+                      
+                      <label for="building" class="form-label"> Building </label>
+                      <input type="text" class="form-control" placeholder="" id="building" [(ngModel)]="building" >
 
-    <label for="governorate" class="form-label"> Governorate </label>
-    <select id="governorate" class="form-control" (change)="testGov()"  [(ngModel)]="selectedGovernorate">
-      <option *ngFor="let governorate of governorates_en" [value]="governorate">{{governorate}}</option>
-    </select> 
+                      <label for="city" class="form-label"> City </label>
+                      <select id="city" class="form-control" (change)="  testCity()"  [(ngModel)]="selectedCity">
+                        <option *ngFor="let city of cities_en" [value]="city">{{city}}</option>
+                      </select> 
 
-    <label for="near" class="form-label"> Near by </label>
-    <input type="text" class="form-control" placeholder="for example near by Cairo festefall city " id="near" [(ngModel)]="near" >
-  
+                      <label for="governorate" class="form-label"> Governorate </label>
+                      <select id="governorate" class="form-control" (change)="testGov()"  [(ngModel)]="selectedGovernorate">
+                        <option *ngFor="let governorate of governorates_en" [value]="governorate">{{governorate}}</option>
+                      </select> 
 
-    <label style="margin-left: 7vh;" for="" class="form-label"> Location </label>
+                    <label for="near" class="form-label"> Near by </label>
+                    <input type="text" class="form-control" placeholder="for example near by Cairo festefall city " id="near" [(ngModel)]="near" >
+                  
 
-    <div>
-    <label>
-      <input type="radio" name="location" [(ngModel)]="location" value="work"> Work
-    </label>
-    <label>
-      <input type="radio" name="location" [(ngModel)]="location" value="home"> Home
-    </label>
-    </div>
-    <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary">Add Address</button>
-  </div>
-</form>
+                    <label style="margin-left: 7vh;" for="" class="form-label"> Location </label>
+
+                    <div>
+                    <label>
+                      <input type="radio" name="location" [(ngModel)]="location" value="work"> Work
+                    </label>
+                    <label>
+                      <input type="radio" name="location" [(ngModel)]="location" value="home"> Home
+                    </label>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Address</button>
+                  </div>
+                </form>
                   
                 </div>
               </div>
