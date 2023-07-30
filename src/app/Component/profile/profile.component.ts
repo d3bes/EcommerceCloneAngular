@@ -19,6 +19,14 @@ export class ProfileComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
+    this.getUser();
+    this.userService.getUserProfile(this.email).subscribe(user=>{
+      console.log(user.id);
+     localStorage.setItem('userId', user.id)
+    })
+
+
   }
 
 
@@ -40,6 +48,7 @@ export class ProfileComponent implements OnInit {
     })
     return this.user
   }
+  
 
 
   showAddressComponent = false;
