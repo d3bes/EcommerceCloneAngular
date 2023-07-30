@@ -46,6 +46,14 @@ height:1.7rem;
 
 
 }
+.iconnav{
+  cursor: pointer;
+  
+}
+.iconnav i{
+color: rgb(254,238,0);
+margin-right:0.5rem;
+}
 
 
 #btn-slider{
