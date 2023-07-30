@@ -132,284 +132,39 @@
 
 </div>
 
-<div class="row">
-      <div class="col-md-3">
 
-            <div class="accordion accordion-flush border-0" id="accordionFlushExample">
-              <div class="border-0 ">
+<div class="container-fluid my-5" >
+  <h3  class="my-3" style="text-align: center;">Products based on brand</h3>
+  <div class="row d-flex just-content-between" >
 
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed m-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                      <span class=" mx-3 fw-bold">Fulfillment</span>
-                      <span class="textcolor fs-6 ">clear</span>
-                  </button>
+    <div class="col-md-2 my-2"(click)="prdDetails(product.sku)" *ngFor="let product of products">
 
-                </h2>
+      <div class="card p-2 border-0 carousel-pointer "  style="width:14 rem; ">
 
-                <div id="flush-collapseOne" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                      <form>
-                          <div class="form-check">
-                              <input class="form-check-input " type="checkbox" value="express" id="flexCheckDefault">
-                              <img src="../../../assets/images/fulfilment_express_v2-en.svg" class="px-2" for="flexCheckDefault"  style="width:30%;" alt="">
-                            </div>
-                          </form>
-                      </div>
-                </div>
-              </div>
+      <owl-carousel-o [options]="customOptions">
 
-              <div class="accordion-item border-0">
-                  <div class="border-0">
-                  <h2 class="accordion-header" id="flush-headingTwo">
-                    <button  class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                      <span class="  fw-bold" >Category</span>
-                    </button>
-                  </h2>
-                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                      <ul id="myUL">
-                          <li *ngFor="let item of catogries">
+          <ng-container *ngFor="let img of product.images" >
+            <ng-template carouselSlide >
+              <img [src]="urlImage+img" alt=" Img Product" class="w-100 " height="200"  >
+            </ng-template>
+          </ng-container>
 
-                              <span class="caret" id="chan"><img src="../../../assets/images/plus-grey.svg" class="mx-2" alt=""   >{{ item.name }}</span>
+        </owl-carousel-o>
+        <div class="card-body  my-5">
 
-                              <ul class="nested" >
-                                  <div class="p-2">
+          <p class="card-title text-muted">{{product.description.split(" ").splice(0,10).join(" ")}}</p>
 
-                                  </div>
-
-                                  <li>
-
-                                      <span class="caret"> <img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
-                                      <ul class="nested">
-                                          <div class="p-2">
-                                              Electronics & Mobiles
-                                          </div>
-
-
-                                          <li>
-
-                                              <span class="caret"><img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
-                                              <ul class="nested">
-                                                  <div class="p-2">
-                                                      Electronics & Mobiles
-                                                  </div>
-
-
-                                                  <li>
-
-                                                      <span class="caret">
-                                                          <img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
-                                                      <ul class="nested">
-                                                          <div class="p-2">
-                                                              Electronics & Mobiles
-                                                          </div>
-                                                      </ul>
-
-                                                    </li>
-                                              </ul>
-
-                                            </li>
-                                      </ul>
-
-                                    </li>
-
-
-
-
-                              </ul>
-
-
-
-                          </li>
-                        </ul></div>
-                  </div>
-                </div>
-                </div>
-
-                <div class="accordion-item border-0">
-                  <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                      <span class="fw-bold">Brand</span>
-                    </button>
-                  </h2>
-                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                      <form >
-
-                          <input type="search" placeholder="Search">
-                          <div class="form-check my-2">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                              <label class="form-check-label" for="flexCheckDefault">
-                              <span>Samsung</span>
-                              </label>
-                            </div>
-                            <div class="form-check my-1">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                              <label class="form-check-label" for="flexCheckChecked">
-                                  <span>Apple</span>
-                              </label>
-                            </div>
-
-                            <div class="form-check my-1">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" >
-                              <label class="form-check-label" for="flexCheckChecked2">
-                                  <span>Apple</span>
-                              </label>
-                            </div>
-                            <div class="form-check my-1">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" >
-                              <label class="form-check-label" for="flexCheckChecked3">
-                                  <span>Apple</span>
-                              </label>
-                            </div>
-                            <div class="form-check my-1">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4">
-                              <label class="form-check-label" for="flexCheckChecked4">
-                                  <span>Apple</span>
-                              </label>
-                            </div>
-
-                            <div> <div> <div> <div> <ul> <li>
-<ul> <li><ul>
-
-                                            <li>
-
-                                                <span class="caret"><img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
-                                                <ul class="nested">
-                                                    <div class="p-2">
-                                                        Electronics & Mobiles
-                                                    </div>
-
-
-                                                    <li>
-
-                                                        <span class="caret">
-                                                            <img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
-                                                        <ul class="nested">
-                                                            <div class="p-2">
-                                                                Electronics & Mobiles
-                                                            </div>
-                                                        </ul>
-
-                                                      </li>
-                                                </ul>
-
-                                              </li>
-                                        </ul>
-
-                                      </li>
-
-
-
-
-                                </ul>
-
-
-
-                            </li>
-                          </ul>
-
-                  </div>
-
-
-
-
-
-
-
-                </div>
-                <div class="accordion accordion-flush border-0" id="accordionFlushExample4">
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingFour">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                      <span class="fw-bold">Price (EGP)</span>
-                      </button>
-                    </h2>
-                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample4">
-                      <div class="accordion-body">
-                        <div class="div d-flex">
-                            <input type="number" class="wInput" value="" name="min" class="textInput" aria-label="min" data-qa="filter-min-input">
-                            <span class="mx-3 text-muted">TO</span>
-                            <input type="number"class="wInput" value="" name="max" class="textInput" aria-label="max" data-qa="filter-min-input">
-                            <button class="text-muted mx-2 border-0 bg-transparent" type="button">Go</button>
-                        </div>
-                       </div>
-                    </div>
-                  </div>
-                </div>
-               </div>
-              </div>
-
-            <div class="col-md-9" >
-              <div class="row" >
-                <div class="col-md-3" *ngFor="let product of products|searchPrduct:''" >
-
-                <div class="card p-2 border-0 carousel-pointer "  style="width:14 rem; " >
-
-                <owl-carousel-o [options]="customOptions">
-
-                    <ng-container *ngFor="let img of product.images" >
-                      <ng-template carouselSlide >
-                        <img [src]="urlImage+img" alt=" Img Product" class="w-100 " height="200"  >
-                      </ng-template>
-                    </ng-container>
-
-                  </owl-carousel-o>
-                  <div class="card-body  my-5">
-
-                    <p class="card-title text-muted">{{product.description.split(" ").splice(0,7).join(" ")}}</p>
-                    <p class="card-title text-muted">{{product.name.split(" ").splice(0,1).join(" ")}}</p>
-
-                    <p class="card-text  fw-bolder"><span class="text-muted" style="font-size:0.7rem;">EGP</span>{{product.price}}</p>
-                    <div class="icon-share-simple d-flex justify-content-between">
-                      <span><img src="../assets/images/fulfilment_express_v2-en.svg" style="width:4rem;" alt=""></span>
-                      <span >
-                        <span class="bg_main  rounded-3 text-light">{{product.reviews}}<i class="fa-solid fa-star text-light font_size"></i></span>
-                        <span class="font_size mx-1">{{product.quantity}}</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                </div> 
-      </div>
-      <div class="col-md-9">
- <div class="col-md-2 my-2"(click)="prdDetails(product.sku)" *ngFor="let product of products" >
-    
-          <div class="card p-2 border-0 carousel-pointer "  style="width:14 rem; ">
-    
-          <owl-carousel-o [options]="customOptions">
-    
-              <ng-container *ngFor="let img of product.images" >
-                <ng-template carouselSlide >
-                  <img [src]="urlImage+img" alt=" Img Product" class="w-100 " height="200"  >
-                </ng-template>
-              </ng-container>
-    
-            </owl-carousel-o>
-            <div class="card-body  my-5">
-    
-              <p class="card-title text-muted">{{product.description.split(" ").splice(0,10).join(" ")}}</p>
-    
-              <p class="card-text  fw-bolder"><span class="text-muted" style="font-size:0.7rem;">EGP</span>{{product.price}}</p>
-              <div class="icon-share-simple d-flex justify-content-between">
-                <span><img src="../assets/images/fulfilment_express_v2-en.svg" style="width:4rem;" alt=""></span>
-                <span >
-                  <span class="bg_main  rounded-3 text-light">{{product.reviews}}<i class="fa-solid fa-star text-light font_size"></i></span>
-                  <span class="font_size mx-1">{{product.quantity}}</span>
-                </span>
-              </div>
-            </div>
+          <p class="card-text  fw-bolder"><span class="text-muted" style="font-size:0.7rem;">EGP</span>{{product.price}}</p>
+          <div class="icon-share-simple d-flex justify-content-between">
+            <span><img src="../assets/images/fulfilment_express_v2-en.svg" style="width:4rem;" alt=""></span>
+            <span >
+              <span class="bg_main  rounded-3 text-light">{{product.reviews}}<i class="fa-solid fa-star text-light font_size"></i></span>
+              <span class="font_size mx-1">{{product.quantity}}</span>
+            </span>
           </div>
-    
         </div>
       </div>
 
-       
-        
-
-
-
-
-
-
+    </div>
+    </div>
+</div>
