@@ -1,9 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule} from '@angular/platform-browser';
-import * as tt from '@tomtom-international/web-sdk-maps';
-import { GeoJSON } from 'geojson';
-import { Control } from 'leaflet';
 import { Observable, of, tap } from 'rxjs';
 import { AddressDTO } from 'src/app/Models/address-dto';
 import { City } from 'src/app/Models/city';
@@ -11,11 +8,10 @@ import { ProfileDTO } from 'src/app/Models/profile-dto';
 import { UserAddressDTO } from 'src/app/Models/user-address-dto';
 import { UserService } from 'src/app/Services/user.service';
 import { environment } from 'src/environments/environment.development';
-import { v4 as uuidv4 } from 'uuid';
 import { Location } from '@angular/common';
 import { FormControl } from '@angular/forms';
 
- 
+
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
@@ -23,7 +19,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AddressComponent implements OnInit {
 
- 
+
   map: any ;
   marker:any;
   user:ProfileDTO;
@@ -57,7 +53,7 @@ export class AddressComponent implements OnInit {
 
   constructor( private httpclient: HttpClient, private userService: UserService
     ) {
-    
+
 
 
       this.Address = {} as AddressDTO;
@@ -72,18 +68,18 @@ export class AddressComponent implements OnInit {
           console.log(this.userId);
           console.log( this.UserAddress.userId);
         console.log(response);
-    
+
         });
 
 
-        
+
   }
 
 
 
 
-  
-  
+
+
   email:string|null =  localStorage.getItem('email');
 
   ngOnInit(){
@@ -92,16 +88,16 @@ export class AddressComponent implements OnInit {
     this.userService.getCurrentUser().pipe(
       tap((response: ProfileDTO) => {
         this.user = response;
-    
+
         console.log(this.user);
       })
     ).subscribe();
- 
-    
-    
+
+
+
         // get countries
         const objs = this.getCountries().subscribe(response=>
-          { 
+          {
             const names = response.map((obj: { name: { common: any; }; }) => obj.name.common);
           //  console.log(names);
             this.countries= names;
@@ -125,17 +121,17 @@ export class AddressComponent implements OnInit {
           // console.log(this.governorates_en);
         });
 
-            
-     
 
-        
+
+
+
 
 
       }
 
 
-   
-    
+
+
 
     // this.map = tt.map({
     //   key : 'ZqFZ8dn3Ry8Qonu8p49rWqmioUzn09IA',
@@ -145,16 +141,16 @@ export class AddressComponent implements OnInit {
     // });
     //    this.getjsondata()
     // }
-    
+
 
 
     // getjsondata(){
     // }
-      
+
 
       getFullAddress():string{
-    this.fullAddress= this.selectedCountry + ' - ' + this.selectedGovernorate + ' - ' + this.selectedCity + ' - ' + this.street 
-    + ' - ' + this.near + 'bulding no:' + this.building +  ' - ' +' - Location type: ' + this.location 
+    this.fullAddress= this.selectedCountry + ' - ' + this.selectedGovernorate + ' - ' + this.selectedCity + ' - ' + this.street
+    + ' - ' + this.near + 'bulding no:' + this.building +  ' - ' +' - Location type: ' + this.location
     console.log(this.fullAddress);
     return this.fullAddress
     }
@@ -185,7 +181,7 @@ CreateAddress(){
  this.UserAddress.addressId = this.Address.id;
   // this.UserAddress.userId = this.userId;
   console.log( this.UserAddress.userId);
-  
+
 this.userService.createAddress(this.Address).subscribe({
   next:(data:AddressDTO)=>{
     console.log(data);
@@ -196,7 +192,7 @@ this.userService.createAddress(this.Address).subscribe({
   },
   complete: () => {
     window.location.reload();
-    } 
+    }
 });
 
 }
