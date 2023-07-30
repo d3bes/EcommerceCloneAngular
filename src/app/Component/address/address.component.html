@@ -34,7 +34,7 @@
         <h6>Name : </h6>
       </div>
       <div class="col-sm-6">
-          <p> {{FirstName+"  "+LastName}} </p>
+          <p> {{address.firstName+"  "+address.lastName}} </p>
       </div>
     </div>
     <div class="row" id="userAddress">
@@ -44,8 +44,8 @@
         <h6 style="margin-top: 10vh;"> phone : </h6>
       </div>
       <div class="col-sm-6">
-          <p> {{fullAddress}} </p>
-              <p style="margin-top: 9vh;">{{deliverPhone}}</p>
+          <p> {{getFullAddress()}} </p>
+              <p style="margin-top: 9vh;">{{address.phoneNumber}}</p>
       </div>
 
     </div>
@@ -72,62 +72,89 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form (ngSubmit)="CreateAddress()">  
+                    <!-- <form (ngSubmit)="CreateAddress()">   -->
+                      <form (ngSubmit)="CreateAddress()" #addressForm="ngForm">
+                        <div class="form-group">
                       <label for="FirstName" class="form-label"> First Name</label>
-                      <input type="text" class="form-control" id="FirstName" [(ngModel)]="FirstName" >
+                      <input type="text" class="form-control" id="FirstName" name="FirstName" [(ngModel)]="address.firstName" >
 
                       <label for="LastName" class="form-label"> Last Name</label>
-                      <input type="text" class="form-control" id="LastName" [(ngModel)]="LastName" >
+                      <input type="text" class="form-control" id="LastName" name="LastName" [(ngModel)]="address.lastName" >
 
 
                       <label for="countries" class="form-label"> Country</label>
-                      <select id="countries" class="form-control"  [(ngModel)]="selectedCountry">
+                      <select id="countries" class="form-control" name="countries" [(ngModel)]="fullAddress.selectedCountry">
                         <option *ngFor="let country of countries" [value]="country">{{country}}</option>
                       </select> 
 
                       <label for="deliverPhone" class="form-label"> PhoneNumber(for Delivery) </label>
-                      <input type="number" class="form-control" placeholder="+20" id="deliverPhone" [(ngModel)]="deliverPhone" >
+                      <input type="number" class="form-control" placeholder="+20" name="deliverPhone" id="deliverPhone" [(ngModel)]="address.phoneNumber" >
 
                       <label for="street" class="form-label"> Street </label>
-                      <input type="text" class="form-control" placeholder="El tahrer st." id="street" [(ngModel)]="street" >
+                      <input type="text" class="form-control" placeholder="El tahrer st." name="street" id="street" [(ngModel)]="fullAddress.street" >
                       
                       <label for="building" class="form-label"> Building </label>
-                      <input type="text" class="form-control" placeholder="" id="building" [(ngModel)]="building" >
+                      <input type="text" class="form-control" placeholder="" id="building" name="building" [(ngModel)]="fullAddress.building" >
 
                       <label for="city" class="form-label"> City </label>
-                      <select id="city" class="form-control" (change)="  testCity()"  [(ngModel)]="selectedCity">
+                      <select id="city" name="city" class="form-control" (change)="  testCity()"  [(ngModel)]="fullAddress.selectedCity">
                         <option *ngFor="let city of cities_en" [value]="city">{{city}}</option>
                       </select> 
 
                       <label for="governorate" class="form-label"> Governorate </label>
-                      <select id="governorate" class="form-control" (change)="testGov()"  [(ngModel)]="selectedGovernorate">
+                      <select id="governorate" name="governorate" class="form-control" (change)="testGov()"  [(ngModel)]="fullAddress.selectedGovernorate">
                         <option *ngFor="let governorate of governorates_en" [value]="governorate">{{governorate}}</option>
                       </select> 
 
                     <label for="near" class="form-label"> Near by </label>
-                    <input type="text" class="form-control" placeholder="for example near by Cairo festefall city " id="near" [(ngModel)]="near" >
+                    <input type="text" class="form-control" placeholder="for example near by Cairo festefall city " name="near" id="near" [(ngModel)]="fullAddress.near" >
                   
 
                     <label style="margin-left: 7vh;" for="" class="form-label"> Location </label>
 
                     <div>
                     <label>
-                      <input type="radio" name="location" [(ngModel)]="location" value="work"> Work
+                      <input type="radio" name="location" [(ngModel)]="fullAddress.location" value="work"> Work
                     </label>
                     <label>
-                      <input type="radio" name="location" [(ngModel)]="location" value="home"> Home
+                      <input type="radio" name="location" [(ngModel)]="fullAddress.location" value="home"> Home
                     </label>
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Address</button>
+                    <button type="submit" class="btn btn-primary" >Add Address</button>
                   </div>
+                    </div>
                 </form>
                   
                 </div>
               </div>
             </div>
 
-
+            <!-- <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
+              <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="address.firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="address.lastName" required>
+              </div>
+              <div class="form-group">
+                <label for="fullAddress">Full Address:</label>
+                <textarea class="form-control" id="fullAddress" name="fullAddress" [(ngModel)]="address.fullAddress" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="address.phoneNumber" required>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="isDefault" name="isDefault" [(ngModel)]="userAddress.isDefault">
+                <label class="form-check-label" for="isDefault">
+                  Set as default address
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="addressForm.invalid">Submit</button>
+            </form> -->
  
 
