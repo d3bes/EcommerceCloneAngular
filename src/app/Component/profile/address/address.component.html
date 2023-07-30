@@ -34,7 +34,7 @@
         <h6>Name : </h6>
       </div>
       <div class="col-sm-6">
-          <p> {{user.displayName}} </p>
+          <p> {{FirstName+"  "+LastName}} </p>
       </div>
     </div>
     <div class="row" id="userAddress">
@@ -45,7 +45,7 @@
       </div>
       <div class="col-sm-6">
           <p> {{fullAddress}} </p>
-              <p style="margin-top: 9vh;">{{phone}}</p>
+              <p style="margin-top: 9vh;">{{deliverPhone}}</p>
       </div>
 
     </div>
@@ -64,138 +64,71 @@
 
 
             <!-- Add Address Modal -->
+            <div class="modal" id="address" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form (ngSubmit)="CreateAddress()">  
+                      <label for="FirstName" class="form-label"> First Name</label>
+    <input type="text" class="form-control" id="FirstName" [(ngModel)]="FirstName" >
 
-        <div class="modal" id="address" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <label for="countries" class="form-label"> Country</label>
-                  <select id="countries" class="form-control" (change)="test()" [(ngModel)]="selectedCountry">
-                    <option *ngFor="let country of countries" [value]="country">{{country}}</option>
-                  </select> 
-                  <!-- <label for="fullName" class="form-label"> Full name </label>
-                  <input type="text" class="form-control" id="fullName" [(ngModel)]="fullName" >
-                   -->
-                  <label for="deliverPhone" class="form-label"> PhoneNumber(for Delivery) </label>
-                  <input type="number" class="form-control" placeholder="+20" id="deliverPhone" [(ngModel)]="deliverPhone" >
+    <label for="LastName" class="form-label"> Last Name</label>
+    <input type="text" class="form-control" id="LastName" [(ngModel)]="LastName" >
 
-                  <label for="street" class="form-label"> Street </label>
-                  <input type="text" class="form-control" placeholder="El tahrer st." id="street" [(ngModel)]="street" >
+
+    <label for="countries" class="form-label"> Country</label>
+    <select id="countries" class="form-control"  [(ngModel)]="selectedCountry">
+      <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+    </select> 
+
+
+    <label for="deliverPhone" class="form-label"> PhoneNumber(for Delivery) </label>
+    <input type="number" class="form-control" placeholder="+20" id="deliverPhone" [(ngModel)]="deliverPhone" >
+
+    <label for="street" class="form-label"> Street </label>
+    <input type="text" class="form-control" placeholder="El tahrer st." id="street" [(ngModel)]="street" >
+    
+    <label for="building" class="form-label"> Building </label>
+    <input type="text" class="form-control" placeholder="" id="building" [(ngModel)]="building" >
+
+    <label for="city" class="form-label"> City </label>
+    <select id="city" class="form-control" (change)="  testCity()"  [(ngModel)]="selectedCity">
+      <option *ngFor="let city of cities_en" [value]="city">{{city}}</option>
+    </select> 
+
+    <label for="governorate" class="form-label"> Governorate </label>
+    <select id="governorate" class="form-control" (change)="testGov()"  [(ngModel)]="selectedGovernorate">
+      <option *ngFor="let governorate of governorates_en" [value]="governorate">{{governorate}}</option>
+    </select> 
+
+    <label for="near" class="form-label"> Near by </label>
+    <input type="text" class="form-control" placeholder="for example near by Cairo festefall city " id="near" [(ngModel)]="near" >
+  
+
+    <label style="margin-left: 7vh;" for="" class="form-label"> Location </label>
+
+    <div>
+    <label>
+      <input type="radio" name="location" [(ngModel)]="location" value="work"> Work
+    </label>
+    <label>
+      <input type="radio" name="location" [(ngModel)]="location" value="home"> Home
+    </label>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Add Address</button>
+  </div>
+</form>
                   
-                  <label for="building" class="form-label"> Building </label>
-                  <input type="text" class="form-control" placeholder="" id="building" [(ngModel)]="building" >
-
-                  <label for="city" class="form-label"> City </label>
-                  <select id="city" class="form-control" (change)="  testCity()"  [(ngModel)]="selectedCity">
-                    <option *ngFor="let city of cities_en" [value]="city">{{city}}</option>
-                  </select> 
-
-                  <label for="governorate" class="form-label"> Governorate </label>
-                  <select id="governorate" class="form-control" (change)="testGov()"  [(ngModel)]="selectedGovernorate">
-                    <option *ngFor="let governorate of governorates_en" [value]="governorate">{{governorate}}</option>
-                  </select> 
-
-
-                  <!-- <label for="city" class="form-label"> City </label>
-                  <input type="text" class="form-control" placeholder="" id="city" [(ngModel)]="city" > -->
-
-                  <!-- <label for="governorate" class="form-label"> Governorate </label>
-                  <input type="text" class="form-control" placeholder="" id="governorate" [(ngModel)]="governorate" > -->
-
-                  <label for="near" class="form-label"> Near by </label>
-                  <input type="text" class="form-control" placeholder="for example near by Cairo festefall city " id="near" [(ngModel)]="near" >
-                </div>
-
-                <label style="margin-left: 7vh;" for="" class="form-label"> Location </label>
-
-                <div>
-                  <label>
-                    <input type="radio" name="location" [(ngModel)]="location" value="work"> Work
-                  </label>
-                  <label>
-                    <input type="radio" name="location" [(ngModel)]="location" value="home"> Home
-                  </label>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button (click)="getFullAddress()" type="button" class="btn btn-primary"> Add Address</button>
                 </div>
               </div>
             </div>
-          </div>
-        
 
 
+ 
 
-
-<!-- 
-
-
-<form class="row g-3">
-  <div class="col-md-4">
-    <label for="validationServer01" class="form-label">First name</label>
-    <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
-  </div>
-  <div class="col-md-4">
-    <label for="validationServer02" class="form-label">Last name</label>
-    <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
-    <div class="valid-feedback">
-      Looks good!
-    </div>
-  </div>
-  <div class="col-md-4">
-    <label for="validationServerUsername" class="form-label">Username</label>
-    <div class="input-group has-validation">
-      <span class="input-group-text" id="inputGroupPrepend3">@</span>
-      <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
-      <div id="validationServerUsernameFeedback" class="invalid-feedback">
-        Please choose a username.
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <label for="validationServer03" class="form-label">City</label>
-    <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
-    <div id="validationServer03Feedback" class="invalid-feedback">
-      Please provide a valid city.
-    </div>
-  </div>
-  <div class="col-md-3">
-    <label for="validationServer04" class="form-label">State</label>
-    <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-      <option selected disabled value="">Choose...</option>
-      <option>...</option>
-    </select>
-    <div id="validationServer04Feedback" class="invalid-feedback">
-      Please select a valid state.
-    </div>
-  </div>
-  <div class="col-md-3">
-    <label for="validationServer05" class="form-label">Zip</label>
-    <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
-    <div id="validationServer05Feedback" class="invalid-feedback">
-      Please provide a valid zip.
-    </div>
-  </div>
-  <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-      <label class="form-check-label" for="invalidCheck3">
-        Agree to terms and conditions
-      </label>
-      <div id="invalidCheck3Feedback" class="invalid-feedback">
-        You must agree before submitting.
-      </div>
-    </div>
-  </div>
-  <div class="col-12">
-    <button class="btn btn-primary" type="submit">Submit form</button>
-  </div>
-</form> -->

@@ -4,12 +4,18 @@ import { BrowserModule} from '@angular/platform-browser';
 import * as tt from '@tomtom-international/web-sdk-maps';
 import { GeoJSON } from 'geojson';
 import { Control } from 'leaflet';
-import { Observable, of } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
+import { AddressDTO } from 'src/app/Models/address-dto';
 import { City } from 'src/app/Models/city';
 import { ProfileDTO } from 'src/app/Models/profile-dto';
+import { UserAddressDTO } from 'src/app/Models/user-address-dto';
 import { UserService } from 'src/app/Services/user.service';
+import { environment } from 'src/environments/environment.development';
+import { v4 as uuidv4 } from 'uuid';
+import { Location } from '@angular/common';
+import { FormControl } from '@angular/forms';
 
-
+ 
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
@@ -20,50 +26,58 @@ export class AddressComponent implements OnInit {
  
   map: any ;
   marker:any;
-  user:any;
-  phone:string;
-  countries:any[];
-  selectedCountry:string;
+  user:ProfileDTO;
+  phone:string='';
+  countries:any[]=[]
+  selectedCountry:string='Egypt';
   // fullName:string;
-  deliverPhone:string;
-  street:string;
-  building:string;
-  near:string;
-  location:string;
-  fullAddress:string;
-  httpOptions:any;
+  deliverPhone:string='';
+  street:string= '';
+  building:string='';
+  near:string='';
+  location:string='';
+  fullAddress:string='';
+  httpOptions:any='';
   cities:any[]= [];
   cities_en:any[]=[];
   cities_ar:any[]=[];
   governorates:any[]=[]
   governorates_en:any[]=[]
   governorates_ar:any[]=[]
-  selectedGovernorate:string;
-  selectedCity:string;
+  selectedGovernorate:string='';
+  selectedCity:string='';
+  displayName:string='';
+  LastName:string='';
+  FirstName:string='';
+  userId:string='';
 
-
-
+  Address:AddressDTO ;
+  UserAddress:UserAddressDTO ;
 
 
   constructor( private httpclient: HttpClient, private userService: UserService
     ) {
-      this.deliverPhone='';
-      this.selectedCountry='Egypt';
-      this.phone= '';
-      this.countries= [];
-      // this.fullName='';
-      this.building='';
-      this.street='';
-      this.near='';
-      this.location='';
-      this.fullAddress='';
-      this.selectedGovernorate='';
-      this.selectedCity='';
     
 
-     
-  }
 
+      this.Address = {} as AddressDTO;
+      this.UserAddress = {} as UserAddressDTO;
+      this.user={} as ProfileDTO;
+
+      this.userService.getUserProfile(this.email).subscribe(response=>
+        {
+          this.phone = response.phoneNumber;
+          this.userId = response.id;
+          this.UserAddress.userId= response.id;
+          console.log(this.userId);
+          console.log( this.UserAddress.userId);
+        console.log(response);
+    
+        });
+
+
+        
+  }
 
 
 
@@ -74,34 +88,32 @@ export class AddressComponent implements OnInit {
 
   ngOnInit(){
 
-    this.userService.getCurrentUser().subscribe(response=>
-      {
-        this.user= response
+
+    this.userService.getCurrentUser().pipe(
+      tap((response: ProfileDTO) => {
+        this.user = response;
+    
         console.log(this.user);
       })
+    ).subscribe();
  
     
-      this.userService.getUserProfile(this.email).subscribe(response=>
-        {
-          this.phone = response.phoneNumber;
-        console.log(response);
     
-        });
         // get countries
         const objs = this.getCountries().subscribe(response=>
           { 
             const names = response.map((obj: { name: { common: any; }; }) => obj.name.common);
           //  console.log(names);
             this.countries= names;
-            console.log("get countries",this.countries)
+            // console.log("get countries",this.countries)
            });
            // get cities
         this.httpclient.get<any>('./assets/cities.json').subscribe(data => {
           this.cities = data;
           this.cities_en = this.cities.map(city => city.city_name_en);
           this.cities_ar = this.cities.map(city => city.city_name_ar);
-          console.log(this.cities_ar);
-          console.log(this.cities_en);
+          // console.log(this.cities_ar);
+          // console.log(this.cities_en);
         });
 
           // get governorates
@@ -109,9 +121,14 @@ export class AddressComponent implements OnInit {
           this.governorates = data;
           this.governorates_en = this.governorates.map(governorates => governorates.governorate_name_en);
           this.governorates_ar = this.governorates.map(governorates => governorates.governorate_name_ar);
-          console.log(this.governorates_ar);
-          console.log(this.governorates_en);
+          // console.log(this.governorates_ar);
+          // console.log(this.governorates_en);
         });
+
+            
+     
+
+        
 
 
       }
@@ -135,10 +152,11 @@ export class AddressComponent implements OnInit {
     // }
       
 
-      getFullAddress(){
+      getFullAddress():string{
     this.fullAddress= this.selectedCountry + ' - ' + this.selectedGovernorate + ' - ' + this.selectedCity + ' - ' + this.street 
-    + ' - ' + this.building + ' - ' + this.near + ' - Location type: ' + this.location + ' - Phone: ' + this.deliverPhone
+    + ' - ' + this.near + 'bulding no:' + this.building +  ' - ' +' - Location type: ' + this.location 
     console.log(this.fullAddress);
+    return this.fullAddress
     }
       test(){
         console.log(this.selectedCountry)
@@ -154,9 +172,45 @@ getCountries():Observable<any>{
   return this.httpclient.get<any>('https://restcountries.com/v3.1/all')
 }
 
+CreateAddress(){
 
+  this.Address.id = uuidv4();
+  this.Address.fullAddress= this.getFullAddress();
+ this.Address.firstName= this.FirstName;
+ this.Address.lastName= this.LastName;
+ this.Address.phoneNumber = this.deliverPhone;
 
+ this.UserAddress.isDefault = true;
+ this.UserAddress.id = uuidv4();
+ this.UserAddress.addressId = this.Address.id;
+  // this.UserAddress.userId = this.userId;
+  console.log( this.UserAddress.userId);
+  
+this.userService.createAddress(this.Address).subscribe({
+  next:(data:AddressDTO)=>{
+    console.log(data);
+    this.CreateUserAddress()
+  },
+  error:( error:any)=>{
+    console.error('failed to create address',error);
+  },
+  complete: () => {
+    window.location.reload();
+    } 
+});
 
+}
+
+CreateUserAddress(){
+  this.userService.createUserAddress(this.UserAddress).subscribe({
+    next:(data:UserAddressDTO)=>{
+      console.log(data);
+    },
+    error:( error:any)=>{
+      console.error('failed to create userAddress',error);
+    }
+  });
+}
 
 
 

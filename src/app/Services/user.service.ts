@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AddressDTO } from '../Models/address-dto';
+import { UserAddressDTO } from '../Models/user-address-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +37,15 @@ return this._HttpClient.put<any>(`${this.ApiUrl}/User/UpdatePhoneNumber?email=${
 }
 
 
+createAddress(address:AddressDTO): Observable<any>{
+
+  return this._HttpClient.post(`${environment.LocalApiUrl}/Address`, address);
+}
+
+createUserAddress(userAddress:UserAddressDTO):Observable<any>{
+
+  return this._HttpClient.post(`${environment.LocalApiUrl}/UserAddress`, userAddress);
+}
 
 
 
