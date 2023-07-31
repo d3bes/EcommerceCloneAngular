@@ -32,6 +32,7 @@ import { PaymentComponent } from './Component/payment/payment.component';
 import { InterceptorService } from './Services/interceptor.service';
 import { Interceptor } from './Services/interceptor';
 import { CartComponent } from './cart/cart.component';
+import { FooteDescrbtionComponent } from './foote-descrbtion/foote-descrbtion.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { CartComponent } from './cart/cart.component';
     ImgeNavComponent,
     CountProductComponent,
     CartComponent,
+    FooteDescrbtionComponent,
   ],
 
   imports: [
