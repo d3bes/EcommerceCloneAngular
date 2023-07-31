@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Guid } from 'guid-typescript';
+import { CartItem } from 'src/app/Models/cart-item';
 import { IorderDTO } from 'src/app/Models/iorder-dto';
+import { IorderItemDTO } from 'src/app/Models/iorder-item-dto';
 import { OrderService } from 'src/app/Services/order.service';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -21,27 +23,35 @@ export class MakeOrderComponent implements OnInit {
   constructor(private orderServices:OrderService){}
 
   ngOnInit(): void {
+    let local= localStorage.getItem('cart');
+    if(local)
+      this.Cart= JSON.parse(local);  
+      this.Cart.forEach((item: { product: { sku: any; }; quantity: any; }) =>{
+        this.io = {
+          id:this.randomAddressID,
+          orderId: this.orderId,
+          productId:item.product.sku ,
+          quantity: item.quantity,
+        }
+        this.orderItems.push(this.io);
+      });  
+    
+    
     this.order = {
-      orderId: '3fa85f64-5717-4562-b3fc-2c963f66afl9',
+      orderId: this.orderId,
       userId: this.userId,
-      orderDate: '2023-07-30T21:15:36.442Z',
+      orderDate: new Date(),
       shipToAddressId: 2,
       paymentIntentId: 1,
       deliveryMethodId: 1,
-      items: [
-        {
-          id: 0,
-          productId: '5A067CBF-D1C2-416E-F6BD-08DB912C7386',
-          orderId: '3fa85f64-5717-4562-b3fc-2c963f66afl9',
-          quantity:10
-        }
-      ]
+      items: this.orderItems
     };
 
       this.orderServices.getAllorder(this.userId).subscribe(data =>{
          this.userOrders = data;
          console.log(this.userOrders);
       });
+  
   }
 
 
@@ -86,4 +96,8 @@ export class MakeOrderComponent implements OnInit {
 }
 
 
+
+function uuidv4(): string {
+  throw new Error('Function not implemented.');
+}
 
