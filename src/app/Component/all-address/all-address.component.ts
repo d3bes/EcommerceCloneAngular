@@ -15,10 +15,6 @@ export class AllAddressComponent implements OnInit {
     
   }
   ngOnInit(): void {
-    this.userServices.allAddressForUser(this.userId).subscribe(data =>{
-      this.userAddress = data;
-      localStorage.setItem('userAddress', JSON.stringify(this.userAddress));
-  })
   const userAddressData = localStorage.getItem('userAddress');
     if (userAddressData) {
       this.userAddress = JSON.parse(userAddressData);

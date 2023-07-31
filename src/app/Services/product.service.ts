@@ -17,6 +17,6 @@ export class ProductService {
 
   getProductsByCategoryID(catId:number) :Observable<any>{
     return this._HttpClient.get(`http://localhost:5216/api/Product/category/${catId}`);
-   
+
 }
 }
