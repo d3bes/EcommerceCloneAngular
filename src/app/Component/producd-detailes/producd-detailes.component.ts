@@ -81,37 +81,40 @@ export class ProducdDetailesComponent {
 
     const cart = localStorage.getItem('cart');
 
-if (cart) {
-  this.Cart = JSON.parse(cart);
-  console.log('Cart', JSON.parse(cart));
-}
+    if (cart) {
+      this.Cart = JSON.parse(cart);
+      console.log('Cart', JSON.parse(cart));
+    }
 
-const existingIndex = this.Cart.findIndex(item => item.product.sku === prdId);
+    const existingIndex = this.Cart.findIndex(item => item.product.sku === prdId);
 
-if (existingIndex !== -1) {
-  const updatedCart = [...this.Cart];
-  updatedCart.splice(existingIndex, 1);
-  updatedCart.push({
-    product: this.product,
-    quantity: this.selectedValue
-  });
-  this.Cart = updatedCart;
-} else {
-  this.Cart.push({
-    product: this.product,
-    quantity: this.selectedValue
-  });
-}
+    if (existingIndex !== -1) {
+      const updatedCart = [...this.Cart];
+      updatedCart.splice(existingIndex, 1);
+      updatedCart.push({
+        product: this.product,
+        quantity: this.selectedValue
+      });
+      this.Cart = updatedCart;
+    } else {
+      this.Cart.push({
+        product: this.product,
+        quantity: this.selectedValue
+      });
+    }
 
-localStorage.setItem('cart', JSON.stringify(this.Cart));
+    localStorage.setItem('cart', JSON.stringify(this.Cart));
 
-const updatedCartData = localStorage.getItem('cart');
+    const updatedCartData = localStorage.getItem('cart');
 
-if (updatedCartData) {
-  const updatedCart = JSON.parse(updatedCartData);
-  console.log('Updated Cart', updatedCart);
-}
-  
+    if (updatedCartData) {
+      const updatedCart = JSON.parse(updatedCartData);
+      console.log('Updated Cart', updatedCart);
+    }
+
+    let counter = this.Cart.length;
+    console.log('Counter ', counter);
+      
   }
 }
 

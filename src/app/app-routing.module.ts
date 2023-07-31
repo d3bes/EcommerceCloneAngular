@@ -20,8 +20,7 @@ const routes: Routes = [
   {path: 'addresses', component:AddressComponent, title: 'Addresses'},
   { path: 'payment', component:PaymentComponent, title: 'Payment'},
   {path: 'userorders', component:OrdersComponent, title: 'orders'},
-  {path: 'signIn', component:SignUpComponent, title:'auth'}
-
+  {path: 'signIn', component:SignUpComponent, title:'auth'},
 ];
 
 @NgModule({

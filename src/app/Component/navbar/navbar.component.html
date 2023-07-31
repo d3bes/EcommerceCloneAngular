@@ -37,7 +37,7 @@
 
                 <div class="adress-map m-0 p-0">
                   <div class="imge-arow d-flex flex-nowrap">
-                    <a  class="text-decoration-none text-dark" [routerLink]="['/profilesettings']" >DeliverTo</a>
+                    <a  class="text-decoration-none text-dark" routerLink="['/profilesettings']" >DeliverTo</a>
                     <img src="../assets/images/dropdownArrow.svg" alt="" />
                   </div>
                   <p class="fw-bold">Cairo</p>
@@ -93,7 +93,7 @@
 
       </div>
       <div class="modal-body">
-        <form [formGroup]="signInForm" (ngSubmit)="log()">
+        <!-- <form [formGroup]="signInForm" (ngSubmit)="log()"> -->
           <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
           <div>
             <label for="email">Email:</label>
@@ -109,7 +109,7 @@
               <small class="text-danger">Please enter your password.</small>
             </div>
           </div>
-        </form>
+        <!-- </form> -->
         <button type="button" class="btn btn-primary" [disabled]="signInForm.invalid" (click)="log()">Sign In</button>
       </div>
       <div class="modal-footer">
@@ -128,7 +128,7 @@
         <h5 class="modal-title" id="exampleModalLabel"  >Sign Up</h5>
       </div>
       <div class="modal-body">
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form">
+        <!-- <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form"> -->
           <div>
             <label for="DisplayName">Display Name:</label>
             <input type="text" id="DisplayName" formControlName="DisplayName" required>
@@ -166,7 +166,7 @@
           </div>
 
           <button type="submit" [disabled]="registrationForm.invalid" >Create an Account</button>
-        </form>
+        <!-- </form> -->
       </div>
 
     </div>
@@ -201,7 +201,7 @@
           <div class="lines bg-black"></div>
 
           <li class="nav-item mt-3 mx-3">
-            <div class="cartIconContainer d-flex">
+            <div class="cartIconContainer d-flex" routerLink="/cart">
               <span class="textbold">Cart</span>
               <img src="../assets/images/cart.svg" alt="" />
             </div>
