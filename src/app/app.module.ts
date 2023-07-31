@@ -31,6 +31,7 @@ import { CountProductComponent } from './count-product/count-product.component';
 import { PaymentComponent } from './Component/payment/payment.component';
 import { InterceptorService } from './Services/interceptor.service';
 import { Interceptor } from './Services/interceptor';
+import { MakeOrderComponent } from './Component/make-order/make-order.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { Interceptor } from './Services/interceptor';
     PaymentComponent,
     ImgeNavComponent,
     CountProductComponent,
+    MakeOrderComponent,
   ],
 
   imports: [
