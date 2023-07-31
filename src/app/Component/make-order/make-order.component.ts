@@ -17,9 +17,7 @@ export class MakeOrderComponent implements OnInit {
   order!:IorderDTO;
   userOrders!:IorderDTO [];
   userId:string = "f7caa6d4-d3e9-4a95-8796-921ae79d8775"
-  order! : IorderDTO;
-  userOrders! : IorderDTO [];
-  userId:string ="f7caa6d4-d3e9-4a95-8796-921ae79d8775";
+  
   constructor(private orderServices:OrderService){}
 
   ngOnInit(): void {
