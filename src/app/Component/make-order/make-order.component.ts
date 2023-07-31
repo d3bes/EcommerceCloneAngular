@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IorderDTO } from 'src/app/Models/iorder-dto';
 import { OrderService } from 'src/app/Services/order.service';
-import { Guid } from 'guid-typescript';
+// import { Guid } from 'guid-typescript';
 @Component({
   selector: 'app-make-order',
   templateUrl: './make-order.component.html',
@@ -36,8 +36,8 @@ export class MakeOrderComponent implements OnInit {
          console.log(this.userOrders);
       });
   }
-  
-  
+
+
   makeOrder(){
     //console.log(this.order)
     this.orderServices.makeOrder(this.order).subscribe(data=> console.log(data) )
@@ -59,9 +59,9 @@ export class MakeOrderComponent implements OnInit {
     const confirmation = confirm('Are you sure you want to retrieve this order?');
   if (confirmation) {
     // Convert the orderId to Guid before sending to the API
-    const guidOrderId = Guid.parse(orderId).toJSON;
-    console.log(orderId);
-    console.log(guidOrderId);
+    // const guidOrderId = Guid.parse(orderId).toJSON;
+    // console.log(orderId);
+    // console.log(guidOrderId);
     // this.orderServices.retrieveOrder(guidOrderId).subscribe(
     //   (response: any) => {
     //     console.log('Order retrieved:', response);
@@ -70,7 +70,7 @@ export class MakeOrderComponent implements OnInit {
     //     console.error('Error retrieving order:', error);
     //   }
     // );
-    // }   
+    // }
   }
 }
  getOrders() {
