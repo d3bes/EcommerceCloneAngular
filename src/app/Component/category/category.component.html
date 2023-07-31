@@ -236,11 +236,11 @@
                 </div>
                </div>
                </div>
-          <div class="col-md-9 d-flex"  >
-            <div class="row">
-              <div class="col-md-3 my-2" *ngFor="let product of products">
+          <div class="col-md-9 d-flex" >
+            <div class="row" *ngIf="products"  >
+              <div class="col-md-3 my-2" *ngFor="let product of products" >
 
-              <div class="card p-2 border-0 carousel-pointer "  style="width:14 rem; ">
+              <div class="card p-2 border-0 carousel-pointer "  style="width:14 rem; " >
         
               <owl-carousel-o [options]="customOptions">
         
@@ -273,5 +273,6 @@
         
            
           </div>  
+         
     </div>
         
