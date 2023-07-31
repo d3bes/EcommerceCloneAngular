@@ -1,1 +1,436 @@
-<p>category works!</p>
+<div class="container-fluid mb-4 m-auto px-3">
+  <div class="row d-flex align-items-center">
+    <!-- <div class="col-md-12 d-flex align-items-center"> -->
+
+
+
+      <div
+        id="carouselExampleDark"
+        class="carousel carousel-dark slide w-100"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="0"
+            style="background-color: rgb(254, 238, 0)"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="1"
+            style="background-color: rgb(254, 238, 0)"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="2"
+            style="background-color: rgb(254, 238, 0)"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="3"
+            style="background-color: rgb(254, 238, 0)"
+            aria-label="Slide 4"
+          ></button>
+          <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="5"
+          style="background-color: rgb(254, 238, 0)"
+          aria-label="Slide 5"
+        ></button>
+        <button
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide-to="5"
+        style="background-color: rgb(254, 238, 0)"
+        aria-label="Slide 6"
+      ></button>
+        </div>
+
+        <div class="carousel-inner m-auto" >
+          <div class="carousel-item active " data-bs-interval="1500">
+            <img
+              [src]="catogries[0].imgUrl"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="1500">
+            <img
+            [src]="catogries[1].imgUrl"
+                          class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item " data-bs-interval="1500">
+            <img
+            [src]="catogries[2].imgUrl"              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="1500">
+            <img
+            [src]="catogries[3].imgUrl"              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="1500">
+            <img
+            [src]="catogries[4].imgUrl"              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="1500">
+            <img
+            [src]="catogries[5].imgUrl"              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="1500">
+            <img
+            [src]="catogries[6].imgUrl"              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="1500">
+            <img
+            [src]="catogries[7].imgUrl"              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="1500">
+            <img
+            [src]="catogries[8].imgUrl"              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="prev"
+        >
+          <span
+            id="btn-slider"
+            class="carousel-control-prev-icon p-sm-4"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="next"
+        >
+          <span
+            id="btn-slider"
+            class="carousel-control-next-icon p-sm-4"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    </div>
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+           
+              <div class="accordion accordion-flush border-0" id="accordionFlushExample">
+                <div class="border-0 ">
+                    
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed m-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <span class=" mx-3 fw-bold">Fulfillment</span>
+                        <span class="textcolor fs-6 ">clear</span>
+                    </button>
+
+                  </h2>
+
+                  <div id="flush-collapseOne" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <form>
+                            <div class="form-check">
+                                <input class="form-check-input " type="checkbox" value="express" id="flexCheckDefault">
+                                <img src="../../../assets/images/fulfilment_express_v2-en.svg" class="px-2" for="flexCheckDefault"  style="width:30%;" alt="">
+                              </div>
+                            </form>
+                        </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-0">
+                    <div class="border-0">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                      <button  class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <span class="  fw-bold" >Category</span>
+                      </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">
+                        <ul id="myUL">
+                            <li *ngFor="let item of catogries">
+                                
+                                <span class="caret" id="chan"><img src="../../../assets/images/plus-grey.svg" class="mx-2" alt=""   >{{ item.name }}</span>
+
+                                <ul class="nested" >
+                                    <div class="p-2">
+                                        
+                                    </div>
+
+                                    <li>
+                                       
+                                        <span class="caret"> <img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
+                                        <ul class="nested">
+                                            <div class="p-2">
+                                                Electronics & Mobiles
+                                            </div>
+
+
+                                            <li>
+                                                
+                                                <span class="caret"><img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
+                                                <ul class="nested">
+                                                    <div class="p-2">
+                                                        Electronics & Mobiles
+                                                    </div>
+
+
+                                                    <li>
+                                                       
+                                                        <span class="caret">
+                                                            <img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
+                                                        <ul class="nested">
+                                                            <div class="p-2">
+                                                                Electronics & Mobiles
+                                                            </div>
+                                                        </ul>
+                
+                                                      </li>
+                                                </ul>
+        
+                                              </li>
+                                        </ul>
+
+                                      </li>
+
+
+
+
+                                </ul>
+                              
+                              
+
+                            </li>
+                          </ul></div>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="accordion-item border-0">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        <span class="fw-bold">Brand</span>
+                      </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">
+                        <form >
+                          
+                            <input type="search" placeholder="Search">
+                            <div class="form-check my-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                <span>Samsung</span>
+                                </label>
+                              </div>
+                              <div class="form-check my-1">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    <span>Apple</span>
+                                </label>
+                              </div>
+
+                              <div class="form-check my-1">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" >
+                                <label class="form-check-label" for="flexCheckChecked2">
+                                    <span>Apple</span>
+                                </label>
+                              </div>
+                              <div class="form-check my-1">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" >
+                                <label class="form-check-label" for="flexCheckChecked3">
+                                    <span>Apple</span>
+                                </label>
+                              </div>
+                              <div class="form-check my-1">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4">
+                                <label class="form-check-label" for="flexCheckChecked4">
+                                    <span>Apple</span>
+                                </label>
+                              </div>
+
+                        </form>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+            
+                <div class="border-0 ">
+                  <div id="flush-collapseOne" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+
+                    <div class="accordion-body">
+                        <ul id="myUL">
+                            <li>
+                                
+                                <span class="caret" id="chan"><img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Electronics & Mobiles</span>
+
+                                <ul class="nested">
+                                    <div class="p-2 fw-bold">
+                                        Electronics & Mobiles
+                                    </div>
+
+                                    <li>
+                                       
+                                        <span class="caret"> <img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
+                                        <ul class="nested">
+                                            <div class="p-2">
+                                                Electronics & Mobiles
+                                            </div>
+
+
+                                            <li>
+                                                
+                                                <span class="caret"><img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
+                                                <ul class="nested">
+                                                    <div class="p-2">
+                                                        Electronics & Mobiles
+                                                    </div>
+
+
+                                                    <li>
+                                                       
+                                                        <span class="caret">
+                                                            <img src="../../../assets/images/plus-grey.svg" class="mx-2" alt="">Mobiles & Accessories</span>
+                                                        <ul class="nested">
+                                                            <div class="p-2">
+                                                                Electronics & Mobiles
+                                                            </div>
+                                                        </ul>
+                
+                                                      </li>
+                                                </ul>
+        
+                                              </li>
+                                        </ul>
+
+                                      </li>
+
+
+
+
+                                </ul>
+                              
+                              
+
+                            </li>
+                          </ul>
+                       
+                  </div>
+
+
+      
+
+
+
+                  
+                </div>
+                <div class="accordion accordion-flush border-0" id="accordionFlushExample4">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                      <span class="fw-bold">Price (EGP)</span>
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample4">
+                      <div class="accordion-body">
+                        <div class="div d-flex">
+                            <input type="number" class="wInput" value="" name="min" class="textInput" aria-label="min" data-qa="filter-min-input">
+                            <span class="mx-3 text-muted">TO</span>
+                            <input type="number"class="wInput" value="" name="max" class="textInput" aria-label="max" data-qa="filter-min-input">
+                            <button class="text-muted mx-2 border-0 bg-transparent" type="button">Go</button>
+                        </div>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+               </div>
+          <div class="col-md-9 d-flex" >
+            <div class="row" *ngIf="products"  >
+              <div class="col-md-3 my-2" *ngFor="let product of products" >
+
+              <div class="card p-2 border-0 carousel-pointer "  style="width:14 rem; " >
+        
+              <owl-carousel-o [options]="customOptions">
+        
+                  <ng-container *ngFor="let img of product.images" >
+                    <ng-template carouselSlide >
+                      <img [src]="urlImage+img" alt=" Img Product" class="w-100 " height="200"  >
+                    </ng-template>
+                  </ng-container>
+        
+                </owl-carousel-o>
+                <div class="card-body  my-5">
+        
+                  <p class="card-title text-muted">{{product.description.split(" ").splice(0,8).join(" ")}}</p>
+        
+                  <p class="card-text  fw-bolder"><span class="text-muted" style="font-size:0.7rem;">EGP</span>{{product.price}}</p>
+                  <div class="icon-share-simple d-flex justify-content-between">
+                    <span><img src="../assets/images/fulfilment_express_v2-en.svg" style="width:4rem;" alt=""></span>
+                    <span >
+                      <span class="bg_main  rounded-3 text-light">{{product.reviews}}<i class="fa-solid fa-star text-light font_size"></i></span>
+                      <span class="font_size mx-1">{{product.quantity}}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+        
+            </div>
+            </div>
+            
+
+        
+           
+          </div>  
+         
+    </div>
+        

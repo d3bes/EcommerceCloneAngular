@@ -111,20 +111,23 @@
 
                             <div class="count d-flex">
                                 <div class="dropdown my-1 ">
-                                    <a class="btn border border-1 dropdown-toggle" href="#" role="button"
+                                    <a class="btn border border-1 dropdown-toggle"  role="button"
                                         id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                         1
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item  " href="#">1</a></li>
-                                        <li><a class="dropdown-item" href="#">2</a></li>
-                                        <li><a class="dropdown-item" href="#">3</a></li>
+                                        <li><a class="dropdown-item" (click)="setValue(1)">1</a></li>
+                                        <li><a class="dropdown-item" (click)="setValue(2)">2</a></li>
+                                        <li><a class="dropdown-item" (click)="setValue(3)">3</a></li>
+                                        <li><a class="dropdown-item" (click)="setValue(4)">4</a></li>
+                                        <li><a class="dropdown-item" (click)="setValue(5)">5</a></li>
+                                        <li><a class="dropdown-item" (click)="setValue(6)">6</a></li>
                                     </ul>
                                 </div>
 
 
-                                <button class="form-control mx-3 text-white"
+                                <button class="form-control mx-3 text-white" (click)="AddToCart(prdId)"
                                     style="background-color:rgb(43, 76, 215);">Add To Cart</button>
 
 

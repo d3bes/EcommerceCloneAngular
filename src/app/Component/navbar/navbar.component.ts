@@ -1,14 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavigationEnd, Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Iproduct } from 'src/app/Models/iproduct';
 import { IRegist } from 'src/app/Models/iregist';
 import { LogIn } from 'src/app/Models/log-in';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
+import { ProductCategoryDTO } from 'src/app/Models/product-category-dto';
 import { UserDTO } from 'src/app/Models/user-dto';
 import { AccountService } from 'src/app/Services/account.service';
 import { CatogriesService } from 'src/app/Services/catogries.service';
-
+import { ProductService } from 'src/app/Services/product.service';
 
 
 @Component({
@@ -17,16 +20,21 @@ import { CatogriesService } from 'src/app/Services/catogries.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  catogries: ProductCategoryDetailsDTO[] = [];
+  catogries: any[] = [];  
   signInForm!: FormGroup;
   login!: LogIn;
   user : UserDTO | undefined;
   registrationForm ! : FormGroup  ;
   register :IRegist ={DisplayName:'',FirstName:'',LastName:'',Email:'',Password:'',PhoneNumber:''} ;
-
+  childrenCategories  ?: ProductCategoryDTO[] | null;
   isLogIn: boolean;
+  catId: number = 0;
+  products: Iproduct[] | undefined = undefined;
 
-  constructor(private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService) {
+  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
+   
+    
+    
     this.registrationForm = this.formBuilder.group({
       DisplayName: ['', Validators.required],
       FirstName: ['', Validators.required],
@@ -53,8 +61,19 @@ export class NavbarComponent {
         console.log('Fetching brands completed.');
       }
     });
-
-
+    this.catogriesService.getAllCatogries().subscribe({
+      next: (data) => {
+        this.childrenCategories = data.filter((category) => category.parentCategoryId != null);
+        console.log(this.catogries);
+      },
+      error: (error: any) => {
+        console.error('Error fetching brands:', error);
+      },
+      complete: () => {
+        console.log('Fetching brands completed.');
+      }
+    });
+   
     //sign in
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -63,6 +82,16 @@ export class NavbarComponent {
 
 
 
+  }
+  
+
+    
+  
+  categoryNavigate(catId: number) {
+    
+     
+     this.router.navigate(['cat', catId]);
+     console.log( 'catId:', catId)
   }
 
   //sign in
@@ -88,7 +117,7 @@ export class NavbarComponent {
         complete: () => {
           console.log('Fetching brands completed.');
           this.isLogIn = true;
-          
+
         }
       }
     );
@@ -127,8 +156,9 @@ export class NavbarComponent {
   get password(){
     return this.registrationForm.get('Password')
   }
-  onSubmit() {
 
+
+  onSubmit() {
     this.register.DisplayName= this.registrationForm.value.DisplayName;
     console.log(this.registrationForm.value.DisplayName);
     this.register.FirstName= this.registrationForm.value.FirstName;
@@ -146,7 +176,7 @@ export class NavbarComponent {
         localStorage.setItem("token",response.token);
         localStorage.setItem("email", response.email);
         localStorage.setItem("username", response.displayName);
-   
+
       },
       error:(err)=>{
         console.log(err);
@@ -154,6 +184,50 @@ export class NavbarComponent {
     })
 
   }
+
+SignUpUser: any = {
+
+  DisplayName:"",
+  FirstName: "",
+  LastName: "",
+  Password: "",
+  Email: "",
+  PhoneNumber: ""
+};
+LoginInUser:any= {
+  Email: "",
+  Password: "",
+}
+
+OnSignUp(){
+
+  this.SignUpUser.DisplayName = this.SignUpUser.FirstName + " " + this.SignUpUser.LastName;
+  this.http.post("http://localhost:5216/api/Account/register", this.SignUpUser).subscribe(res=>{
+
+})
+}
+
+OnLogIn(){
+  debugger;
+  this.http.post("http://localhost:5216/api/Account/login", this.LoginInUser).subscribe((response: any)=>{
+    debugger;
+    console.log(this.LoginInUser.Email);
+    console.log(this.LoginInUser.Password);
+    localStorage.setItem("token",response.token);
+    localStorage.setItem("email", response.email);
+    localStorage.setItem("username", response.displayName);
+    if(response.result) {
+      console.log(response);
+      localStorage.setItem("token",response.token);
+      localStorage.setItem("email", response.email);
+      localStorage.setItem("username", response.displayName);
+      alert(response.message)
+    } else {
+      alert(response.message)
+    }
+  })
+
+}
 
 
 }

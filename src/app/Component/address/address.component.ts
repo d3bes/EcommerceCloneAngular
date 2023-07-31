@@ -23,40 +23,38 @@ import { FormControl } from '@angular/forms';
 export class AddressComponent implements OnInit {
 
 
-  map: any ;
-  marker:any;
   user:ProfileDTO;
-  phone:string='';
   countries:any[]=[]
-  selectedCountry:string='Egypt';
-  // fullName:string;
-  deliverPhone:string='';
-  street:string= '';
-  building:string='';
-  near:string='';
-  location:string='';
-  fullAddress:string='';
-  httpOptions:any='';
   cities:any[]= [];
   cities_en:any[]=[];
   cities_ar:any[]=[];
   governorates:any[]=[]
   governorates_en:any[]=[]
   governorates_ar:any[]=[]
-  selectedGovernorate:string='';
-  selectedCity:string='';
-  displayName:string='';
-  LastName:string='';
-  FirstName:string='';
-  userId:string='';
-
+  userId:string|null=localStorage.getItem('userId');
+  fullAddress:any;
   Address:AddressDTO ;
   UserAddress:UserAddressDTO ;
+  FirstName!: string;
+  LastName!: string;
+  deliverPhone!: string;
 
 
   constructor( private httpclient: HttpClient, private userService: UserService
     ) {
+      this.fullAddress={
 
+        fullAddress:'',
+        selectedCountry:'Egypt',
+        selectedGovernorate:'',
+        selectedCity:'',
+        street:'',
+        location:'',
+        building:'',
+        near:'',
+        deliverPhone:''
+    
+      }
 
 
       this.Address = {} as AddressDTO;
@@ -65,7 +63,6 @@ export class AddressComponent implements OnInit {
 
       this.userService.getUserProfile(this.email).subscribe(response=>
         {
-          this.phone = response.phoneNumber;
           this.userId = response.id;
           this.UserAddress.userId= response.id;
           console.log(this.userId);
@@ -78,8 +75,26 @@ export class AddressComponent implements OnInit {
 
   }
 
+ 
 
-
+  address: AddressDTO = {
+    id:uuidv4(),
+    firstName: '',
+    lastName: '',
+    fullAddress: ''  ,
+    phoneNumber: '',
+  };
+  userAddress: UserAddressDTO = {
+    id: uuidv4(),
+    isDefault: false,
+    addressId:  this.address.id,
+    userId: this.userId,
+  };
+     
+  onSubmit() {
+    // Submit the form data
+    console.log(this.address, this.userAddress);
+  }
 
 
 
@@ -134,37 +149,20 @@ export class AddressComponent implements OnInit {
 
 
 
-
-
-    // this.map = tt.map({
-    //   key : 'ZqFZ8dn3Ry8Qonu8p49rWqmioUzn09IA',
-    //   container: 'map',
-    //   style: 'tomtom://vector/1/basic-main',
-    //   zoom:1.2
-    // });
-    //    this.getjsondata()
-    // }
-
-
-
-    // getjsondata(){
-    // }
-
-
       getFullAddress():string{
-    this.fullAddress= this.selectedCountry + ' - ' + this.selectedGovernorate + ' - ' + this.selectedCity + ' - ' + this.street
-    + ' - ' + this.near + 'bulding no:' + this.building +  ' - ' +' - Location type: ' + this.location
+    let fullAddress= this.fullAddress.selectedCountry + ' - ' + this.fullAddress.selectedGovernorate + ' - ' + this.fullAddress.selectedCity + ' - ' + this.fullAddress.street
+    + ' - ' + this.fullAddress.near + 'bulding no:' + this.fullAddress.building +  ' - ' +' - Location type: ' + this.fullAddress.location
     console.log(this.fullAddress);
-    return this.fullAddress
+    return fullAddress
     }
       test(){
-        console.log(this.selectedCountry)
+        console.log(this.fullAddress.selectedCountry)
       }
       testCity(){
-        console.log(this.selectedCity)
+        console.log(this.fullAddress.selectedCity)
       }
       testGov(){
-        console.log(this.selectedGovernorate)
+        console.log(this.fullAddress.selectedGovernorate)
       }
 getCountries():Observable<any>{
 
@@ -172,6 +170,11 @@ getCountries():Observable<any>{
 }
 
 CreateAddress(){
+  let fullAddress= this.fullAddress.selectedCountry + ' - ' + this.fullAddress.selectedGovernorate + ' - ' + this.fullAddress.selectedCity + ' - ' + this.fullAddress.street
+  + ' - ' + this.fullAddress.near + 'bulding no:' + this.fullAddress.building +  ' - ' +' - Location type: ' + this.fullAddress.location
+  console.log(this.fullAddress);
+this.Address.fullAddress= fullAddress;
+console.log(this.Address.fullAddress);
 
   this.Address.id = uuidv4();
   this.Address.fullAddress= this.getFullAddress();

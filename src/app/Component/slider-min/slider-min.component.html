@@ -16,7 +16,7 @@
       <ng-container *ngFor="let category of catogries">
         <ng-template carouselSlide  class="p-5 ">
           <div class="divp-0 m-0 cursor-pointer"  style="width:70%;">
-            <img  class="p-0 m-0" style="width:80%;" [src]="category.imgUrl"  alt="" >
+            <img  class="p-0 m-0" style="width:80%;" [src]="category.imgUrl"  alt="" (click)=" categoryNavigate(category.id)" >
           </div>
           <!-- <h4 class="h6 fw-bolder ">{{category.name}}</h4> -->
         </ng-template>
