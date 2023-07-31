@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserAddressDTO } from 'src/app/Models/user-address-dto';
 import { UserDTO } from 'src/app/Models/user-dto';
 import { UserService } from 'src/app/Services/user.service';
 
@@ -20,7 +21,7 @@ ngOnInit(): void {
    localStorage.setItem('userId', user.id)
   })
 }
-constructor(private router: Router, private http: HttpClient, private userService: UserService) {
+constructor( private userServices:UserService,private router: Router, private http: HttpClient, private userService: UserService) {
   this.user= {} as UserDTO;
   this.verfeiyCode=''
   this.isLogin=false;
@@ -61,7 +62,8 @@ OnSignUp(){
 
 })
 }
-
+userId:string= "f7caa6d4-d3e9-4a95-8796-921ae79d8775";
+userAddress:UserAddressDTO[]= []; 
 OnLogIn(){
   debugger;
   this.http.post("http://localhost:5216/api/Account/login", this.LoginInUser).subscribe((response: any)=>{
@@ -84,6 +86,10 @@ OnLogIn(){
     } else {
       alert(response.message)
     }
+  })
+  this.userServices.allAddressForUser(this.userId).subscribe(data =>{
+    this.userAddress = data;
+    localStorage.setItem('userAddress', JSON.stringify(this.userAddress));
   })
 
 }

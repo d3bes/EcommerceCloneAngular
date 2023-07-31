@@ -27,7 +27,7 @@ import { UserProfileComponent } from './Component/user-profile/user-profile.comp
 import { WhishListComponent } from './Component/whish-list/whish-list.component';
 import { AddressComponent } from './Component/address/address.component';
 import { ImgeNavComponent } from './imge-nav/imge-nav.component';
-import { CountProductComponent } from './count-product/count-product.component';
+import { CountProductComponent } from './Component/count-product/count-product.component';
 import { PaymentComponent } from './Component/payment/payment.component';
 import { InterceptorService } from './Services/interceptor.service';
 import { Interceptor } from './Services/interceptor';

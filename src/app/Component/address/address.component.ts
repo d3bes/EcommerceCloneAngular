@@ -87,7 +87,8 @@ export class AddressComponent implements OnInit {
         userId: this.userId
       };
       console.log(this.userAddress);
-
+     const s= localStorage.setItem('address', JSON.stringify(this.userAddress));
+      console.log(s);  
       this.userService.createUserAddress(this.userAddress).subscribe(data => console.log(data))
     }
   }
