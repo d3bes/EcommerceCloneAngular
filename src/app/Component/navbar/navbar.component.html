@@ -40,7 +40,7 @@
                     <a  class="text-decoration-none text-dark" [routerLink]="['/profilesettings']" >DeliverTo</a>
                     <img src="../assets/images/dropdownArrow.svg" alt="" />
                   </div>
-                  <p class="fw-bold">Cairo</p>
+                  <p class="fw-bold" >Cairo</p>
                 </div>
               </li>
             </a>
@@ -212,13 +212,15 @@
             </div>
           </li>
           <div class="lines bg-black"></div>
-
+          <a href="" class="text-decoration-none text-dark" [routerLink]="['/cart']" >
           <li class="nav-item mt-3 mx-3">
+
             <div class="cartIconContainer d-flex">
               <span class="textbold">Cart</span>
               <img src="../assets/images/cart.svg" alt="" />
             </div>
           </li>
+        </a>
         </ul>
       </div>
     </div>
@@ -263,7 +265,7 @@
                     <li class="nav-link " href="#" *ngIf="i === 0 || i === 1">{{ item.name }}</li>
                   </a>
                 </ul>
-               
+
           </div>
               <div class="col-md-4">
                 <span class="fw-bolder py-2">TOP BRANDS</span>
