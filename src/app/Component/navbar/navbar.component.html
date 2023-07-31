@@ -37,7 +37,7 @@
 
                 <div class="adress-map m-0 p-0">
                   <div class="imge-arow d-flex flex-nowrap">
-                    <a  class="text-decoration-none text-dark" [routerLink]="['/profilesettings']" >DeliverTo</a>
+                    <a  class="text-decoration-none text-dark"  [routerLink]="['/profilesettings']" >DeliverTo</a>
                     <img src="../assets/images/dropdownArrow.svg" alt="" />
                   </div>
                   <p class="fw-bold" >Cairo</p>
@@ -250,7 +250,7 @@
         </button>
 
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-          <li><a class="dropdown-item carousel-pointer" (click)="categorynavigat(category.id)" *ngFor="let category of catogries">{{category.name}}</a></li>
+          <li *ngFor="let category of catogries" ><a class="dropdown-item carousel-pointer"  (click)=" categoryNavigate(category.id)" >{{category.name}}</a></li>
         </ul>
 
       </div>
@@ -259,7 +259,7 @@
 
       <div class="dropdown1" >
         <button class="btn btn-light rounded-0"type="button" id="dropdownMenuButton2" data-mdb-toggle="dropdown" aria-expanded="false">
-          <span class="text-center fw-bold" >Electronics</span>
+          <span class="text-center fw-bold" (click)=" categoryNavigate(3)" >Electronics</span>
         </button>
         <ul class="dropdown-menu center " aria-labelledby="dropdownMenuButton">
 
@@ -269,7 +269,7 @@
                 <span class="fw-bolder " >CATEGORIES</span>
                 <ul class="CATEGORIESUL">
                   <a *ngFor="let item of childrenCategories; let i = index">
-                    <li class="nav-link " href="#" *ngIf="i === 0 || i === 1">{{ item.name }}</li>
+                    <li (click)=" categoryNavigate(item.id)" class="nav-link " href="#" *ngIf="i === 0 || i === 1">{{ item.name }}</li>
                   </a>
                 </ul>
 
@@ -321,7 +321,7 @@
           data-mdb-toggle="dropdown "
           aria-expanded="false"
         >
-          <span class="text-center fw-bold">MOBILES</span>
+          <span class="text-center fw-bold" (click)=" categoryNavigate(4)">MOBILES</span>
         </button>
 
         <ul class="dropdown-menu center "aria-labelledby="dropdownMenuButton">
@@ -331,7 +331,7 @@
                   <span class="fw-bolder ">CATEGORIES</span>
                   <ul class="CATEGORIESUL">
                     <a *ngFor="let item of childrenCategories; let i = index">
-                      <li class="nav-link" href="#" *ngIf="i === 2 || i === 3">{{ item.name }}</li>
+                      <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 2 || i === 3">{{ item.name }}</li>
                       </a>
                   </ul>
                 </div>
@@ -376,6 +376,8 @@
             </div>
         </ul>
       </div>
+
+
       <div class="dropdown1" >
         <button
           class="btn btn-light rounded-0"
@@ -384,7 +386,7 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="text-center fw-bold">MEN</span>
+          <span class="text-center fw-bold" (click)=" categoryNavigate(5)">MEN</span>
         </button>
 
         <ul class="dropdown-menu center "aria-labelledby="dropdownMenuButton">
@@ -394,7 +396,7 @@
                 <span class="fw-bolder ">CATEGORIES</span>
                 <ul class="CATEGORIESUL">
                   <a *ngFor="let item of childrenCategories; let i = index">
-                    <li class="nav-link" href="#" *ngIf="i === 4 || i === 5">{{ item.name }}</li>
+                    <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 4 || i === 5">{{ item.name }}</li>
                   </a>
                 </ul>
               </div>
@@ -460,7 +462,7 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="text-center fw-bold">WOMEN</span>
+          <span class="text-center fw-bold" (click)=" categoryNavigate(6)">WOMEN</span>
         </button>
 
         <ul class="dropdown-menu center " aria-labelledby="dropdownMenuButton">
@@ -470,7 +472,7 @@
                 <span class="fw-bolder ">CATEGORIES</span>
                 <ul class="CATEGORIESUL">
                   <a *ngFor="let item of childrenCategories; let i = index">
-                    <li class="nav-link" href="#" *ngIf="i === 6 || i ===7 ">{{ item.name }}</li>
+                    <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 6 || i ===7 ">{{ item.name }}</li>
                   </a>
                 </ul>
               </div>
@@ -522,9 +524,10 @@
         </ul>
       </div>
 
+
       <div class="dropdown1" >
         <button class="btn btn-light rounded-0" type="button" id="dropdownMenuButton6" data-mdb-toggle="dropdown" aria-expanded="false">
-          <span class="text-center fw-bold">HOME</span>
+          <span class="text-center fw-bold" (click)=" categoryNavigate(7)">HOME</span>
         </button>
         <ul class="dropdown-menu center " aria-labelledby="dropdownMenuButton">
           <div class="container ">
@@ -533,7 +536,7 @@
                 <span class="fw-bolder ">CATEGORIES</span>
                 <ul class="CATEGORIESUL">
                   <a *ngFor="let item of childrenCategories; let i = index">
-                    <li class="nav-link" href="#" *ngIf="i === 8 || i === 9">{{ item.name }}</li>
+                    <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 8 || i === 9">{{ item.name }}</li>
                     </a>
                 </ul>
               </div>
@@ -572,6 +575,8 @@
           </div>
         </ul>
       </div>
+
+
       <div class="dropdown1" >
         <button
           class="btn btn-light rounded-0"
@@ -580,7 +585,7 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="text-center fw-bold">Beauty & Health</span>
+          <span class="text-center fw-bold" (click)=" categoryNavigate(8)">Beauty & Health</span>
         </button>
 
         <ul class="dropdown-menu center " aria-labelledby="dropdownMenuButton">
@@ -590,7 +595,7 @@
                 <span class="fw-bolder ">CATEGORIES</span>
                 <ul class="CATEGORIESUL">
                   <a *ngFor="let item of childrenCategories; let i = index">
-                    <li class="nav-link" href="#" *ngIf="i === 10 || i === 11">{{ item.name }}</li>
+                    <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 10 || i === 11">{{ item.name }}</li>
                   </a>
                 </ul>
               </div>
@@ -629,9 +634,11 @@
           </div>
         </ul>
       </div>
+
+
       <div class="dropdown1" >
         <button class="btn btn-light rounded-0" type="button" id="dropdownMenuButton8" data-mdb-toggle="dropdown" aria-expanded="false">
-          <span class="text-center fw-bold">Baby & Toys</span>
+          <span class="text-center fw-bold" (click)=" categoryNavigate(9)">Baby & Toys</span>
         </button>
 
         <ul class="dropdown-menu center " aria-labelledby="dropdownMenuButton">
@@ -641,7 +648,7 @@
                 <span class="fw-bolder ">CATEGORIES</span>
                 <ul class="CATEGORIESUL">
                   <a *ngFor="let item of childrenCategories; let i = index">
-                    <li class="nav-link" href="#" *ngIf="i === 12 || i === 13">{{ item.name }}</li>
+                    <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 12 || i === 13">{{ item.name }}</li>
                   </a>
                 </ul>
               </div>
@@ -689,7 +696,7 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
-          <span class="text-center fw-bold">Supermarket</span>
+          <span class="text-center fw-bold" (click)=" categoryNavigate(10)">Supermarket</span>
         </button>
         <ul class="dropdown-menu center " aria-labelledby="dropdownMenuButton">
           <div class="container ">
@@ -698,7 +705,7 @@
                 <span class="fw-bolder ">CATEGORIES</span>
                 <ul class="CATEGORIESUL">
                   <a *ngFor="let item of childrenCategories; let i = index">
-                    <li class="nav-link" href="#" *ngIf="i === 14 || i === 15">{{ item.name }}</li>
+                    <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 14 || i === 15">{{ item.name }}</li>
                   </a>
                 </ul>
               </div>

@@ -23,7 +23,9 @@ const routes: Routes = [
   { path: 'payment', component:PaymentComponent, title: 'Payment'},
   {path: 'userorders', component:OrdersComponent, title: 'orders'},
   {path: 'signIn', component:SignUpComponent, title:'auth'},
-  { path: 'cart', component:CartComponent,title:"cart" }
+  { path: 'cart', component:CartComponent,title:"cart" },
+  { path: 'cat/:categoryID', component:CategoryComponent }
+
 
 
 ];

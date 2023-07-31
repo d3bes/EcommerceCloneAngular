@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { NavigationEnd, Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Iproduct } from 'src/app/Models/iproduct';
 import { IRegist } from 'src/app/Models/iregist';
 import { LogIn } from 'src/app/Models/log-in';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
@@ -13,14 +14,13 @@ import { CatogriesService } from 'src/app/Services/catogries.service';
 import { ProductService } from 'src/app/Services/product.service';
 
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  catogries: ProductCategoryDetailsDTO[] = [];
+  catogries: any[] = [];  
   signInForm!: FormGroup;
   login!: LogIn;
   user : UserDTO | undefined;
@@ -28,6 +28,13 @@ export class NavbarComponent {
   register :IRegist ={DisplayName:'',FirstName:'',LastName:'',Email:'',Password:'',PhoneNumber:''} ;
   childrenCategories  ?: ProductCategoryDTO[] | null;
   isLogIn: boolean;
+  catId: number = 0;
+  products: Iproduct[] | undefined = undefined;
+
+  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
+   
+    
+    
   counter:string|null;
 
   
@@ -90,12 +97,17 @@ setInterval(()=>
 
 
   }
+  
 
-
-  categorynavigat(catId:number){
-    this.router.navigate(['cat',catId]);
     
+  
+  categoryNavigate(catId: number) {
+    
+     
+     this.router.navigate(['cat', catId]);
+     console.log( 'catId:', catId)
   }
+
   //sign in
   log() {
     this.login.Email = this.signInForm.value.email;

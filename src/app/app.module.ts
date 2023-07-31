@@ -33,6 +33,8 @@ import { InterceptorService } from './Services/interceptor.service';
 import { Interceptor } from './Services/interceptor';
 import { CartComponent } from './cart/cart.component';
 import { FooteDescrbtionComponent } from './foote-descrbtion/foote-descrbtion.component';
+import { SearchPrductPipe } from './search-prduct.pipe';
+import { MakeOrderComponent } from './Component/make-order/make-order.component';
 
 
 @NgModule({
@@ -56,8 +58,10 @@ import { FooteDescrbtionComponent } from './foote-descrbtion/foote-descrbtion.co
     PaymentComponent,
     ImgeNavComponent,
     CountProductComponent,
+    MakeOrderComponent,
     CartComponent,
     FooteDescrbtionComponent,
+    SearchPrductPipe,
   ],
 
   imports: [

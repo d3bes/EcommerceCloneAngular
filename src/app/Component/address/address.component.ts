@@ -35,6 +35,9 @@ export class AddressComponent implements OnInit {
   fullAddress:any;
   Address:AddressDTO ;
   UserAddress:UserAddressDTO ;
+  FirstName!: string;
+  LastName!: string;
+  deliverPhone!: string;
 
 
   constructor( private httpclient: HttpClient, private userService: UserService
@@ -173,6 +176,16 @@ CreateAddress(){
 this.Address.fullAddress= fullAddress;
 console.log(this.Address.fullAddress);
 
+  this.Address.id = uuidv4();
+  this.Address.fullAddress= this.getFullAddress();
+ this.Address.firstName= this.FirstName;
+ this.Address.lastName= this.LastName;
+ this.Address.phoneNumber = this.deliverPhone;
+
+ this.UserAddress.isDefault = true;
+ this.UserAddress.id = uuidv4();
+ this.UserAddress.addressId = this.Address.id;
+  //this.UserAddress.userId = this.userId;
   console.log( this.UserAddress.userId);
 
 this.userService.createAddress(this.Address).subscribe({
