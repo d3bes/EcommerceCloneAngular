@@ -1,15 +1,13 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CartItem } from 'src/app/Models/cart-item';
-import { Iproduct } from 'src/app/Models/iproduct';
-import { ProductService } from 'src/app/Services/product.service';
+import { CartItem } from '../Models/cart-item';
+import { Iproduct } from '../Models/iproduct';
+import { ProductService } from './product.service';
 
-@Component({
-  selector: 'app-producd-detailes',
-  templateUrl: './producd-detailes.component.html',
-  styleUrls: ['./producd-detailes.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class ProducdDetailesComponent {
+export class ProductDetailesService {
   prdId: string = "";
   product: Iproduct ;
   selectedValue: number;
@@ -66,17 +64,11 @@ export class ProducdDetailesComponent {
   }
 
 
-  AddToCart(prdId:string)
+  UpdateCart(prdId:string,cartItem:CartItem)
   {
     
-    this.cartItem={
 
-      product:this.product,
-      quantity:this.selectedValue
-
-    }
-
-    console.log("cart Item :", this.cartItem);
+    console.log("cart Item :", cartItem);
     
 
     const cart = localStorage.getItem('cart');
@@ -91,16 +83,10 @@ export class ProducdDetailesComponent {
     if (existingIndex !== -1) {
       const updatedCart = [...this.Cart];
       updatedCart.splice(existingIndex, 1);
-      updatedCart.push({
-        product: this.product,
-        quantity: this.selectedValue
-      });
+      updatedCart.push(cartItem);
       this.Cart = updatedCart;
     } else {
-      this.Cart.push({
-        product: this.product,
-        quantity: this.selectedValue
-      });
+      this.Cart.push(cartItem);
     }
 
     localStorage.setItem('cart', JSON.stringify(this.Cart));
@@ -112,42 +98,8 @@ export class ProducdDetailesComponent {
       console.log('Updated Cart', updatedCart);
     }
 
-    let counter =  (this.Cart.length).toString();
-    localStorage.setItem("counter", counter);
-    let count= localStorage.getItem('counter');
-    console.log('Counter ', count);
-    
+   
       
   }
+ 
 }
-
-
-
-
-
-
-
-// const cart = localStorage.getItem('cart');
-//     if (cart) {
-//       this.Cart =JSON.parse(cart);
-//       console.log('Cart', JSON.parse(cart));
-//     }
-
-//     if(!this.Cart.some(item=> item.product.sku == prdId))
-//     {
-//     this.Cart.push(this.cartItem);
-//     localStorage.setItem("cart",JSON.stringify(this.Cart));
-//     }
-//     else
-//     {
-//       const UpdatedCart = this.Cart.filter(item=> item.product.sku !== prdId)
-//       this.Cart = UpdatedCart;
-//       this.Cart.push(this.cartItem);
-//       localStorage.setItem("cart",JSON.stringify(this.Cart));
-//       const updatedcart = localStorage.getItem('cart');
-
-//       if (updatedcart) {
-//         this.Cart =JSON.parse(updatedcart);
-//         console.log('Updated Cart', this.Cart);
-//       }
-//     }
