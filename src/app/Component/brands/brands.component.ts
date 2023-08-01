@@ -15,6 +15,8 @@ import { ProductService } from 'src/app/Services/product.service';
 export class BrandsComponent implements OnInit {
   productbrand: Iproduct[] | undefined = undefined;
   brdId:number=0;
+  urlImage:string ="http://localhost:5195/files/images/";
+
   constructor( private router: Router,
     private activatedRoute: ActivatedRoute,
     private productsevice: ProductService,
@@ -32,7 +34,6 @@ export class BrandsComponent implements OnInit {
     });
   }
 
-  urlImage:string ="http://localhost:5195/files/images/";
 
   private loadProductsbrand(): void {
     this.productsevice.getAllProduct().subscribe({
