@@ -1,5 +1,6 @@
 export interface UserDTO {
     DisplayName : string,
     Email : string,
-    token : string
+    token : string,
+    emailvalidation:string
 }

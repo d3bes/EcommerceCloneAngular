@@ -40,7 +40,6 @@ export class NavbarComponent {
 
 
 
-  counter:string|null;
   brands: ProductBrandDTO[] = [];
 
 
