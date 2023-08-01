@@ -37,13 +37,8 @@ import { SearchPrductPipe } from './search-prduct.pipe';
 import { MakeOrderComponent } from './Component/make-order/make-order.component';
 import { AllAddressComponent } from './Component/all-address/all-address.component';
 import { CheckoutComponent } from './Component/checkout/checkout.component';
-<<<<<<< HEAD
 import { NgxPayPalModule } from 'ngx-paypal';
 // import {GooglePayButtonModule} from '@google-pay/button-angular';
-=======
-//import { NgxPayPalModule } from 'ngx-paypal';
-//import {GooglePayButtonModule} from '@google-pay/button-angular';
->>>>>>> 5a21698fb16bae046391d760c7d728e2fcd65b09
 import { PaypalComponent } from './Component/paypal/paypal.component';
 
 
@@ -89,12 +84,9 @@ import { PaypalComponent } from './Component/paypal/paypal.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-<<<<<<< HEAD
     NgxPayPalModule,
 
 
-=======
->>>>>>> 5a21698fb16bae046391d760c7d728e2fcd65b09
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi : true
