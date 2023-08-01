@@ -38,7 +38,7 @@ import { MakeOrderComponent } from './Component/make-order/make-order.component'
 import { CheckoutComponent } from './Component/checkout/checkout.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import {GooglePayButtonModule} from '@google-pay/button-angular';
-import { PaypalComponent } from './Component/paypal/paypal.component'
+import { PaypalComponent } from './Component/paypal/paypal.component';
 
 
 @NgModule({
@@ -68,6 +68,7 @@ import { PaypalComponent } from './Component/paypal/paypal.component'
     SearchPrductPipe,
     CheckoutComponent,
     PaypalComponent,
+    AddressComponent,
   ],
 
   imports: [

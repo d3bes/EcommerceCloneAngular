@@ -47,5 +47,7 @@ export class AccountService {
     return this.httpclient.delete<any>(`${this.apiBaseUrl}/Account/Delete?id=${id}`);
   }
 
+  
+
 
 }

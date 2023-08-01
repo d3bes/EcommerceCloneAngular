@@ -97,7 +97,7 @@ export class AddressComponent implements OnInit {
   }
 
 
-
+  formHidden:boolean=true;
   email:string|null =  localStorage.getItem('email');
 
   ngOnInit(){
@@ -139,11 +139,16 @@ export class AddressComponent implements OnInit {
           // console.log(this.governorates_en);
         });
 
+      }
 
-
-
-
-
+      swap(){
+        this.formHidden=false
+        this.fullAddress.fullAddress= this.getFullAddress();
+        this.Address.fullAddress=this.fullAddress.fullAddress;
+      }
+      reswap(){
+        this.formHidden=false
+        this.fullAddress.fullAddress= this.getFullAddress();
 
       }
 
@@ -170,25 +175,30 @@ getCountries():Observable<any>{
 }
 
 CreateAddress(){
-  let fullAddress= this.fullAddress.selectedCountry + ' - ' + this.fullAddress.selectedGovernorate + ' - ' + this.fullAddress.selectedCity + ' - ' + this.fullAddress.street
-  + ' - ' + this.fullAddress.near + 'bulding no:' + this.fullAddress.building +  ' - ' +' - Location type: ' + this.fullAddress.location
-  console.log(this.fullAddress);
-this.Address.fullAddress= fullAddress;
-console.log(this.Address.fullAddress);
+//   let fullAddress= this.fullAddress.selectedCountry + ' - ' + this.fullAddress.selectedGovernorate + ' - ' + this.fullAddress.selectedCity + ' - ' + this.fullAddress.street
+//   + ' - ' + this.fullAddress.near + 'bulding no:' + this.fullAddress.building +  ' - ' +' - Location type: ' + this.fullAddress.location
+//   console.log(this.fullAddress);
+// this.Address.fullAddress= fullAddress;
+// console.log(this.Address.fullAddress);
 
-  this.Address.id = uuidv4();
-  this.Address.fullAddress= this.getFullAddress();
- this.Address.firstName= this.FirstName;
- this.Address.lastName= this.LastName;
- this.Address.phoneNumber = this.deliverPhone;
+//   this.Address.id = uuidv4();
+//   this.Address.fullAddress= this.getFullAddress();
+//  this.Address.firstName= this.FirstName;
+//  this.Address.lastName= this.LastName;
+//  this.Address.phoneNumber = this.deliverPhone;
 
- this.UserAddress.isDefault = true;
- this.UserAddress.id = uuidv4();
- this.UserAddress.addressId = this.Address.id;
+//  this.UserAddress.isDefault = true;
+//  this.UserAddress.id = uuidv4();
+//  this.UserAddress.addressId = this.Address.id;
   //this.UserAddress.userId = this.userId;
+  
   console.log( this.UserAddress.userId);
+  if(this.address.phoneNumber)
+  {
+    this.address.phoneNumber= this.user.phoneNumber
+  }
 
-this.userService.createAddress(this.Address).subscribe({
+this.userService.createAddress(this.address).subscribe({
   next:(data:AddressDTO)=>{
     console.log(data);
     this.CreateUserAddress()
@@ -204,7 +214,7 @@ this.userService.createAddress(this.Address).subscribe({
 }
 
 CreateUserAddress(){
-  this.userService.createUserAddress(this.UserAddress).subscribe({
+  this.userService.createUserAddress(this.userAddress).subscribe({
     next:(data:UserAddressDTO)=>{
       console.log(data);
     },
