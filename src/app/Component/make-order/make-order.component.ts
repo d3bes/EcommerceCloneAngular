@@ -21,7 +21,6 @@ export class MakeOrderComponent implements OnInit {
 
   orderId:string = uuidv4();
   randomAddressID = Math.floor(Math.random() * 1000) + 1;
-
   constructor(private orderServices:OrderService){}
 
   ngOnInit(): void {

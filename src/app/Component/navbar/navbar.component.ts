@@ -41,7 +41,7 @@ export class NavbarComponent {
   brands: ProductBrandDTO[] = [];
 
 
-  constructor(private productBrandService: BrandsService,private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, 
+  constructor(private productBrandService: BrandsService,private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService,
     private product:ProductService ,private http :HttpClient) {
     this.registrationForm = this.formBuilder.group({
       DisplayName: ['', Validators.required],
@@ -89,7 +89,7 @@ setInterval(()=>
         console.log('Fetching brands completed.');
       }
     });
-   
+
     this.productBrandService.getAllBrands().subscribe({
       next: (data: ProductBrandDTO[]) => {
         this.brands = data;
@@ -103,7 +103,7 @@ setInterval(()=>
       }
     });
 
-   
+
 
     //sign in
     this.signInForm = this.formBuilder.group({
@@ -114,15 +114,15 @@ setInterval(()=>
 
 
   }
-  
+
   brandNavigate(brdId: number) {
-    
-     
+
+
     this.router.navigate(['brd', brdId]);
     console.log( 'brdId:', brdId)
  }
-    
-  
+
+
   categoryNavigate(catId: number) {
 
 
