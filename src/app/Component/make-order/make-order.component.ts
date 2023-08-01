@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Guid } from 'guid-typescript';
 import { IorderDTO } from 'src/app/Models/iorder-dto';
 import { OrderService } from 'src/app/Services/order.service';
-// import { Guid } from 'guid-typescript';
+
 @Component({
   selector: 'app-make-order',
   templateUrl: './make-order.component.html',
@@ -71,7 +71,7 @@ export class MakeOrderComponent implements OnInit {
         console.error('Error retrieving order:', error);
       }
     );
-    }   
+    }
   }
 
  getOrders() {
