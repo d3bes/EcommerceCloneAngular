@@ -26,7 +26,6 @@ export class ProducdDetailesComponent {
     this.selectedValue=1;
     this.Cart=[];
   }
-  urlImage:string ="http://localhost:5195/files/images/";
 
   ngOnInit(): void {
     this.prdId = this.activatedRoute.snapshot.paramMap.get('productID')
