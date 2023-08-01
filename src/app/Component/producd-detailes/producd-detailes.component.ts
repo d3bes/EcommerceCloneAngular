@@ -11,10 +11,11 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class ProducdDetailesComponent {
   prdId: string = "";
-  product: Iproduct ;
+  product: Iproduct;
   selectedValue: number;
   cartItem:CartItem;
   Cart: CartItem[];
+  urlImage:string ="http://localhost:5195/files/images/";
   constructor(
     private activatedRoute: ActivatedRoute,
     private productsevice: ProductService
@@ -25,6 +26,7 @@ export class ProducdDetailesComponent {
     this.selectedValue=1;
     this.Cart=[];
   }
+  urlImage:string ="http://localhost:5195/files/images/";
 
   ngOnInit(): void {
     this.prdId = this.activatedRoute.snapshot.paramMap.get('productID')
@@ -36,6 +38,7 @@ export class ProducdDetailesComponent {
     this.productsevice.getById(this.prdId).subscribe({
       next: (data) => {
         this.product = data;
+
         console.log('Product:', this.product);
       },
       error: (error) => {
@@ -43,22 +46,11 @@ export class ProducdDetailesComponent {
       }
     });
 
-   
-     this.productsevice.getById(this.prdId).subscribe(result=>
-      {
-        this.product= result;
-        console.log("product",this.product);
-
-       
-
-      }
-
-      );
 
 
   }
 
- 
+
 
   setValue(value:number){
     this.selectedValue = value;
@@ -68,7 +60,7 @@ export class ProducdDetailesComponent {
 
   AddToCart(prdId:string)
   {
-    
+
     this.cartItem={
 
       product:this.product,
@@ -77,7 +69,7 @@ export class ProducdDetailesComponent {
     }
 
     console.log("cart Item :", this.cartItem);
-    
+
 
     const cart = localStorage.getItem('cart');
 
@@ -116,8 +108,8 @@ export class ProducdDetailesComponent {
     localStorage.setItem("counter", counter);
     let count= localStorage.getItem('counter');
     console.log('Counter ', count);
-    
-      
+
+
   }
 }
 

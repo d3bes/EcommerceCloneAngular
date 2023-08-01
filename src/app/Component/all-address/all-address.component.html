@@ -1,0 +1,58 @@
+
+<div style="margin-top: 3vw;">
+    <h4>Addresses</h4>
+</div>
+
+<button type="button" class="btn btn-primary"
+        data-bs-toggle="modal" data-bs-target="#address">ADD NEW ADDRESS</button>
+
+<h5 class="mt-4 text-primary">Default address
+</h5>
+
+<section class="Address mb-5" *ngFor="let address of userAddress  | async">
+    
+    <div class="Address bg-light p-4"  >
+        <div class="row" id="header">
+            <div class="col-sm-2">
+    
+                <h5> Home </h5>
+            </div>
+            <div class="col-sm-4"> </div>
+            <div class="col-sm-4">
+                <a href="#" (click)="deleteAdd(address.AddressID,address.Address.Id)" class="link-secondary" style="margin-right: 2rem;" >Delete</a>
+                <a href="#" class="link-secondary">Edit</a>
+            </div>
+        </div>
+        <div class="row mt-4" id="name">
+          <div class="col-sm-2">
+            <h6>Name : </h6>
+          </div>
+          <div class="col-sm-6">
+              <p>{{address.Address.FirstName+"  "+address.Address.LastName }}</p>
+          </div>
+        </div>
+    
+        <div class="row mt-4" id="name">
+            <div class="col-sm-2">
+              <h6>Address : </h6>
+            </div>
+            <div class="col-sm-6">
+                <p>{{address.Address.fullAddress}} </p>
+            </div>
+        </div>
+    
+        <div class="row mt-4" id="name">
+            <div class="col-sm-2">
+              <h6>Phone : </h6>
+            </div>
+            <div class="col-sm-6">
+                <p>{{address.Address.phoneNumber}}</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+ 
+

@@ -54,6 +54,7 @@
           type="search"
           placeholder="What are you looking for? "
           aria-label="Search"
+          [(ngModel)]="searchTerm"
         />
       </form>
       <div class="collapse navbar-collapse pb-4">
@@ -275,17 +276,17 @@
                 </ul>
 
           </div>
-              <div class="col-md-4">
+              <div class="col-md-4" >
                 <span class="fw-bolder py-2">TOP BRANDS</span>
                 <div class="row gy-2 ">
                   <div class="col-sm-5 border mx-1 p-2">
-                  <div class="brand-logo ">
-                    <img src="https://z.nooncdn.com/cms/pages/20210408/9852ea7d5c33973a1761053b129a047b/drop-brand-05.png" class="w-100" alt="">
+                  <div class="brand-logo " *ngFor="let item of brands"  >
+                    <img (click)="brandNavigate(3)" *ngIf="item.id==3" [src]="item.logoUrl" class="w-100" alt="">
                   </div>
                 </div>
                   <div class="col-md-5 border mx-1 p-2 ">
-                    <div class="brand-logo ">
-                      <img src="https://z.nooncdn.com/cms/pages/20210408/9852ea7d5c33973a1761053b129a047b/drop-brand-06.png" class="w-100" alt="">
+                    <div class="brand-logo " *ngFor="let item of brands">
+                      <img (click)="brandNavigate(4)" *ngIf="item.id==4" [src]="item.logoUrl" class="w-100" alt="">
                     </div>
                     </div>
                 </div>
@@ -340,15 +341,15 @@
                   <span class="fw-bolder py-2">TOP BRANDS</span>
                   <div class="row gy-2 ">
                     <div class="col-sm-5 border mx-1 p-2">
-                    <div class="brand-logo ">
-                      <img src="https://z.nooncdn.com/cms/pages/20210410/2a23ead9569718f23f16e78305f07230/drop-brand-03.png" class="w-100" alt="">
-                    </div>
+                      <div class="brand-logo " *ngFor="let item of brands"  >
+                        <img (click)="brandNavigate(5)"*ngIf="item.id==5" [src]="item.logoUrl" class="w-100" alt="">
+                      </div>
 
                     </div>
 
                     <div class="col-md-5 border mx-1 p-2 ">
-                      <div class="brand-logo ">
-                        <img src="https://z.nooncdn.com/cms/pages/20210410/2a23ead9569718f23f16e78305f07230/drop-brand-01.png" class="w-100" alt="">
+                      <div class="brand-logo " *ngFor="let item of brands"  >
+                        <img (click)="brandNavigate(6)"*ngIf="item.id==6" [src]="item.logoUrl" class="w-100" alt="">
                       </div>
 
                       </div>
@@ -405,29 +406,20 @@
                 <span class="fw-bolder py-2">TOP BRANDS</span>
                 <div class="row gy-2 ">
                   <div class="col-sm-5 border mx-1 p-2">
-                  <div class="brand-logo ">
-                    <img src="../assets/images/nike.png" class="w-100" alt="">
-                  </div>
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(7)" *ngIf="item.id==7" [src]="item.logoUrl" class="w-100" alt="">
+                    </div>
 
                   </div>
 
                   <div class="col-md-5 border mx-1 p-2 ">
-                    <div class="brand-logo ">
-                      <img src="../assets/images/addedas.png" class="w-100" alt="">
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img  (click)="brandNavigate(8)"*ngIf="item.id==8" [src]="item.logoUrl" class="w-100" alt="">
                     </div>
 
                     </div>
 
-                    <div class="col-md-5 border mx-1 p-2">
-                      <div class="brand-logo ">
-                        <img src="../assets/images/defacto.png" class="w-100" alt="">
-                      </div>
-                    </div>
-                    <div class="col-md-5 border mx-1 p-2">
-                      <div class="brand-logo ">
-                        <img src="https://a.nooncdn.com/cms/pages/20221012/37f037c8d251917918ba38da763fbb60/en_mb_eg-logo-03.png" class="w-100" alt="">
-                      </div>
-                    </div>
+                    
                 </div>
               </div>
 
@@ -465,7 +457,6 @@
         >
           <span class="text-center fw-bold" (click)=" categoryNavigate(6)">WOMEN</span>
         </button>
-
         <ul class="dropdown-menu center " aria-labelledby="dropdownMenuButton">
           <div class="container ">
             <div class="row   ">
@@ -473,35 +464,23 @@
                 <span class="fw-bolder ">CATEGORIES</span>
                 <ul class="CATEGORIESUL">
                   <a *ngFor="let item of childrenCategories; let i = index">
-                    <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 6 || i ===7 ">{{ item.name }}</li>
-                  </a>
+                    <li (click)=" categoryNavigate(item.id)" class="nav-link" href="#" *ngIf="i === 6 || i === 7">{{ item.name }}</li>
+                    </a>
                 </ul>
               </div>
               <div class="col-md-4">
                 <span class="fw-bolder py-2">TOP BRANDS</span>
                 <div class="row gy-2 ">
                   <div class="col-sm-5 border mx-1 p-2">
-                  <div class="brand-logo ">
-                    <img src="../assets/images/nike.png" class="w-100" alt="">
-                  </div>
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(9)" *ngIf="item.id==9" [src]="item.logoUrl" class="w-100" alt="">
+                    </div>
                   </div>
                   <div class="col-md-5 border mx-1 p-2 ">
-                    <div class="brand-logo ">
-                      <img src="../assets/images/addedas.png" class="w-100" alt="">
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(14)"*ngIf="item.id==14" [src]="item.logoUrl" class="w-100" alt="">
                     </div>
-
-                    </div>
-
-                    <div class="col-md-5 border mx-1 p-2">
-                      <div class="brand-logo ">
-                        <img src="../assets/images/defacto.png" class="w-100" alt="">
-                      </div>
-                    </div>
-                    <div class="col-md-5 border mx-1 p-2">
-                      <div class="brand-logo ">
-                        <img src="https://a.nooncdn.com/cms/pages/20221012/37f037c8d251917918ba38da763fbb60/en_mb_eg-logo-03.png" class="w-100" alt="">
-                      </div>
-                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-5">
@@ -523,6 +502,7 @@
               </div>
           </div>
         </ul>
+        
       </div>
 
 
@@ -545,13 +525,13 @@
                 <span class="fw-bolder py-2">TOP BRANDS</span>
                 <div class="row gy-2 ">
                   <div class="col-sm-5 border mx-1 p-2">
-                  <div class="brand-logo ">
-                    <img src="https://a.nooncdn.com/cms/pages/20230116/0030ae8ea752e7930c2c4fbd25a0037a/en_dk_eg-brand-01.png" class="w-100" alt="">
-                  </div>
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(10)"*ngIf="item.id==10" [src]="item.logoUrl" class="w-100" alt="">
+                    </div>
                   </div>
                   <div class="col-md-5 border mx-1 p-2 ">
-                    <div class="brand-logo ">
-                      <img src="https://z.nooncdn.com/cms/pages/20200115/3335bf024f3b65b7be35bab3ce2bf882/drop-brand-12.png" class="w-100" alt="">
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(11)" *ngIf="item.id==11" [src]="item.logoUrl" class="w-100" alt="">
                     </div>
                   </div>
                 </div>
@@ -604,13 +584,13 @@
                 <span class="fw-bolder py-2">TOP BRANDS</span>
                 <div class="row gy-2 ">
                   <div class="col-sm-5 border mx-1 p-2">
-                  <div class="brand-logo ">
-                    <img src="https://z.nooncdn.com/rn/brands_v1/maybelline.png" class="w-100" alt="">
-                  </div>
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(12)" *ngIf="item.id==12" [src]="item.logoUrl" class="w-100" alt="">
+                    </div>
                   </div>
                   <div class="col-md-5 border mx-1 p-2 ">
-                    <div class="brand-logo ">
-                      <img src="https://z.nooncdn.com/rn/brands_v1/loreal.png" class="w-100" alt="">
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(13)" *ngIf="item.id==13" [src]="item.logoUrl" class="w-100" alt="">
                     </div>
                     </div>
                 </div>
@@ -657,13 +637,13 @@
                 <span class="fw-bolder py-2">TOP BRANDS</span>
                 <div class="row gy-2 ">
                   <div class="col-sm-5 border mx-1 p-2">
-                  <div class="brand-logo ">
-                    <img src="https://z.nooncdn.com/rn/brands_v1/pampers.png" class="w-100" alt="">
-                  </div>
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(15)" *ngIf="item.id==15" [src]="item.logoUrl" class="w-100" alt="">
+                    </div>
                   </div>
                   <div class="col-md-5 border mx-1 p-2 ">
-                    <div class="brand-logo ">
-                      <img src="https://z.nooncdn.com/rn/brands_v1/baby_joy.png" class="w-100" alt="">
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(16)" *ngIf="item.id==16" [src]="item.logoUrl" class="w-100" alt="">
                     </div>
                     </div>
                 </div>
@@ -714,13 +694,13 @@
                 <span class="fw-bolder py-2">TOP BRANDS</span>
                 <div class="row gy-2 ">
                   <div class="col-sm-5 border mx-1 p-2">
-                  <div class="brand-logo ">
-                    <img src="https://z.nooncdn.com/cms/pages/20200115/3335bf024f3b65b7be35bab3ce2bf882/drop-brand-22.png" class="w-100" alt="">
-                  </div>
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(17)"*ngIf="item.id==17" [src]="item.logoUrl" class="w-100" alt="">
+                    </div>
                   </div>
                   <div class="col-md-5 border mx-1 p-2 ">
-                    <div class="brand-logo ">
-                      <img src="https://z.nooncdn.com/cms/pages/20200115/3335bf024f3b65b7be35bab3ce2bf882/drop-brand-27.png" class="w-100" alt="">
+                    <div class="brand-logo " *ngFor="let item of brands"  >
+                      <img (click)="brandNavigate(18)" *ngIf="item.id==18" [src]="item.logoUrl" class="w-100" alt="">
                     </div>
                     </div>
                 </div>
@@ -747,7 +727,7 @@
       </div>
 
       <div >
-        <a class="btn btn-light rounded-0">
+        <a href="http://localhost:5195/Account/Login" class="btn btn-light rounded-0">
           <span class="text-center fw-bold">Sell on noon</span>
         </a>
       </div>

@@ -12,7 +12,7 @@ import { UserService } from 'src/app/Services/user.service';
 import { environment } from 'src/environments/environment.development';
 import { v4 as uuidv4 } from 'uuid';
 import { Location } from '@angular/common';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -22,208 +22,73 @@ import { FormControl } from '@angular/forms';
 })
 export class AddressComponent implements OnInit {
 
-
-  user:ProfileDTO;
-  countries:any[]=[]
-  cities:any[]= [];
-  cities_en:any[]=[];
-  cities_ar:any[]=[];
-  governorates:any[]=[]
-  governorates_en:any[]=[]
-  governorates_ar:any[]=[]
-  userId:string|null=localStorage.getItem('userId');
+  userId:string= "f7caa6d4-d3e9-4a95-8796-921ae79d8775";    //localStorage.getItem('userId');
   fullAddress:any;
-  Address:AddressDTO ;
-  UserAddress:UserAddressDTO ;
   FirstName!: string;
   LastName!: string;
   deliverPhone!: string;
-
-
-  constructor( private httpclient: HttpClient, private userService: UserService
-    ) {
-      this.fullAddress={
-
-        fullAddress:'',
-        selectedCountry:'Egypt',
-        selectedGovernorate:'',
-        selectedCity:'',
-        street:'',
-        location:'',
-        building:'',
-        near:'',
-        deliverPhone:''
-    
-      }
-
-
-      this.Address = {} as AddressDTO;
-      this.UserAddress = {} as UserAddressDTO;
-      this.user={} as ProfileDTO;
-
-      this.userService.getUserProfile(this.email).subscribe(response=>
-        {
-          this.userId = response.id;
-          this.UserAddress.userId= response.id;
-          console.log(this.userId);
-          console.log( this.UserAddress.userId);
-        console.log(response);
-
-        });
-
-
-
-  }
-
- 
-
-  address: AddressDTO = {
-    id:uuidv4(),
-    firstName: '',
-    lastName: '',
-    fullAddress: ''  ,
-    phoneNumber: '',
-  };
-  userAddress: UserAddressDTO = {
-    id: uuidv4(),
-    isDefault: false,
-    addressId:  this.address.id,
-    userId: this.userId,
-  };
-     
-  onSubmit() {
-    // Submit the form data
-    console.log(this.address, this.userAddress);
-  }
-
-
-  formHidden:boolean=true;
+  user!: ProfileDTO;
+  addressForm!: FormGroup;
   email:string|null =  localStorage.getItem('email');
+  userAddress!: UserAddressDTO;
+  address!:AddressDTO;
+
+
+  constructor( private formBuilder: FormBuilder, private userService: UserService) {
+    
+  }
+
 
   ngOnInit(){
-
-
+    this.initForm();
     this.userService.getCurrentUser().pipe(
       tap((response: ProfileDTO) => {
         this.user = response;
 
         console.log(this.user);
-      })
-    ).subscribe();
-
-
-
-        // get countries
-        const objs = this.getCountries().subscribe(response=>
-          {
-            const names = response.map((obj: { name: { common: any; }; }) => obj.name.common);
-          //  console.log(names);
-            this.countries= names;
-            // console.log("get countries",this.countries)
-           });
-           // get cities
-        this.httpclient.get<any>('./assets/cities.json').subscribe(data => {
-          this.cities = data;
-          this.cities_en = this.cities.map(city => city.city_name_en);
-          this.cities_ar = this.cities.map(city => city.city_name_ar);
-          // console.log(this.cities_ar);
-          // console.log(this.cities_en);
-        });
-
-          // get governorates
-        this.httpclient.get<any>('./assets/governorates.json').subscribe(data => {
-          this.governorates = data;
-          this.governorates_en = this.governorates.map(governorates => governorates.governorate_name_en);
-          this.governorates_ar = this.governorates.map(governorates => governorates.governorate_name_ar);
-          // console.log(this.governorates_ar);
-          // console.log(this.governorates_en);
-        });
-
-      }
-
-      swap(){
-        this.formHidden=false
-        this.fullAddress.fullAddress= this.getFullAddress();
-        this.Address.fullAddress=this.fullAddress.fullAddress;
-      }
-      reswap(){
-        this.formHidden=false
-        this.fullAddress.fullAddress= this.getFullAddress();
-
-      }
-
-
-
-      getFullAddress():string{
-    let fullAddress= this.fullAddress.selectedCountry + ' - ' + this.fullAddress.selectedGovernorate + ' - ' + this.fullAddress.selectedCity + ' - ' + this.fullAddress.street
-    + ' - ' + this.fullAddress.near + 'bulding no:' + this.fullAddress.building +  ' - ' +' - Location type: ' + this.fullAddress.location
-    console.log(this.fullAddress);
-    return fullAddress
-    }
-      test(){
-        console.log(this.fullAddress.selectedCountry)
-      }
-      testCity(){
-        console.log(this.fullAddress.selectedCity)
-      }
-      testGov(){
-        console.log(this.fullAddress.selectedGovernorate)
-      }
-getCountries():Observable<any>{
-
-  return this.httpclient.get<any>('https://restcountries.com/v3.1/all')
-}
-
-CreateAddress(){
-//   let fullAddress= this.fullAddress.selectedCountry + ' - ' + this.fullAddress.selectedGovernorate + ' - ' + this.fullAddress.selectedCity + ' - ' + this.fullAddress.street
-//   + ' - ' + this.fullAddress.near + 'bulding no:' + this.fullAddress.building +  ' - ' +' - Location type: ' + this.fullAddress.location
-//   console.log(this.fullAddress);
-// this.Address.fullAddress= fullAddress;
-// console.log(this.Address.fullAddress);
-
-//   this.Address.id = uuidv4();
-//   this.Address.fullAddress= this.getFullAddress();
-//  this.Address.firstName= this.FirstName;
-//  this.Address.lastName= this.LastName;
-//  this.Address.phoneNumber = this.deliverPhone;
-
-//  this.UserAddress.isDefault = true;
-//  this.UserAddress.id = uuidv4();
-//  this.UserAddress.addressId = this.Address.id;
-  //this.UserAddress.userId = this.userId;
-  
-  console.log( this.UserAddress.userId);
-  if(this.address.phoneNumber)
-  {
-    this.address.phoneNumber= this.user.phoneNumber
+      })).subscribe();
   }
 
-this.userService.createAddress(this.address).subscribe({
-  next:(data:AddressDTO)=>{
-    console.log(data);
-    this.CreateUserAddress()
-  },
-  error:( error:any)=>{
-    console.error('failed to create address',error);
-  },
-  complete: () => {
-    window.location.reload();
+  initForm() {
+    this.addressForm = this.formBuilder.group({
+      id: [null], // Use null to indicate it's a new address
+      isDefault: [false, Validators.required],
+      address: this.formBuilder.group({
+        id: [null],
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        fullAddress: ['', Validators.required],
+        phoneNumber: ['', Validators.required],
+        addressLabel: ['home', Validators.required], // Default value 'home'
+      }),
+    });
+  }
+
+  onSubmit() {
+    console.log("hi submit")
+    if (this.addressForm.valid) {
+      const formValue = this.addressForm.value;
+      // Generate a random number between 1 and 1000 and convert it to a string
+      var randomAddressID = Math.floor(Math.random() * 1000) + 1;
+      this.address = {
+        Id: randomAddressID,
+        FirstName: formValue.address.firstName,
+        LastName: formValue.address.lastName,
+        fullAddress: formValue.address.fullAddress,
+        phoneNumber: formValue.address.phoneNumber,
+        addressLabel: formValue.address.addressLabel
+      };
+
+      this.userAddress = {
+        Id: randomAddressID,
+        Address: this.address,
+        isDefault: formValue.isDefault,
+        AddressID: randomAddressID,
+        userId: this.userId
+      };
+      console.log(this.userAddress);
+
+      this.userService.createUserAddress(this.userAddress).subscribe(data => console.log(data))
     }
-});
-
-}
-
-CreateUserAddress(){
-  this.userService.createUserAddress(this.userAddress).subscribe({
-    next:(data:UserAddressDTO)=>{
-      console.log(data);
-    },
-    error:( error:any)=>{
-      console.error('failed to create userAddress',error);
-    }
-  });
-}
-
-
-
+  }
 }

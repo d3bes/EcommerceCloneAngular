@@ -7,6 +7,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CatogriesService } from 'src/app/Services/catogries.service';
 import { ProducdDetailesComponent } from '../producd-detailes/producd-detailes.component';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -15,18 +16,23 @@ import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-detai
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent {
+  
  catId: number = 0;
   products: Iproduct[] | undefined = undefined;
-  catogries: any[] = [];  
-
-  constructor( private router: Router, 
+  catogries: any[] = [];
+ 
+  constructor( private router: Router,
     private activatedRoute: ActivatedRoute,
     private productsevice: ProductService,
-    private catogriesService:CatogriesService
+    private catogriesService:CatogriesService,
+    private _ProductService:ProductService
   ) {}
-  urlImage:string ="http://localhost:5195/files/images/";
 
+
+  urlImage:string ="http://localhost:5195/files/images/";
   ngOnInit(): void {
+
+
 
     this.activatedRoute.paramMap.subscribe((params) => {
       const categoryId = Number(params.get('categoryID'));
@@ -37,6 +43,7 @@ export class CategoryComponent {
         // Handle invalid category ID
       }
     });
+   
    /*  this.catId = this.activatedRoute.snapshot.paramMap.get('categoryID')
     ?Number(this.activatedRoute.snapshot.paramMap.get('categoryID'))
     : 0;
@@ -65,8 +72,12 @@ export class CategoryComponent {
     }
   });
   }
+
+
+
  
-  
+
+
   private loadProducts(): void {
     this.productsevice.getProductsByCategoryID(this.catId).subscribe({
       next: (data) => {
@@ -78,7 +89,10 @@ export class CategoryComponent {
       },
     });
   }
-   
+ 
+  prdDetails(prdId:string){
+    this.router.navigate(['prd',prdId]);
+  }
   
   
   
@@ -94,9 +108,9 @@ export class CategoryComponent {
       0: {
         items: 1
       },
-  
+
     },
     nav: true
   }
-  
+
 }

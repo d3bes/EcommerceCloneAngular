@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Iproduct } from '../Models/iproduct';
-import { CartItem } from '../Models/cart-item';
-import { ProducdDetailesComponent } from '../Component/producd-detailes/producd-detailes.component';
-import { ProductDetailesService } from '../Services/product-detailes.service';
+import { Iproduct } from '../../Models/iproduct';
+import { CartItem } from '../../Models/cart-item';
+import { ProducdDetailesComponent } from '../producd-detailes/producd-detailes.component';
+import { ProductDetailesService } from '../../Services/product-detailes.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,6 +13,8 @@ export class CartComponent implements OnInit{
   Cart:CartItem[];
   counter:string|null;
   Total:number;
+  urlImage:string ="http://localhost:5195/files/images/";
+
   constructor( private prouctDetailes:ProductDetailesService){
 this.Cart= []
 this.Total=0;

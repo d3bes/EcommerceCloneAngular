@@ -37,14 +37,13 @@ return this._HttpClient.put<any>(`${this.ApiUrl}/User/UpdatePhoneNumber?email=${
 }
 
 
-createAddress(address:AddressDTO): Observable<any>{
-
-  return this._HttpClient.post(`${environment.LocalApiUrl}/Address`, address);
-}
 
 createUserAddress(userAddress:UserAddressDTO):Observable<any>{
 
   return this._HttpClient.post(`${environment.LocalApiUrl}/UserAddress`, userAddress);
+}
+allAddressForUser(userId:string):Observable<any>{
+  return this._HttpClient.get(`${environment.LocalApiUrl}/UserAddress/forUser/${userId}`)
 }
 
 getUserPayments(userId:string|null):Observable<any>{
