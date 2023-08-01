@@ -33,7 +33,7 @@ export class NavbarComponent {
   catId: number = 0;
   products: Iproduct[] | undefined = undefined;
 
-  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
+  // constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
 
 
 
