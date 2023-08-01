@@ -20,7 +20,9 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  catogries: any[] = [];  
+
+  searchTerm:string='';
+  catogries: any[] = [];
   signInForm!: FormGroup;
   login!: LogIn;
   user : UserDTO | undefined;
@@ -31,15 +33,15 @@ export class NavbarComponent {
   catId: number = 0;
   products: Iproduct[] | undefined = undefined;
 
-  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
-   
-    
-    
+  // constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
+
+
+
   counter:string|null;
 
-  
 
-  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, 
+
+  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService,
     private product:ProductService ,private http :HttpClient) {
     this.registrationForm = this.formBuilder.group({
       DisplayName: ['', Validators.required],
@@ -59,7 +61,7 @@ setInterval(()=>
   this.counter= localStorage.getItem('counter');
 },5000)
    }
-   
+
    selectedParentCategory: ProductCategoryDetailsDTO | null = null;
 
   ngOnInit():void {
@@ -87,7 +89,7 @@ setInterval(()=>
         console.log('Fetching brands completed.');
       }
     });
-   
+
     //sign in
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -97,13 +99,13 @@ setInterval(()=>
 
 
   }
-  
 
-    
-  
+
+
+
   categoryNavigate(catId: number) {
-    
-     
+
+
      this.router.navigate(['cat', catId]);
      console.log( 'catId:', catId)
   }
@@ -148,6 +150,8 @@ setInterval(()=>
     console.log('Email:', this.login.Email);
     console.log('Password:', this.login.Password);
   }
+
+
 
 
   /////////////////register /////////////////
