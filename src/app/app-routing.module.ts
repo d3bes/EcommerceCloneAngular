@@ -29,9 +29,6 @@ const routes: Routes = [
   { path: 'cat/:categoryID', component:CategoryComponent },
   { path: 'brd/:brandID', component:BrandsComponent },
   {path:'checkout', component:CheckoutComponent, title:'checkout'}
-
-
-
 ];
 
 @NgModule({
