@@ -35,6 +35,7 @@ this.Total=0;
 getTotal(){
   for(let item of this.Cart){
     this.Total+= (item.product.price * item.quantity)
+    console.log(this.Total)
   }
 
 }

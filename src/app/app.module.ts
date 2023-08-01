@@ -35,6 +35,10 @@ import { CartComponent } from './cart/cart.component';
 import { FooteDescrbtionComponent } from './foote-descrbtion/foote-descrbtion.component';
 import { SearchPrductPipe } from './search-prduct.pipe';
 import { MakeOrderComponent } from './Component/make-order/make-order.component';
+import { CheckoutComponent } from './Component/checkout/checkout.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import {GooglePayButtonModule} from '@google-pay/button-angular';
+import { PaypalComponent } from './Component/paypal/paypal.component'
 
 
 @NgModule({
@@ -62,6 +66,8 @@ import { MakeOrderComponent } from './Component/make-order/make-order.component'
     CartComponent,
     FooteDescrbtionComponent,
     SearchPrductPipe,
+    CheckoutComponent,
+    PaypalComponent,
   ],
 
   imports: [
@@ -74,7 +80,9 @@ import { MakeOrderComponent } from './Component/make-order/make-order.component'
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    NgxPayPalModule,
+    GooglePayButtonModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi : true

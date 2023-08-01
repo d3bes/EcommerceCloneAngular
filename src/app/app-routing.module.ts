@@ -11,6 +11,7 @@ import { PaymentComponent } from './Component/payment/payment.component';
 import { OrdersComponent } from './Component/orders/orders.component';
 import { CategoryComponent } from './Component/category/category.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './Component/checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'userorders', component:OrdersComponent, title: 'orders'},
   {path: 'signIn', component:SignUpComponent, title:'auth'},
   { path: 'cart', component:CartComponent,title:"cart" },
-  { path: 'cat/:categoryID', component:CategoryComponent }
+  { path: 'cat/:categoryID', component:CategoryComponent },
+  {path:'checkout', component:CheckoutComponent, title:'checkout'}
 
 
 
