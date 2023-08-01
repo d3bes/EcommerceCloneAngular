@@ -44,17 +44,6 @@ export class ProducdDetailesComponent {
     });
 
    
-     this.productsevice.getById(this.prdId).subscribe(result=>
-      {
-        this.product= result;
-        console.log("product",this.product);
-
-       
-
-      }
-
-      );
-
 
   }
 

@@ -6,7 +6,7 @@ export interface Iproduct {
         category:category,
         brandId:number,
         brand:string,
-        images?:string[],
+        images:string[],
         price:number,
         inStock?:boolean,
         description:string,

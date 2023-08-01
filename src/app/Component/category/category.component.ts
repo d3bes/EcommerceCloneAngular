@@ -100,10 +100,13 @@ export class CategoryComponent {
       },
     });
   }
-
-
-
-
+   
+  prdDetails(prdId:string){
+    this.router.navigate(['prd',prdId]);
+  }
+  
+  
+  
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,

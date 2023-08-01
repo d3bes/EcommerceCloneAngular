@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Iproduct } from '../Models/iproduct';
-import { CartItem } from '../Models/cart-item';
-import { ProducdDetailesComponent } from '../Component/producd-detailes/producd-detailes.component';
-import { ProductDetailesService } from '../Services/product-detailes.service';
+import { Iproduct } from '../../Models/iproduct';
+import { CartItem } from '../../Models/cart-item';
+import { ProducdDetailesComponent } from '../producd-detailes/producd-detailes.component';
+import { ProductDetailesService } from '../../Services/product-detailes.service';
 
 @Component({
   selector: 'app-cart',

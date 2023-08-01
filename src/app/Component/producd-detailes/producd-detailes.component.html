@@ -1,42 +1,27 @@
 
 <div class="container-fluid" *ngIf="product">
   
-            <div class="spa mx-2 mt-2">
-
-                <a href="" class="lis">Home<span>></span></a>
-                <a href="" class="lis"> Electronics & Mobiles <span>></span> </a>
-
-                <a href="" class="lis">Mobiles & Accessories<span>></span></a>
-
-                <a href="" class="lis">Mobile Phones <span>></span></a>
-                <a href="" class="lis">Smartphones</a>
-            </div>
             <div class="row " >
 
                 <div class="col-md-1 m-4">
 
                     <div class="cont_img border border-3 rounded-2 border-muted">
-                        <img [src]="product.images" class="w-100 " alt="">
+                        <img [src]="product.images[0]" class="w-100  " alt="">
                     </div>
 
                     <div class="cont_img border border-3 rounded-2 border-muted">
-                        <img src="./images/N53363071A_1.avif" class="w-100 rounded-2" alt="">
+                        <img [src]="product.images[1]"  class="w-100 rounded-2" alt="">
                     </div>
 
-                    <div class="cont_img border border-3 rounded-2 border-muted">
-                        <img src="./images/N53363071A_1.avif" class="w-100 rounded-2" alt="">
-                    </div>
-
-                    <div class="cont_img border border-3 rounded-2 border-muted">
-                        <img src="./images/N53363071A_1.avif" class="w-100 rounded-2" alt="">
-                    </div>
+                   
+                   
 
                 </div>
 
                 <div class="col-md-3  d-flex align-items-center">
 
                     <div class="imge border border-1 rounded-2 border-muted bg-muted ">
-                        <img [src]="product.images"  class="w-100" alt="">
+                        <img [src]="product.images[2]"  class="w-100" alt="">
                     </div>
 
                 </div>
@@ -51,8 +36,8 @@
                     <div class="title">
                         <p class="pt-2">{{product.brand}}</p>
 
-                        <h4>{{product.description}}</h4>
-                        <span>Model Number : Galaxy A13 5</span>
+                        <h4>{{product.name}}</h4>
+                       
 
                         <span>
                            
