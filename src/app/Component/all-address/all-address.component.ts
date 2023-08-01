@@ -9,13 +9,20 @@ import { Observable } from 'rxjs';
 })
 export class AllAddressComponent implements OnInit {
   userId:string= "f7caa6d4-d3e9-4a95-8796-921ae79d8775";    //localStorage.getItem('userId');
-  userAddress!: Observable<UserAddressDTO[]>;
+  userAddress!: UserAddressDTO[];
   constructor(private userServices:UserService)
   {
     
   }
   ngOnInit(): void {
-    this.userAddress = this.userServices.allAddressForUser(this.userId);
+    this.userServices.allAddressForUser(this.userId).subscribe(data =>{
+      this.userAddress = data;
+      localStorage.setItem('userAddress', JSON.stringify(this.userAddress));
+  })
+  const userAddressData = localStorage.getItem('userAddress');
+    if (userAddressData) {
+      this.userAddress = JSON.parse(userAddressData);
+    }
     console.log(this.userAddress)
   }
 
