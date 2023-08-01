@@ -18,14 +18,15 @@ export class MakeOrderComponent implements OnInit {
   orderItems!: IorderItemDTO[];
   io!: IorderItemDTO;
   Cart!: CartItem[];
-
-  orderId:string = uuidv4();
+  orderId!:string;
+  
   randomAddressID = Math.floor(Math.random() * 1000) + 1;
   constructor(private orderServices:OrderService){}
 
   ngOnInit(): void {
     let local= localStorage.getItem('cart');
-    if(local)
+    if(local){
+      this.orderId = uuidv4();
       this.Cart= JSON.parse(local);  
       this.Cart.forEach((item: { product: { sku: any; }; quantity: any; }) =>{
         this.io = {
@@ -53,6 +54,7 @@ export class MakeOrderComponent implements OnInit {
          console.log(this.userOrders);
       });
   
+    }
   }
 
 

@@ -39,7 +39,7 @@ import { AllAddressComponent } from './Component/all-address/all-address.compone
 import { CheckoutComponent } from './Component/checkout/checkout.component';
 //import { NgxPayPalModule } from 'ngx-paypal';
 //import {GooglePayButtonModule} from '@google-pay/button-angular';
-import { PaypalComponent } from './Component/paypal/paypal.component';
+//import { PaypalComponent } from './Component/paypal/paypal.component';
 
 
 @NgModule({
@@ -69,7 +69,6 @@ import { PaypalComponent } from './Component/paypal/paypal.component';
     AllAddressComponent,
     SearchPrductPipe,
     CheckoutComponent,
-    PaypalComponent,
     AddressComponent,
   ],
 
