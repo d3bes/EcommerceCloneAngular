@@ -79,7 +79,8 @@
               </div>
             </a> -->
             <div>
-              <button *ngIf="!isLogIn"  type="button" class="btn  colortext px-2 d-flex" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo">
+              <!-- <button *ngIf="!isLogIn"  type="button" class="btn  colortext px-2 d-flex" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo"> -->
+                <button *ngIf="!isLogIn"  type="button" class="btn  colortext px-2 d-flex" routerLink="/signIn" >
                 <span class="textbold px-1">SignIn</span>
                 <i class="fa-regular fa-user"></i>
               </button>
@@ -135,7 +136,7 @@
 </div>
 
 <!-----------------------Register ---------------------------->
-<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -726,7 +727,7 @@
       </div>
 
       <div >
-        <a class="btn btn-light rounded-0">
+        <a href="http://localhost:5195/Account/Login" class="btn btn-light rounded-0">
           <span class="text-center fw-bold">Sell on noon</span>
         </a>
       </div>
@@ -741,3 +742,38 @@
 
   </div>
 </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

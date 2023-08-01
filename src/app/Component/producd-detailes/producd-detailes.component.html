@@ -1,27 +1,28 @@
 
 <div class="container-fluid" *ngIf="product">
-  
+
             <div class="row " >
 
-                <div class="col-md-1 m-4">
+                <div class="col-md-1 m-4" >
 
                     <div class="cont_img border border-3 rounded-2 border-muted">
-                        <img [src]="product.images[0]" class="w-100  " alt="">
+                        <img [src]="urlImage+product.images[0]" class="w-100  " alt="">
                     </div>
 
                     <div class="cont_img border border-3 rounded-2 border-muted">
-                        <img [src]="product.images[1]"  class="w-100 rounded-2" alt="">
+                        <img [src]="urlImage+product.images[1]"  class="w-100 rounded-2" alt="">
                     </div>
+                    
 
-                   
-                   
+
+
 
                 </div>
 
                 <div class="col-md-3  d-flex align-items-center">
 
                     <div class="imge border border-1 rounded-2 border-muted bg-muted ">
-                        <img [src]="product.images[2]"  class="w-100" alt="">
+                        <img [src]="urlImage+product.images[2]"  class="w-100" alt="">
                     </div>
 
                 </div>
@@ -29,7 +30,7 @@
 
                     <div id="Best" class=" rounded-3 d-inline p-1 bg-dark">
 
-                        <img src="./images/mouse-click-white.svg" class="ps-2" style="width:2rem; " alt="">
+                        <img src="../assets/images/mouse-click-white.svg" class="ps-2" style="width:2rem; " alt="">
                         <span class="text-white p-1">Best Seller</span>
                     </div>
 
@@ -37,10 +38,10 @@
                         <p class="pt-2">{{product.brand}}</p>
 
                         <h4>{{product.name}}</h4>
-                       
+
 
                         <span>
-                           
+
 
                         </span>
 
@@ -52,7 +53,7 @@
                         </div>
 
                         <div class="expres bg-info ">
-                            <img src="./images/fulfilment_express_v2-en.svg" class="mx-4" alt="">
+                            <img src="../assets/images/fulfilment_express_v2-en.svg" class="mx-4" alt="">
                         </div>
 
 
@@ -147,14 +148,14 @@
                 </div>
                 <div class="col-md-3 bord">
                     <div class="freerturn bordbottom py-3">
-                        <img src="./images/free_returns.svg" alt="">
+                        <img src="https://f.nooncdn.com/s/app/com/noon/icons/non_returnable.svg" alt="">
                         <span style=" font-size:0.9rem">Enjoy hassle free returns with this offer.</span>
                         <a href="" class="decro d-block">Learn more</a>
 
                     </div>
 
                     <div class="freerturn bordbottom py-2">
-                        <img src="./images/warranty.svg" alt="">
+                        <img src="https://f.nooncdn.com/s/app/com/noon/icons/warranty.svg" alt="">
                         <span style=" font-size:0.9rem">1 year warranty</span>
                         <a href="" class="decro">Learn more</a>
 
@@ -163,7 +164,7 @@
                     <a href="" class="text-decoration-none ">
                         <div class="freerturn  py-2 d-flex flex-nowrap">
                             <div>
-                                <img src="./images/seller.svg" class="p-2"
+                                <img src="https://f.nooncdn.com/s/app/com/noon/icons/seller.svg" class="p-2"
                                     style="width:3rem;border: solid rgb(247, 243, 243);; border-radius:50% ;" alt="">
 
                             </div>
@@ -192,22 +193,22 @@
 
                 </a>
 
-              
-                    
+
+
                             <div class="d-flex justify-content-evenly border border-1 p-1" >
-                                
+
                                     <div class="text-center">
-                                        <img src="./images/badge_great_recent_rating.png" class="imgreet" alt="">
+                                        <img src="https://z.nooncdn.com/nr/seller_badges/badge_great_recent_rating.png" class="imgreet" alt="">
                                         <div class="textspan text-center">
                                             <span class="d-block">Greet Recent</span>
                                             <span>Rating</span>
                                         </div>
                                     </div>
 
-                                
-                               
+
+
                                     <div class="text-center">
-                                        <img src="./images/badge_low_returns_seller.png" class="imgreet" alt="">
+                                        <img src="https://z.nooncdn.com/nr/seller_badges/badge_low_returns_seller.png" class="imgreet" alt="">
                                         <div class="textspan text-center">
                                             <span class="d-block">Greet Recent</span>
                                             <span>Rating</span>
@@ -224,18 +225,17 @@
                                     </div>
 
 
-                               
-                               
+
+
                             </div>
 
                             <div class="freerturn bordbottom py-3 d-flex">
-                                <img src="./images/free_returns.svg" class="d-flex align-items-center mx-1" alt="">
+                                <img src="https://f.nooncdn.com/s/app/com/noon/icons/trusted_shipping_usp_v2.svg" class="d-flex align-items-center mx-1" alt="">
                                 <div>
                                     <span  class="fw-bold d-block">FREE RETURNS</span>
                                     <span class="text-muted">Get free returns on eligible items</span>
                                 </div>
-                               
-        
+
+
                             </div>
-                           
-   
+

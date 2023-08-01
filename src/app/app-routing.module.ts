@@ -12,6 +12,7 @@ import { OrdersComponent } from './Component/orders/orders.component';
 import { CategoryComponent } from './Component/category/category.component';
 import { CartComponent } from './Component/cart/cart.component';
 import { BrandsComponent } from './Component/brands/brands.component';
+import { CheckoutComponent } from './Component/checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'cart', component:CartComponent,title:"cart" },
   { path: 'cat/:categoryID', component:CategoryComponent },
   { path: 'brd/:brandID', component:BrandsComponent }
+  {path:'checkout', component:CheckoutComponent, title:'checkout'}
 
 
 

@@ -13,6 +13,8 @@ export class CartComponent implements OnInit{
   Cart:CartItem[];
   counter:string|null;
   Total:number;
+  urlImage:string ="http://localhost:5195/files/images/";
+
   constructor( private prouctDetailes:ProductDetailesService){
 this.Cart= []
 this.Total=0;
@@ -35,6 +37,7 @@ this.Total=0;
 getTotal(){
   for(let item of this.Cart){
     this.Total+= (item.product.price * item.quantity)
+    console.log(this.Total)
   }
 
 }

@@ -1,4 +1,9 @@
-
+<div class="row">
+	<div style="height:20vh"></div>
+	</div>
+<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-6">
 	<div class="main " >
 		<input type="checkbox" id="chk" aria-hidden="true">
 
@@ -10,7 +15,8 @@
               <input type="number" name="number" placeholder="Phone Number" [(ngModel)]="SignUpUser.PhoneNumber" >
 					<input type="email" name="email" placeholder="Email" [(ngModel)]="SignUpUser.Email">
 					<input type="password" name="pswd" placeholder="Password"[(ngModel)]="SignUpUser.Password">
-					<button (click)="OnSignUp()">Sign up</button>
+					<button (click)="OnSignUp()"
+					data-bs-toggle="modal" data-bs-target="#checkEmail" >Sign up</button>
 				</form>
 			</div>
 
@@ -24,4 +30,41 @@
 					<button (click)="OnLogIn()">Login</button>
 				</form>
 			</div>
+		</div>
 	</div>
+</div>
+<div class="row">
+<div style="height:20vh"></div>
+</div>
+
+
+
+
+
+
+
+     <!-- Add Address Modal -->
+	 <div class="modal" id="checkEmail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-md">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title">Modal title</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				
+				<label for="verfeiyCode" class="form-label"> <h5> Enter Vertification Code: </h5></label>
+
+				<input type="number" class="form-control" id="verfeiyCode" name="verfeiyCode" [(ngModel)]="verfeiyCode" required 
+				style="height: 40px; font-size: 20px;">
+			
+			  <div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			  <button type="submit" class="btn btn-primary" >Add Address</button>
+			</div>
+			  </div>
+		  
+			
+		  </div>
+		</div>
+	  </div>

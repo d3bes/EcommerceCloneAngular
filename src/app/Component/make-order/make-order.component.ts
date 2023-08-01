@@ -4,13 +4,19 @@ import { CartItem } from 'src/app/Models/cart-item';
 import { IorderDTO } from 'src/app/Models/iorder-dto';
 import { IorderItemDTO } from 'src/app/Models/iorder-item-dto';
 import { OrderService } from 'src/app/Services/order.service';
+import { v4 as uuidv4 } from 'uuid';
+
 // import { Guid } from 'guid-typescript';
+
 @Component({
   selector: 'app-make-order',
   templateUrl: './make-order.component.html',
   styleUrls: ['./make-order.component.css']
 })
 export class MakeOrderComponent implements OnInit {
+  order!:IorderDTO;
+  userOrders!:IorderDTO [];
+  userId:string = "f7caa6d4-d3e9-4a95-8796-921ae79d8775"
   order! : IorderDTO;
   userOrders! : IorderDTO [];
   orderItems!: IorderItemDTO[];
@@ -89,7 +95,7 @@ export class MakeOrderComponent implements OnInit {
         console.error('Error retrieving order:', error);
       }
     );
-    }   
+    }
   }
 
  getOrders() {
