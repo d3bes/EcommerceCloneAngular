@@ -31,8 +31,9 @@ import { CountProductComponent } from './count-product/count-product.component';
 import { PaymentComponent } from './Component/payment/payment.component';
 import { InterceptorService } from './Services/interceptor.service';
 import { Interceptor } from './Services/interceptor';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './Component/cart/cart.component';
 import { FooteDescrbtionComponent } from './foote-descrbtion/foote-descrbtion.component';
+import { SearchPrductPipe } from './search-prduct.pipe';
 import { MakeOrderComponent } from './Component/make-order/make-order.component';
 import { AllAddressComponent } from './Component/all-address/all-address.component';
 

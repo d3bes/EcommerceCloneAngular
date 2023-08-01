@@ -6,10 +6,12 @@ import { Observable } from 'rxjs';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { IRegist } from 'src/app/Models/iregist';
 import { LogIn } from 'src/app/Models/log-in';
+import { ProductBrandDTO } from 'src/app/Models/product-brand-dto';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
 import { ProductCategoryDTO } from 'src/app/Models/product-category-dto';
 import { UserDTO } from 'src/app/Models/user-dto';
 import { AccountService } from 'src/app/Services/account.service';
+import { BrandsService } from 'src/app/Services/brands.service';
 import { CatogriesService } from 'src/app/Services/catogries.service';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -20,7 +22,9 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  catogries: any[] = [];  
+
+  searchTerm:string='';
+  catogries: any[] = [];
   signInForm!: FormGroup;
   login!: LogIn;
   user : UserDTO | undefined;
@@ -31,10 +35,16 @@ export class NavbarComponent {
   catId: number = 0;
   products: Iproduct[] | undefined = undefined;
 
-  constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
-   
-    
-    
+  // constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
+
+
+
+  counter:string|null;
+  brands: ProductBrandDTO[] = [];
+
+
+  constructor(private productBrandService: BrandsService,private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, 
+    private product:ProductService ,private http :HttpClient) {
     this.registrationForm = this.formBuilder.group({
       DisplayName: ['', Validators.required],
       FirstName: ['', Validators.required],
@@ -42,10 +52,18 @@ export class NavbarComponent {
       Email: ['', [Validators.required, Validators.email]],
       PhoneNumber: [''],
       Password: ['', [Validators.required, Validators.minLength(6)]],
+
     });
 
+
     this.isLogIn = false;
+    this.counter= localStorage.getItem('counter');
+setInterval(()=>
+{
+  this.counter= localStorage.getItem('counter');
+},5000)
    }
+
    selectedParentCategory: ProductCategoryDetailsDTO | null = null;
 
   ngOnInit():void {
@@ -74,6 +92,21 @@ export class NavbarComponent {
       }
     });
    
+    this.productBrandService.getAllBrands().subscribe({
+      next: (data: ProductBrandDTO[]) => {
+        this.brands = data;
+        console.log("brand:", this.brands);
+      },
+      error: (error: any) => {
+        console.error('Error fetching brands:', error);
+      },
+      complete: () => {
+        console.log('Fetching brands completed.');
+      }
+    });
+
+   
+
     //sign in
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -84,12 +117,17 @@ export class NavbarComponent {
 
   }
   
-
+  brandNavigate(brdId: number) {
+    
+     
+    this.router.navigate(['brd', brdId]);
+    console.log( 'brdId:', brdId)
+ }
     
   
   categoryNavigate(catId: number) {
-    
-     
+
+
      this.router.navigate(['cat', catId]);
      console.log( 'catId:', catId)
   }
@@ -134,6 +172,8 @@ export class NavbarComponent {
     console.log('Email:', this.login.Email);
     console.log('Password:', this.login.Password);
   }
+
+
 
 
   /////////////////register /////////////////

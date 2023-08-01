@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Guid } from 'guid-typescript';
 import { IorderDTO } from 'src/app/Models/iorder-dto';
 import { OrderService } from 'src/app/Services/order.service';
-import { Guid } from 'guid-typescript';
+// import { Guid } from 'guid-typescript';
 @Component({
   selector: 'app-make-order',
   templateUrl: './make-order.component.html',
@@ -36,8 +37,8 @@ export class MakeOrderComponent implements OnInit {
          console.log(this.userOrders);
       });
   }
-  
-  
+
+
   makeOrder(){
     //console.log(this.order)
     this.orderServices.makeOrder(this.order).subscribe(data=> console.log(data) )
