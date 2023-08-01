@@ -9,11 +9,13 @@ import { LogIn } from 'src/app/Models/log-in';
 import { ProductBrandDTO } from 'src/app/Models/product-brand-dto';
 import { ProductCategoryDetailsDTO } from 'src/app/Models/product-category-details-dto';
 import { ProductCategoryDTO } from 'src/app/Models/product-category-dto';
+import { UserAddressDTO } from 'src/app/Models/user-address-dto';
 import { UserDTO } from 'src/app/Models/user-dto';
 import { AccountService } from 'src/app/Services/account.service';
 import { BrandsService } from 'src/app/Services/brands.service';
 import { CatogriesService } from 'src/app/Services/catogries.service';
 import { ProductService } from 'src/app/Services/product.service';
+import { UserService } from 'src/app/Services/user.service';
 
 
 @Component({
@@ -39,9 +41,10 @@ export class NavbarComponent {
   // constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
 
   brands: ProductBrandDTO[] = [];
+  userAddress!: UserAddressDTO;
+  userId:string= "f7caa6d4-d3e9-4a95-8796-921ae79d8775";
 
-
-  constructor(private productBrandService: BrandsService,private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService,
+  constructor(private userServices:UserService,private productBrandService: BrandsService,private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService,
     private product:ProductService ,private http :HttpClient) {
     this.registrationForm = this.formBuilder.group({
       DisplayName: ['', Validators.required],
@@ -142,7 +145,7 @@ setInterval(()=>
       {
         next: (data: UserDTO) => {
           this.user = data;
-          console.log(this.user);
+          console.log(this.user);          
           localStorage.setItem("token",this.user.token);
           localStorage.setItem("email", this.user.Email);
           localStorage.setItem("username", this.user.DisplayName);
@@ -158,6 +161,11 @@ setInterval(()=>
       }
     );
 
+
+    this.userServices.allAddressForUser(this.userId).subscribe(data =>{
+      this.userAddress = data;
+      localStorage.setItem('userAddress', JSON.stringify(this.userAddress));
+    })
 
     if (this.signInForm.invalid) {
       return;
