@@ -38,11 +38,8 @@ export class NavbarComponent {
 
   // constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 5a21698fb16bae046391d760c7d728e2fcd65b09
   brands: ProductBrandDTO[] = [];
 
 
