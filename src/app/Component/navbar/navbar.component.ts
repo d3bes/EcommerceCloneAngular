@@ -34,6 +34,7 @@ export class NavbarComponent {
   isLogIn: boolean;
   catId: number = 0;
   products: Iproduct[] | undefined = undefined;
+  counter:string|null;
 
   // constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
 

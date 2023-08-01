@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
         console.error('Error getting user:', error);
       },
       complete: () => {
-        console.log('Fetching brands completed.');
+        console.log('Fetching user completed.');
       }
     })
     return this.user

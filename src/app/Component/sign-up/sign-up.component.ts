@@ -8,12 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
-
+  verfeiyCode:number;
+  isLogin:boolean;
 ngOnInit(): void {
  
 }
-constructor(private router: Router, private http: HttpClient) { }
+constructor(private router: Router, private http: HttpClient) {
+
+  this.verfeiyCode=0
+  this.isLogin=false;
+ const local= localStorage.getItem('isLogin');
+ if(local)
+ {
+  this.isLogin= Boolean(local);
+ } }
 
 
 SignUpUser: any = {
@@ -34,6 +42,9 @@ OnSignUp(){
 
   this.SignUpUser.DisplayName = this.SignUpUser.FirstName + " " + this.SignUpUser.LastName;
   this.http.post("http://localhost:5216/api/Account/register", this.SignUpUser).subscribe(res=>{
+   
+  this.isLogin=true;
+  localStorage.setItem('isLogin','true');
 
 })
 }
@@ -53,6 +64,10 @@ OnLogIn(){
       localStorage.setItem("email", response.email);
       localStorage.setItem("username", response.displayName);
       alert(response.message)
+
+      this.isLogin=true;
+      localStorage.setItem('isLogin','true');
+      
     } else {
       alert(response.message)
     }

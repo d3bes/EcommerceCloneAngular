@@ -56,4 +56,6 @@ deletePaymentMethod(MethodeId:number):Observable<any>{
   return this._HttpClient.delete(`${environment.LocalApiUrl}/userpayment?Id=${MethodeId}`);
 }
 
+
+
 }
