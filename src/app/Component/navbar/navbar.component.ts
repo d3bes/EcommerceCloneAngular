@@ -40,6 +40,8 @@ export class NavbarComponent {
 
   // constructor(private router:Router, private catogriesService: CatogriesService, private formBuilder: FormBuilder, private accountService: AccountService, private productsevice:ProductService ,private http :HttpClient) {
 
+
+
   brands: ProductBrandDTO[] = [];
   userAddress!: UserAddressDTO;
   userId:string= "f7caa6d4-d3e9-4a95-8796-921ae79d8775";

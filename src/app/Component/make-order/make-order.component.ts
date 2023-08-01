@@ -36,9 +36,9 @@ export class MakeOrderComponent implements OnInit {
           quantity: item.quantity,
         }
         this.orderItems.push(this.io);
-      });  
-    
-    
+      });
+
+
     this.order = {
       orderId: this.orderId,
       userId: this.userId,

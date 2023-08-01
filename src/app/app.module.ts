@@ -83,6 +83,9 @@ import { CheckoutComponent } from './Component/checkout/checkout.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    NgxPayPalModule,
+
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi : true
