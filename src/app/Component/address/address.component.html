@@ -4,10 +4,10 @@
 </div>
 
 <button type="button" (click)="onSubmit()" class="btn btn-primary" style="margin-left: 1.5vw;"data-bs-toggle="modal" data-bs-target="#address">ADD NEW ADDRESS</button>
-
-<form [formGroup]="addressForm">
+<div>
+  <form [formGroup]="addressForm" class="m-auto w-50 " >
   <!-- Address fields -->
-  <div formGroupName="address">
+  <div formGroupName="address" class="text-center">
     <div>
       <label for="firstName">First Name</label>
       <input type="text" formControlName="firstName" required>
@@ -45,6 +45,8 @@
 
   <button (click)="onSubmit()" type="submit" class="btn btn-primary">Save</button>
 </form>
+
+</div>
 
 
 

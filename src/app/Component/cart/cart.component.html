@@ -15,7 +15,7 @@
       <div class="col-md-2" >
 
           <div>
-            <img [src]="urlImage+ item.product.images?.[0]"  alt="{{item.product.name}}"></div>
+            <img [src]="urlImage+item.product.images?.[0]"  alt="{{item.product.name}}"></div>
            
         </div>
 
@@ -209,7 +209,7 @@
 </div>
 
 
-    <button  class="btn btn-primary text-white fw-bolder w-100" style="font-size:0.9rem">CHECKOUT</button>
+    <button  [routerLink]="['/profilesettings']"  class="btn btn-primary text-white fw-bolder w-100" style="font-size:0.9rem">CHECKOUT</button>
 
     </div>
   </div>
@@ -254,54 +254,17 @@
           </span>
           <div class="m-t-sm">
               <div class="btn-group">
-              <a  class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+           
+
+                <a class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
               <a  class="btn btn-white btn-sm"> Cancel</a>
               </div>
           </div>
       </div>
   </div>
 
-  <div class="ibox">
-      <div class="ibox-title">
-          <h5>Support</h5>
-      </div>
-      <div class="ibox-content text-center">
-          <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
-          <span class="small">
-              Please contact with us if you have any questions. We are avalible 24h.
-          </span>
-      </div>
-  </div>
+ 
 
-  <div class="ibox">
-      <div class="ibox-content">
-
-          <p class="font-bold">
-          Other products you may be interested
-          </p>
-          <hr>
-          <div>
-              <a  class="product-name"> Product 1</a>
-              <div class="small m-t-xs">
-                  Many desktop publishing packages and web page editors now.
-              </div>
-              <div class="m-t text-righ">
-
-                  <a  class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-              </div>
-          </div>
-          <hr>
-          <div>
-              <a  class="product-name"> Product 2</a>
-              <div class="small m-t-xs">
-                  Many desktop publishing packages and web page editors now.
-              </div>
-              <div class="m-t text-righ">
-
-                  <a  class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-              </div>
-          </div>
-      </div>
-  </div>
+ 
 </div>
 </div>

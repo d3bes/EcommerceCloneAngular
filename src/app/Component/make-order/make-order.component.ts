@@ -3,6 +3,7 @@ import { Guid } from 'guid-typescript';
 import { CartItem } from 'src/app/Models/cart-item';
 import { IorderDTO } from 'src/app/Models/iorder-dto';
 import { IorderItemDTO } from 'src/app/Models/iorder-item-dto';
+import { UserAddressDTO } from 'src/app/Models/user-address-dto';
 import { OrderService } from 'src/app/Services/order.service';
 // import { Guid } from 'guid-typescript';
 
@@ -21,6 +22,7 @@ export class MakeOrderComponent implements OnInit {
   orderId!:string;
   
   randomAddressID = Math.floor(Math.random() * 1000) + 1;
+  userAddress: UserAddressDTO[]=[];
   constructor(private orderServices:OrderService){}
 
   ngOnInit(): void {
@@ -36,14 +38,18 @@ export class MakeOrderComponent implements OnInit {
           quantity: item.quantity,
         }
         this.orderItems.push(this.io);
-      });
-
-
+      });  
+    
+      const userAddressData = localStorage.getItem('userAddress');
+      if (userAddressData) {
+        this.userAddress = JSON.parse(userAddressData);
+      }
+      console.log(this.userAddress)
     this.order = {
       orderId: this.orderId,
       userId: this.userId,
       orderDate: new Date(),
-      shipToAddressId: 2,
+      shipToAddressId: this.userAddress?[0].Address.Id,
       paymentIntentId: 1,
       deliveryMethodId: 1,
       items: this.orderItems
@@ -103,4 +109,3 @@ export class MakeOrderComponent implements OnInit {
 function uuidv4(): string {
   throw new Error('Function not implemented.');
 }
-
