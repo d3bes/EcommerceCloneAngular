@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserDTO } from 'src/app/Models/user-dto';
 import { UserService } from 'src/app/Services/user.service';
 
@@ -12,7 +13,7 @@ export class ProfileComponent implements OnInit {
   userName:string|null;
   email:string|null;
   user:UserDTO|null=null;
-  constructor(private userService: UserService){
+  constructor(private userService: UserService,private router: Router){
 
   this.email= localStorage.getItem('email');
   this.userName= localStorage.getItem("username");
@@ -63,7 +64,7 @@ export class ProfileComponent implements OnInit {
     this.showPaymentComponent = false;
     this.showOrderComponent = false;
     this.showWishlistComponent = false;
-
+    this.router.navigate(['/userAddress']);
   }
 
   showUserProfile() {

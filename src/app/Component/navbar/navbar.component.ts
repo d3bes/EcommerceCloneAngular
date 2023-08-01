@@ -275,7 +275,8 @@ OnLogIn(){
     }
   })
 
-}
-
-
+  }
+  addressgo(){
+    this.router.navigate(['/userAddress']);
+  }
 }
