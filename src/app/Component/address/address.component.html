@@ -1,160 +1,51 @@
 
 <div style="margin-top: 3vw;">
     <h4>Addresses</h4>
-    <p>Manage your saved addresses for fast and easy checkout across our marketplaces
-
-    </p>
 </div>
 
-<button type="button" class="btn btn-primary" style="margin-left: 1.5vw;"
-        data-bs-toggle="modal" data-bs-target="#address">ADD NEW ADDRESS</button>
+<button type="button" (click)="onSubmit()" class="btn btn-primary" style="margin-left: 1.5vw;"data-bs-toggle="modal" data-bs-target="#address">ADD NEW ADDRESS</button>
 
-<h5 style="margin-left: 2vw;">Default address
-</h5>
-
-<section class="Address">
-<div class="Address">
-    <div class="row" id="header">
-        <div class="col-sm-2">
-
-            <h5> Home </h5>
-            
-            <!-- <h6> Name: </h6>
-            <h6> Address: </h6> -->
-        </div>
-        <div class="col-sm-4"> </div>
-        <div class="col-sm-4">
-            <a href="#" class="link-danger" >Delete</a>
-            <a href="#" class="link-danger">Edit</a>
-        </div>
-
-    </div>
-    <div class="row" id="name">
-      <div class="col-sm-2">
-        <h6>Name : </h6>
-      </div>
-      <div class="col-sm-6">
-          <p> {{address.firstName+"  "+address.lastName}} </p>
-      </div>
-    </div>
-    <div class="row" id="userAddress">
-
-      <div class="col-sm-2">
-        <h6> Address : </h6>
-        <h6 style="margin-top: 10vh;"> phone : </h6>
-      </div>
-      <div class="col-sm-6">
-          <p> {{getFullAddress()}} </p>
-              <p style="margin-top: 9vh;">{{address.phoneNumber}}</p>
-      </div>
-
+<form [formGroup]="addressForm">
+  <!-- Address fields -->
+  <div formGroupName="address">
+    <div>
+      <label for="firstName">First Name</label>
+      <input type="text" formControlName="firstName" required>
     </div>
 
- 
+    <div>
+      <label for="lastName">Last Name</label>
+      <input type="text" formControlName="lastName" required>
+    </div>
 
-</div>
+    <div>
+      <label for="fullAddress">Full Address</label>
+      <input type="text" formControlName="fullAddress" required>
+    </div>
 
-</section>
+    <div>
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" formControlName="phoneNumber" required>
+    </div>
+
+    <div>
+      <label for="addressLabel">Address Label</label>
+      <select formControlName="addressLabel" required>
+        <option value="home">Home</option>
+        <option value="work">Work</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Other UserAddressDTO fields: id, isDefault, addressID, and userId -->
+  <div>
+    <label for="isDefault">Is Default</label>
+    <input type="checkbox" formControlName="isDefault">
+  </div>
+
+  <button (click)="onSubmit()" type="submit" class="btn btn-primary">Save</button>
+</form>
 
 
-<h5 style="margin-left: 2vw;">Other addresses </h5>
 
-<div style="margin-bottom: 10vw;"></div>
-
-
-
-            <!-- Add Address Modal -->
-            <div class="modal" id="address" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <!-- <form (ngSubmit)="CreateAddress()">   -->
-                      <form (ngSubmit)="CreateAddress()" #addressForm="ngForm">
-                        <div class="form-group">
-                      <label for="FirstName" class="form-label"> First Name</label>
-                      <input type="text" class="form-control" id="FirstName" name="FirstName" [(ngModel)]="address.firstName" >
-
-                      <label for="LastName" class="form-label"> Last Name</label>
-                      <input type="text" class="form-control" id="LastName" name="LastName" [(ngModel)]="address.lastName" >
-
-
-                      <label for="countries" class="form-label"> Country</label>
-                      <select id="countries" class="form-control" name="countries" [(ngModel)]="fullAddress.selectedCountry">
-                        <option *ngFor="let country of countries" [value]="country">{{country}}</option>
-                      </select> 
-
-                      <label for="deliverPhone" class="form-label"> PhoneNumber(for Delivery) </label>
-                      <input type="number" class="form-control" placeholder="+20" name="deliverPhone" id="deliverPhone" [(ngModel)]="address.phoneNumber" >
-
-                      <label for="street" class="form-label"> Street </label>
-                      <input type="text" class="form-control" placeholder="El tahrer st." name="street" id="street" [(ngModel)]="fullAddress.street" >
-                      
-                      <label for="building" class="form-label"> Building </label>
-                      <input type="text" class="form-control" placeholder="" id="building" name="building" [(ngModel)]="fullAddress.building" >
-
-                      <label for="city" class="form-label"> City </label>
-                      <select id="city" name="city" class="form-control" (change)="  testCity()"  [(ngModel)]="fullAddress.selectedCity">
-                        <option *ngFor="let city of cities_en" [value]="city">{{city}}</option>
-                      </select> 
-
-                      <label for="governorate" class="form-label"> Governorate </label>
-                      <select id="governorate" name="governorate" class="form-control" (change)="testGov()"  [(ngModel)]="fullAddress.selectedGovernorate">
-                        <option *ngFor="let governorate of governorates_en" [value]="governorate">{{governorate}}</option>
-                      </select> 
-
-                    <label for="near" class="form-label"> Near by </label>
-                    <input type="text" class="form-control" placeholder="for example near by Cairo festefall city " name="near" id="near" [(ngModel)]="fullAddress.near" >
-                  
-
-                    <label style="margin-left: 7vh;" for="" class="form-label"> Location </label>
-
-                    <div>
-                    <label>
-                      <input type="radio" name="location" [(ngModel)]="fullAddress.location" value="work"> Work
-                    </label>
-                    <label>
-                      <input type="radio" name="location" [(ngModel)]="fullAddress.location" value="home"> Home
-                    </label>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" >Add Address</button>
-                  </div>
-                    </div>
-                </form>
-                  
-                </div>
-              </div>
-            </div>
-
-            <!-- <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
-              <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="address.firstName" required>
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="address.lastName" required>
-              </div>
-              <div class="form-group">
-                <label for="fullAddress">Full Address:</label>
-                <textarea class="form-control" id="fullAddress" name="fullAddress" [(ngModel)]="address.fullAddress" required></textarea>
-              </div>
-              <div class="form-group">
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="address.phoneNumber" required>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="isDefault" name="isDefault" [(ngModel)]="userAddress.isDefault">
-                <label class="form-check-label" for="isDefault">
-                  Set as default address
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary" [disabled]="addressForm.invalid">Submit</button>
-            </form> -->
- 
 

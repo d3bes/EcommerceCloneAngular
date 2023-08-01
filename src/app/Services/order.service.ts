@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IorderDTO } from '../Models/iorder-dto';
 import { Observable } from 'rxjs';
+import { Guid } from 'guid-typescript';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class OrderService {
     return this.httpclient.get<any>(`${this.apiBaseUrl}/Order/UserOrders/${userId}`);
   }
 
-  retrieveOrder(orderId:string):Observable<any>{
+  retrieveOrder(orderId:Guid):Observable<any>{
     console.log('URL:', `${this.apiBaseUrl}/Order/${orderId}`);
     return this.httpclient.delete<any>(`${this.apiBaseUrl}/Order/${orderId}`, this.httpOptions);
   }

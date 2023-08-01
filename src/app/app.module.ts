@@ -34,6 +34,7 @@ import { Interceptor } from './Services/interceptor';
 import { CartComponent } from './cart/cart.component';
 import { FooteDescrbtionComponent } from './foote-descrbtion/foote-descrbtion.component';
 import { MakeOrderComponent } from './Component/make-order/make-order.component';
+import { AllAddressComponent } from './Component/all-address/all-address.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { MakeOrderComponent } from './Component/make-order/make-order.component'
     MakeOrderComponent,
     CartComponent,
     FooteDescrbtionComponent,
+    AllAddressComponent,
   ],
 
   imports: [
