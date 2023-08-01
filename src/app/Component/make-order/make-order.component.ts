@@ -4,8 +4,6 @@ import { CartItem } from 'src/app/Models/cart-item';
 import { IorderDTO } from 'src/app/Models/iorder-dto';
 import { IorderItemDTO } from 'src/app/Models/iorder-item-dto';
 import { OrderService } from 'src/app/Services/order.service';
-import { v4 as uuidv4 } from 'uuid';
-
 // import { Guid } from 'guid-typescript';
 
 @Component({
@@ -17,12 +15,8 @@ export class MakeOrderComponent implements OnInit {
   order!:IorderDTO;
   userOrders!:IorderDTO [];
   userId:string = "f7caa6d4-d3e9-4a95-8796-921ae79d8775"
-  order! : IorderDTO;
-  userOrders! : IorderDTO [];
   orderItems!: IorderItemDTO[];
   io!: IorderItemDTO;
-
-  userId:string ="f7caa6d4-d3e9-4a95-8796-921ae79d8775";
   Cart!: CartItem[];
 
   orderId:string = uuidv4();
